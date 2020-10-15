@@ -3,6 +3,15 @@ let app = express();
 let port = 3001;
 
 let mongoose = require('mongoose');
+//All database models
+let exercise = require('./Components/Models/ExeciseModel');
+let fitnessLog = require('./Components/Models/FitnessLogModel');
+let food = require('./Components/Models/FoodModel');
+let mealPlan = require('./Components/Models/MealPlanModel');
+let user = require('./Components/Models/UserModel');
+let workoutPlan = require('./Components/Models/WorkoutPlanModel');
+
+
 let bodyParser = require('body-parser');
 
 //Prevents cors errors from occuring between the front and back end
@@ -22,4 +31,4 @@ const routes = require('./routes');
 routes(app);
 
 //Establishes the port number for the express app
-app.listen(port, () => console.log(`Server is running on port ${port}`))
+app.listen(port, () => console.log(`Server is running on port ${port}`));
