@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navigation from '../Navigation';
 
 class SelectWorkout extends Component {
     constructor(){
@@ -8,7 +9,13 @@ class SelectWorkout extends Component {
     render() {
         return  (
             <>
-            <h2>Select Workout Plan</h2>
+            <div className="flexbox">
+                <h2>Select Workout Plan</h2>
+                <div className="content">
+
+                </div>
+                <Navigation/>
+            </div>
             </>
         );
     }

@@ -11,7 +11,6 @@ let mealPlan = require('./Components/Models/MealPlanModel');
 let user = require('./Components/Models/UserModel');
 let workoutPlan = require('./Components/Models/WorkoutPlanModel');
 
-
 let bodyParser = require('body-parser');
 
 //Prevents cors errors from occuring between the front and back end

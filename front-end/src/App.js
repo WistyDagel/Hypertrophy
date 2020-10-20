@@ -5,6 +5,8 @@ import './Style.css';
 //COMPONENTS
 // APP STARTUP COMPONENTS
 import SignUp from './Components/SignUp';
+import SignUp2 from './Components/SignUp2';
+import SignUp3 from './Components/SignUp3';
 import LogIn from './Components/LogIn';
 import Greeting from './Components/Greeting';
 
@@ -29,9 +31,9 @@ import SelectWorkout from './Components/WorkoutPlan/SelectWorkout';
 import CreateWorkout from './Components/WorkoutPlan/CreateWorkout';
 
 class App extends Component {
-  constructor() {
-    super();
-  }
+    constructor(props){
+      super(props);
+    }
 
   render() {
     return (
@@ -41,6 +43,8 @@ class App extends Component {
             {/* APP STARTUP COMPONENTS */}
             <Route path="/" exact component={Greeting}/>
             <Route path="/signup" component={SignUp}/>
+            <Route path="/signup2" component={SignUp2}/>
+            <Route path="/signup3" component={SignUp3}/>
             <Route path="/login" component={LogIn}/>
             <Route path="/login" component={LogIn}/>
 

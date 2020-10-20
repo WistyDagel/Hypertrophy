@@ -1,3 +1,107 @@
+/* DIRECT HTML STYLING */
 h2 {
-  font-size: 12px;
+  font-size: 20px;
+}
+
+/* CLASS NAME CONTENT */
+.header {
+  flex: 2;
+  text-align: center;
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex: 20;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  flex-direction: column;
+}
+
+.button {
+  cursor: pointer;
+  text-align: center;
+}
+
+.button > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* GREETING PAGE */
+.logo {
+  justify-content: space-between;
+  flex: 8;
+}
+
+.clickables {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 40%;
+}
+
+/* HOME */
+.nutritionBank {
+  width: 100%;
+}
+
+.mealPlan { 
+  width: 100%;
+}
+
+.workoutPlan {
+  width: 100%;
+}
+
+.row { 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/* NAVIGATION */
+.navbar {
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(200, 200, 200);
+}
+
+/* ID CONTENT */
+#border {
+  display: flex;
+  border: black 2px 2px;
+  border-style: solid;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+}
+
+#border:hover {
+  background-color: rgb(202, 202, 202);
+}
+
+#border-max {
+  display: flex;
+  border: black 2px 2px;
+  border-style: solid;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+}
+
+#border-max:hover {
+  background-color: rgb(202, 202, 202);
 }

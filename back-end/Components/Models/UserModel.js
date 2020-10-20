@@ -1,5 +1,8 @@
 let mongoose = require('mongoose');
 
+//IDEA - change Meal Plan, Workout Plan, Fitness Log from Object to String 
+//     - This will store the given ID of the nodes and will be able to return the collection based on the ID 
+
 let userSchema = new mongoose.Schema({
     name: {
         type: String
@@ -10,7 +13,10 @@ let userSchema = new mongoose.Schema({
     age: {
         type: Number
     },
-    height: {
+    heightFt: {
+        type: Number
+    },
+    heightIn: {
         type: Number
     },
     weight: {
@@ -32,13 +38,13 @@ let userSchema = new mongoose.Schema({
         type: Number
     },
     fitnessLog: {
-        type: Object
+        type: String
     },
     mealPlan: {
-        type: Object
+        type: String
     },
     workoutPlan: {
-        type: Object
+        type: String
     },
     loseWeight: {
         type: Boolean
