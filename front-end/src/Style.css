@@ -1,11 +1,31 @@
+html{
+  margin: 0;
+}
+
 /* DIRECT HTML STYLING */
+h1 {
+  margin: 10px 0px;
+}
+
 h2 {
   font-size: 20px;
+  margin: 10px 0px;
+}
+
+h3 {
+  margin: 10px 0px;
+}
+
+h4 {
+  margin: 0;
+}
+
+input {
+  margin-left: 10px;
 }
 
 /* CLASS NAME CONTENT */
 .header {
-  flex: 2;
   text-align: center;
 }
 
@@ -34,10 +54,31 @@ h2 {
   color: inherit;
 }
 
+.row { 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.center {
+  align-items: center;
+}
+
+.maxwidth {
+  width: 100%;
+}
+
 /* GREETING PAGE */
 .logo {
   justify-content: space-between;
-  flex: 8;
+  flex: 2.5;
 }
 
 .clickables {
@@ -50,31 +91,110 @@ h2 {
 
 /* HOME */
 .nutritionBank {
-  width: 100%;
+  flex: 2;
 }
 
 .mealPlan { 
-  width: 100%;
+  flex: 3;
 }
 
 .workoutPlan {
+  flex: 3;
+}
+
+/* FITNESS LOG */
+.breakfast {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.lunch {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.dinner {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.snacks {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.exercises {
+  text-align: left;
+  margin-bottom: 80px;
+}
+
+/* ADD FOOD */
+.results {
   width: 100%;
 }
 
-.row { 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.results h2 {
+  margin-left: 10px;
 }
 
+.searchbox {
+  margin: 20px 0px;
+}
+
+/* ADD EXERCISE */
+
+/* CREATE A MEAL PLAN */
+.entrybox {
+  margin-bottom: 10px;
+}
+
+/* CREATE WORKOUT PLAN */
+.day1 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.day2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.day3 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.day4 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.day5 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.day6 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.day7 {
+  text-align: left;
+  margin-bottom: 80px;
+}
 /* NAVIGATION */
 .navbar {
   display: flex;
   flex: 2;
   flex-direction: row;
   justify-content: space-evenly;
+  bottom: 0;
+  position: fixed;
   align-items: center;
   background-color: rgb(200, 200, 200);
+  height: 50px;
+  width: 100%;
 }
 
 /* ID CONTENT */
@@ -92,16 +212,11 @@ h2 {
   background-color: rgb(202, 202, 202);
 }
 
-#border-max {
-  display: flex;
+#planButton {
   border: black 2px 2px;
-  border-style: solid;
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 40px;
-}
-
-#border-max:hover {
-  background-color: rgb(202, 202, 202);
+  width: 100%;
+  margin: 18% 0px;
 }

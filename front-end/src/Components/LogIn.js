@@ -8,8 +8,17 @@ class LogIn extends Component {
     render() {
         return  (
             <>
-            <h2>Log In</h2>
-            <a href="/home">Home</a>
+            <div className="header">
+                <h2>Log In</h2>
+                <hr/>
+            </div>
+            <div className="content">
+                <h2>Google sign in</h2>
+                <br/>
+                <div className="button">
+                    <a href="/home">Home</a>
+                </div>
+            </div>
             </>
         );
     }

@@ -10,9 +10,19 @@ class AddFood extends Component {
         return  (
             <>
             <div className="flexbox">
-                <h2>AddFood</h2>
-                <div className="content">
-
+                <div className="header">
+                    <h2>Hypertrophy</h2>
+                    <hr/>
+                </div>
+                <div className="searchbox">
+                    <div className="row">
+                        <input></input>
+                        <button>Search</button>
+                    </div>    
+                </div>
+                <div className="results">
+                    <h2>Results</h2>
+                    <hr/>
                 </div>
                 <Navigation/>
             </div>

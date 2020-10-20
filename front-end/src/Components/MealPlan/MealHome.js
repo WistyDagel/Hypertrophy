@@ -16,7 +16,7 @@ class MealHome extends Component {
                 </div>
                 <div className="content">
                     <div className="button">
-                        <a id="border-max" href='/currentmeal'>Current Meal Plan</a>
+                        <a id="border" href='/currentmeal'>Current Meal Plan</a>
                     </div>
                     <br/>
                     <br/>

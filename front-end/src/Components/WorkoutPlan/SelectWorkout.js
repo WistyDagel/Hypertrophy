@@ -10,9 +10,14 @@ class SelectWorkout extends Component {
         return  (
             <>
             <div className="flexbox">
-                <h2>Select Workout Plan</h2>
-                <div className="content">
-
+                <div className="header">
+                    <h2>Hypertrophy</h2>
+                    <hr/>
+                    <br/>
+                </div>
+                <div className="col">
+                    <h2>Select a Workout Plan</h2>  
+                    <br/>
                 </div>
                 <Navigation/>
             </div>
