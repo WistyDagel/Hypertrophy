@@ -4,9 +4,9 @@ let port = 3001;
 
 let mongoose = require('mongoose');
 //All database models
-let exercise = require('./Components/Models/ExeciseModel');
+// let exercise=  require('./Components/Models/ExeciseModel');
 let fitnessLog = require('./Components/Models/FitnessLogModel');
-let food = require('./Components/Models/FoodModel');
+// let food = require('./Components/Models/FoodModel');
 let mealPlan = require('./Components/Models/MealPlanModel');
 let user = require('./Components/Models/UserModel');
 let workoutPlan = require('./Components/Models/WorkoutPlanModel');
