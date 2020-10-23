@@ -87,6 +87,8 @@ class SignUp3 extends Component {
         )
     }
 
+    //Return HTML content based on current data
+    //TODO - Switch from google sign in to the user greeting page or user exists page 
     greeting = () => {
         if(this.state.userExists){
             return <this.userAlreadyExists/>;
