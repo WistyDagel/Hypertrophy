@@ -4,7 +4,7 @@ let mongoose = require('mongoose');
 //     - This will store the given ID of the nodes and will be able to return the collection based on the ID 
 
 //IDEA
-//STORE GOOGLE ACCOUNT OBJ 
+//STORE GOOGLE ACCOUNTOBJ as OBJ
 //Instead of separating it out in multiple variables
 
 let userSchema = new mongoose.Schema({

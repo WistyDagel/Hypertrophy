@@ -6,6 +6,7 @@ import GoogleLogin from 'react-google-login';
 //Google Authentication 
 //Store User data to the back end and database
 //Store Google accountObj to the user collection
+//Fix Welcome so it only shows when user has logged in
 
 class SignUp3 extends Component {
     constructor(props){
