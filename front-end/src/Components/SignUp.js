@@ -6,13 +6,13 @@ class SignUp extends Component {
         super(props);
 
         this.state = {
-            loseWeight: 0,
-            maintainWeight: 0,
-            gainWeight: 0,
-            notActive: 0,
-            lightActive: 0,
-            active: 0,
-            veryActive: 0
+            loseWeight: false,
+            maintainWeight: false,
+            gainWeight: false,
+            notActive: false,
+            lightActive: false,
+            active: false,
+            veryActive: false
         }
 
         this.handleLoseWeight = this.handleLoseWeight.bind(this);
@@ -27,62 +27,62 @@ class SignUp extends Component {
     //GOALS PORTION DATA
     async handleLoseWeight(){
         await this.setState({
-            loseWeight: 1,
-            maintainWeight: 0,
-            gainWeight: 0
+            loseWeight: true,
+            maintainWeight: false,
+            gainWeight: false
         });
     }
 
     async handleMaintainWeight(){
         await this.setState({
-            loseWeight: 0,
-            maintainWeight: 1,
-            gainWeight: 0
+            loseWeight: false,
+            maintainWeight: true,
+            gainWeight: false
         });
     }
 
     async handleGainWeight(){
         await this.setState({
-            loseWeight: 0,
-            maintainWeight: 0,
-            gainWeight: 1
+            loseWeight: false,
+            maintainWeight: false,
+            gainWeight: true
         });
     }
 
     //ACTIVITY PORTION DATA
     async handleNotActive(){
         await this.setState({
-            notActive: 1,
-            lightActive: 0,
-            active: 0,
-            veryActive: 0
+            notActive: true,
+            lightActive: false,
+            active: false,
+            veryActive: false
         });
     }
 
     async handleLightActive(){
         await this.setState({
-            notActive: 0,
-            lightActive: 1,
-            active: 0,
-            veryActive: 0
+            notActive: false,
+            lightActive: true,
+            active: false,
+            veryActive: false
         });
     }
 
     async handleActive(){
         await this.setState({
-            notActive: 0,
-            lightActive: 0,
-            active: 1,
-            veryActive: 0
+            notActive: false,
+            lightActive: false,
+            active: true,
+            veryActive: false
         });
     }
 
     async handleVeryActive(){
         await this.setState({
-            notActive: 0,
-            lightActive: 0,
-            active: 0,
-            veryActive: 1
+            notActive: false,
+            lightActive: false,
+            active: false,
+            veryActive: true
         });
     }
 

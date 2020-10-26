@@ -7,8 +7,8 @@ class SignUp2 extends Component {
 
         this.state = {
             goalsAndActivity: this.props.location.data,
-            male: 0,
-            female: 0,
+            male: false,
+            female: false,
             age: '',
             heightFt: '',
             heightIn: '',
@@ -25,15 +25,15 @@ class SignUp2 extends Component {
 
     async handleMale() {
         await this.setState({
-            male: 1,
-            female: 0
+            male: true,
+            female: false
         });
     }
 
     async handleFemale() {
         await this.setState({
-            male: 0,
-            female: 1
+            male: false,
+            female: true
         });
     }
 

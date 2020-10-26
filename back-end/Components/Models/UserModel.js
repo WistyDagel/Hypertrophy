@@ -11,6 +11,9 @@ let userSchema = new mongoose.Schema({
     name: {
         type: String
     },
+    googleObj: {
+        type: Object
+    },
     googleID: {
         type: String
     },
