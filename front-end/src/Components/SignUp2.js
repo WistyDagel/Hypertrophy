@@ -39,7 +39,6 @@ class SignUp2 extends Component {
 
     async handleAge(evt) {
         await this.setState({ age: evt.target.value });
-        console.log(this.state.age);
     }
 
     async handleHeightFt(evt) {

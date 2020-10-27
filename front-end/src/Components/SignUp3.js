@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
+import { Link } from 'react-router-dom';
 
 //TODO 
 //Google Authentication 
@@ -18,6 +19,7 @@ class SignUp3 extends Component {
             associatedEmail: '',
             userExists: false,
             userCreated: false,
+            user: '',
             name: ''
         }
 
@@ -37,8 +39,6 @@ class SignUp3 extends Component {
                 users: data
             });
         });
-        console.log(this.state.users);
-        console.log(this.state.userData);
     }
 
     googleSuccess = (response) => {
@@ -70,16 +70,15 @@ class SignUp3 extends Component {
                 if(data){
                     this.setState({
                         userCreated: true,
+                        user: data
                     })
                 }
             })
         }
-        console.log(response);
         console.log('Success')
     }
 
     googleFailure = (response) => {
-        console.log(response);
         console.log('Error')
     }
 
@@ -91,7 +90,12 @@ class SignUp3 extends Component {
                 <br/>
                 <h4>Please proceed to the home screen</h4>
                 <div className="button">
-                    <a href="/home">Home</a>
+                    <Link
+                        to={{
+                            pathname: '/home',
+                            data: this.state.user
+                        }}
+                    >Home</Link>
                 </div>
             </div>
             </>
@@ -102,8 +106,7 @@ class SignUp3 extends Component {
         return (
             <>
             <div className="content">
-                <p>This user already exists!</p>
-                <h3>"{this.state.associatedEmail}"</h3>
+                <p>A user with the associated email already exists!</p>
                 <br/>
                 <h4>Please, login below.</h4>
                 <a href="/login">Login</a>
@@ -137,7 +140,6 @@ class SignUp3 extends Component {
     }
 
     render() {
-        console.log(this.state.userData);
         return  (
             <>
             <div className="header">

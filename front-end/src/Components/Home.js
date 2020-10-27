@@ -6,11 +6,12 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            
+            userData: this.props.location.data,
         }
     }
 
     render() {
+        console.log(this.state.userData);
         return  (
             <>
             <div className="flexbox">

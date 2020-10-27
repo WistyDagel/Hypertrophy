@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
+import { Link } from 'react-router-dom';
 
 class LogIn extends Component {
     constructor(props){
@@ -11,6 +12,7 @@ class LogIn extends Component {
             userNotExist: false,
             userSignedIn: false,
             associatedEmail: '',
+            user: '',
             name: ''
         }
 
@@ -51,6 +53,7 @@ class LogIn extends Component {
             if(this.state.users[i].googleObj.googleId == response.profileObj.googleId){
                 this.setState({
                     userNotExist: false,
+                    user: this.state.users[i]
                 });
             } else {
                 this.setState({
@@ -81,7 +84,12 @@ class LogIn extends Component {
                 <br/>
                 <h4>Please proceed to the home screen</h4>
                 <div className="button">
-                    <a href="/home">Home</a>
+                    <Link
+                        to={{
+                            pathname: '/home',
+                            data: this.state.user
+                        }}
+                    >Home</Link>
                 </div>
             </div>
             </>
@@ -92,8 +100,7 @@ class LogIn extends Component {
         return (
             <>
             <div className="content">
-                <p>This user doesn't exist!</p>
-                <h3>"{this.state.associatedEmail}"</h3>
+                <p>A user with that email doesn't exist</p>
                 <br/>
                 <h4>Please, sign up below.</h4>
                 <a href="/signup">Sign Up</a>
