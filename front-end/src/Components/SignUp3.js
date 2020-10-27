@@ -17,6 +17,7 @@ class SignUp3 extends Component {
             userData: this.props.location.data,
             associatedEmail: '',
             userExists: false,
+            userCreated: false,
             name: ''
         }
 
@@ -37,17 +38,41 @@ class SignUp3 extends Component {
             });
         });
         console.log(this.state.users);
+        console.log(this.state.userData);
     }
 
     googleSuccess = (response) => {
+        //Stores the name and email of the current person signing up
+        this.setState({
+            associatedEmail: response.profileObj.email,
+            name: response.profileObj.givenName
+        });
         //Checks to see if an account with the associated googleId already exists
         for (let i = 0; i < this.state.users.length; i++) {
-            if(this.state.users[i].googleID == response.profileObj.googleId){
+            if(this.state.users[i].googleObj.googleId == response.profileObj.googleId){
                 this.setState({
-                    associatedEmail: response.profileObj.email,
                     userExists: true
                 });
-            }
+            } 
+        }
+        //Only creates the account if the user does not exist
+        if(!this.state.userExists){
+            fetch("http://localhost:3001/users", {
+                method: "POST",
+                headers: {'Content-Type': "application/json"},
+                body: JSON.stringify({
+                    googleObj: response.profileObj,
+                    accountObj: this.state.userData,
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data){
+                    this.setState({
+                        userCreated: true,
+                    })
+                }
+            })
         }
         console.log(response);
         console.log('Success')
@@ -92,8 +117,22 @@ class SignUp3 extends Component {
     greeting = () => {
         if(this.state.userExists){
             return <this.userAlreadyExists/>;
-        } else {
+        } else if(this.state.userCreated) {
             return <this.userGreeting/>;
+        } else {
+            return (
+                <>
+                <h2>Google sign in</h2>
+                <br/>
+                <GoogleLogin
+                    clientId="274810096435-rdi9f6mopojj0be9d141h8dbr79iflud.apps.googleusercontent.com"
+                    buttonText="Sign Up with Google"
+                    onSuccess={this.googleSuccess}
+                    onFailure={this.googleFailure}
+                    cookiePolicy={'single_host_origin'}
+                />
+                </>
+            )
         }
     }
 
@@ -106,19 +145,10 @@ class SignUp3 extends Component {
                 <hr/>
             </div>
             <div className="content">
-                <h2>Google sign in</h2>
-                <br/>
-                <GoogleLogin
-                    clientId="274810096435-rdi9f6mopojj0be9d141h8dbr79iflud.apps.googleusercontent.com"
-                    buttonText="Login with Google"
-                    onSuccess={this.googleSuccess}
-                    onFailure={this.googleFailure}
-                    cookiePolicy={'single_host_origin'}
-                />
+                <this.greeting/>
             </div>
             <br/>
             <br/>
-            <this.greeting/>
             </>
         );
     }

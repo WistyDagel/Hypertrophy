@@ -8,36 +8,30 @@ let mongoose = require('mongoose');
 //Instead of separating it out in multiple variables
 
 let userSchema = new mongoose.Schema({
-    name: {
-        type: String
-    },
     googleObj: {
         type: Object
     },
-    googleID: {
-        type: String
+    accountObj:{
+        type: Object
     },
-    gmail: {
-        type:String
-    },
-    male: {
-        type: Boolean
-    },
-    female: {
-        type: Boolean
-    },
-    age: {
-        type: Number
-    },
-    heightFt: {
-        type: Number
-    },
-    heightIn: {
-        type: Number
-    },
-    weight: {
-        type: Number
-    },
+    // male: {
+    //     type: Boolean
+    // },
+    // female: {
+    //     type: Boolean
+    // },
+    // age: {
+    //     type: Number
+    // },
+    // heightFt: {
+    //     type: Number
+    // },
+    // heightIn: {
+    //     type: Number
+    // },
+    // weight: {
+    //     type: Number
+    // },
     calories: {
         type: Number
     },
@@ -53,36 +47,36 @@ let userSchema = new mongoose.Schema({
     sugarsMacro: {
         type: Number
     },
-    fitnessLog: {
+    fitnessLogID: {
         type: String
     },
-    mealPlan: {
+    mealPlanID: {
         type: String
     },
-    workoutPlan: {
+    workoutPlanID: {
         type: String
     },
-    loseWeight: {
-        type: Boolean
-    },
-    maintainWeight: {
-        type: Boolean
-    },
-    gainWeight: {
-        type: Boolean
-    },
-    notActive: {
-        type: Boolean
-    },
-    lightlyActive: {
-        type: Boolean
-    },
-    active: {
-        type: Boolean
-    },
-    veryActive: {
-        type: Boolean
-    },
+    // loseWeight: {
+    //     type: Boolean
+    // },
+    // maintainWeight: {
+    //     type: Boolean
+    // },
+    // gainWeight: {
+    //     type: Boolean
+    // },
+    // notActive: {
+    //     type: Boolean
+    // },
+    // lightlyActive: {
+    //     type: Boolean
+    // },
+    // active: {
+    //     type: Boolean
+    // },
+    // veryActive: {
+    //     type: Boolean
+    // },
 });
 
 module.exports = mongoose.model('User', userSchema);
