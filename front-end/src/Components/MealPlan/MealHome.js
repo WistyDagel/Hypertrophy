@@ -4,6 +4,9 @@ import Navigation from '../Navigation';
 class MealHome extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            userData: this.props.location.data,
+        }
     }
     
     render() {
@@ -29,7 +32,7 @@ class MealHome extends Component {
                         <a id="border" href='/createmeal'>Create Meal Plan</a>
                     </div>
                 </div>
-                <Navigation/>
+                <Navigation userData={this.state.userData}/>
             </div>
             </>
         );

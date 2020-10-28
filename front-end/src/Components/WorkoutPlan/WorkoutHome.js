@@ -4,6 +4,9 @@ import Navigation from '../Navigation';
 class WorkoutHome extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            userData: this.props.location.data,
+        }
     }
     
     render() {
@@ -29,7 +32,7 @@ class WorkoutHome extends Component {
                         <a id="border" href='/createworkout'>Create Workout Plan</a>
                     </div>
                 </div>
-                <Navigation/>
+                <Navigation userData={this.state.userData}/>
             </div>
             </>
         );

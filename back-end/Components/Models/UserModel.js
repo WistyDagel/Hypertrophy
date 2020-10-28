@@ -35,16 +35,16 @@ let userSchema = new mongoose.Schema({
     calories: {
         type: Number
     },
-    proteinsMacro: {
+    proteins: {
         type: Number
     },
-    carbsMacro: {
+    carbs: {
         type: Number
     },
-    fatsMacro: {
+    fats: {
         type: Number
     },
-    sugarsMacro: {
+    sugars: {
         type: Number
     },
     fitnessLogID: {

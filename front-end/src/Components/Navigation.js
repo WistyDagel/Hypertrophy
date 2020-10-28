@@ -1,27 +1,55 @@
 import React, { Component } from 'react';
  
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
  
 
 class Navigation extends Component {
     constructor(props){
         super(props);
+
+        this.state = {
+            userData: this.props.userData
+        }
     }
 
     render(){
         return (
             <div className="navbar">
                 <div className="button">
-                    <a href="/home">Home</a>
+                    <Link
+                        to={{
+                            pathname: '/home',
+                            data: this.state.userData
+                        }}
+                    >Home</Link>
+                    {/* <a href="/home">Home</a> */}
                 </div>
                 <div className="button">
-                    <a href="/fitnesslog">Log</a>
+                    <Link
+                        to={{
+                            pathname: '/fitnesslog',
+                            data: this.state.userData
+                        }}
+                    >Log</Link>
+                    {/* <a href="/fitnesslog">Log</a> */}
                 </div>
                 <div className="button">
-                    <a href="/mealhome">Diet</a>
+                    <Link
+                        to={{
+                            pathname: '/mealhome',
+                            data: this.state.userData
+                        }}
+                    >Diet</Link>
+                    {/* <a href="/mealhome">Diet</a> */}
                 </div>
                 <div className="button">
-                    <a href="/workouthome">Exercise</a>
+                    <Link
+                        to={{
+                            pathname: '/workouthome',
+                            data: this.state.userData
+                        }}
+                    >Exercise</Link>
+                    {/* <a href="/workouthome">Exercise</a> */}
                 </div>
             </div>
         );
