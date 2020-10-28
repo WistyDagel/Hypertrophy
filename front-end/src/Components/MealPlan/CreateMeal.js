@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import Navigation from '../Navigation';
 
 class CreateMeal extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+        this.state = {
+            userData: this.props.location.data,
+        }
     }
 
     render() {
@@ -54,7 +57,7 @@ class CreateMeal extends Component {
                     <br/>
                     <br/>
                 </div>
-                <Navigation/>
+                <Navigation userData={this.state.userData}/>
             </div>
             </>
         );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Navigation from './Navigation';
 
@@ -51,10 +52,24 @@ class Home extends Component {
                         <h3>Meal Plan Name</h3>
                         <div className="row">
                             <div className="button">
-                                <a id="border" href='/currentmeal'>View</a>
+                                <Link
+                                    id="border"
+                                    to={{
+                                        pathname: '/currentmeal',
+                                        data: this.state.userData
+                                    }}
+                                >View</Link>
+                                {/* <a id="border" href='/currentmeal'>View</a> */}
                             </div>
                             <div className="button">
-                                <a id="border" href='/selectmeal'>Change Plan</a>
+                                <Link
+                                    id="border"
+                                    to={{
+                                        pathname: '/selectmeal',
+                                        data: this.state.userData
+                                    }}
+                                >Change Plan</Link>
+                                {/* <a id="border" href='/selectmeal'>Change Plan</a> */}
                             </div>
                         </div>
                     </div>
@@ -64,10 +79,24 @@ class Home extends Component {
                         <h3>Workout Plan Name</h3>
                         <div className="row">
                             <div className="button">
-                                <a id="border" href='/currentworkout'>View</a>
+                                <Link
+                                    id="border"
+                                    to={{
+                                        pathname: '/currentworkout',
+                                        data: this.state.userData
+                                    }}
+                                >View</Link>
+                                {/* <a id="border" href='/currentworkout'>View</a> */}
                             </div>
                             <div className="button">
-                                <a id="border" href='/selectworkout'>Change Plan</a>
+                                <Link
+                                    id="border"
+                                    to={{
+                                        pathname: '/selectworkout',
+                                        data: this.state.userData
+                                    }}
+                                >Change Plan</Link>
+                                {/* <a id="border" href='/selectworkout'>Change Plan</a> */}
                             </div>
                         </div>
                     </div>
