@@ -134,7 +134,6 @@ class LogIn extends Component {
     }
 
     render() {
-        console.log(this.state.userData);
         return  (
             <>
             <div className="header">

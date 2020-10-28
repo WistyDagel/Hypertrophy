@@ -4,7 +4,8 @@ class NutritionalBank extends Component {
         super(props);
         this.state = {
             userData: this.props.userData,
-            heightCm: calculateCM(this.props.userData.accountObj.heightFt, this.props.userData.accountObj.heightIn),
+            feet: this.props.userData.accountObj.heightFt,
+            inches: this.props.userData.accountObj.heightIn,
             weight: this.props.userData.accountObj.weight,
             age: this.props.userData.accountObj.age,
             calories: '',
@@ -16,16 +17,11 @@ class NutritionalBank extends Component {
 
         this.calculateCalories = this.calculateCalories.bind(this);
         this.calculateMacros = this.calculateMacros.bind(this);
-        this.calculateCM = this.calculateCM.bind(this);
     }
 
-    calculateCM = (feet, inches) => {
-        var heightCenti = feet * 30.48;
-        heightCenti = heightCenti + (inches* 2.54);
-        this.setState({
-            heightCm: heightCenti
-        }); 
-    }
+    // componentDidMount(){
+    //     this.calculateCalories();
+    // }
 
     //Calculate calories - Mifflin-St Jeor Equation
     //MEN 
@@ -40,13 +36,15 @@ class NutritionalBank extends Component {
     //BMR = 9.247W + 3.098H - 4.330A + 447.593
     calculateCalories = () => {
         //Convert to CM
-        if(this.state.userData.accountObj.male){
-            this.setState({
-                calories: ((10*this.state.weight) + (6.25*this.state.heightCm) - (5*this.state.age) + 5)
-            })
-        } else {
+        var heightCm = this.state.feet * 30.48;
+        heightCm = heightCm + (this.state.inches * 2.54);
 
+        if(this.state.userData.accountObj.male){
+            this.state.calories = ((10 * this.state.weight) + (6.25 * heightCm) - (5 * this.state.age) + 5);
+        } else {
+            this.state.calories = ((10 * this.state.weight) + (6.25 * heightCm) - (5 * this.state.age) - 161);
         }
+        console.log(this.state.calories);
     }   
 
     calculateMacros = () => {
@@ -61,7 +59,7 @@ class NutritionalBank extends Component {
                 <h1>Nutrional Bank</h1>
                 <hr/>
                 <h2>Calories Remaning</h2>
-                <h4>{this.state.userData.calories}</h4>
+                <h4>{this.state.calories}</h4>
                 <h2>Macros Remaning</h2>
                 <div className="row">
                     <div className="col">
