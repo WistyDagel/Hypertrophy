@@ -14,24 +14,6 @@ let userSchema = new mongoose.Schema({
     accountObj:{
         type: Object
     },
-    // male: {
-    //     type: Boolean
-    // },
-    // female: {
-    //     type: Boolean
-    // },
-    // age: {
-    //     type: Number
-    // },
-    // heightFt: {
-    //     type: Number
-    // },
-    // heightIn: {
-    //     type: Number
-    // },
-    // weight: {
-    //     type: Number
-    // },
     calories: {
         type: Number
     },
@@ -55,28 +37,7 @@ let userSchema = new mongoose.Schema({
     },
     workoutPlanID: {
         type: String
-    },
-    // loseWeight: {
-    //     type: Boolean
-    // },
-    // maintainWeight: {
-    //     type: Boolean
-    // },
-    // gainWeight: {
-    //     type: Boolean
-    // },
-    // notActive: {
-    //     type: Boolean
-    // },
-    // lightlyActive: {
-    //     type: Boolean
-    // },
-    // active: {
-    //     type: Boolean
-    // },
-    // veryActive: {
-    //     type: Boolean
-    // },
+    }
 });
 
 module.exports = mongoose.model('User', userSchema);

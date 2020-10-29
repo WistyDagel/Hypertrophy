@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
 import { Link } from 'react-router-dom';
 
+import CalculateStats from './CalculateStats';
+
 //TODO 
-//Google Authentication 
-//Store User data to the back end and database
-//Store Google accountObj to the user collection
-//Fix Welcome so it only shows when user has logged in
+//Calculate the stats with the new component Calculate Stats
 
 class SignUp3 extends Component {
     constructor(props){
