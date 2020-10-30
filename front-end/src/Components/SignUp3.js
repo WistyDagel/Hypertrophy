@@ -82,6 +82,7 @@ class SignUp3 extends Component {
     }
 
     userGreeting = () => {
+        //Calculate data at this point with CalcStats component
         return (
             <>
             <div className="content">
@@ -141,6 +142,7 @@ class SignUp3 extends Component {
     render() {
         return  (
             <>
+            {/* <CalculateStats userData={this.props.location.data}/> */}
             <div className="header">
                 <h2>Sign Up</h2>
                 <hr/>

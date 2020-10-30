@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 class CalculateStats extends Component{
     constructor(props){
         super(props);
-
+        
         this.state = {
-            feet: this.props.userData.accountObj.heightFt,
-            inches: this.props.userData.accountObj.heightIn,
-            weight: this.props.userData.accountObj.weight,
-            age: this.props.userData.accountObj.age,
+            userData: this.props.userData,
+            feet: this.props.userData.heightFt,
+            inches: this.props.userData.heightIn,
+            weight: this.props.userData.weight,
+            age: this.props.userData.age,
             calories: '',
             proteins: '',
             carbs: '',
@@ -34,6 +35,8 @@ class CalculateStats extends Component{
     //BMR = 13.397W + 4.799H - 5.677A + 88.362
     //WOMEN
     //BMR = 9.247W + 3.098H - 4.330A + 447.593
+
+    //Pass parameters into the function and call it from the Signup 3 page
     calculateCalories = () => {
         //Convert to CM
         var heightCm = this.state.feet * 30.48;
