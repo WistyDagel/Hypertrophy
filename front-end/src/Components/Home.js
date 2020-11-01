@@ -3,17 +3,25 @@ import { Link } from 'react-router-dom';
 
 import Navigation from './Navigation';
 import NutritionalBank from './NutritionalBank';
+import UserProfile from './UserProfile';
 
 class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userData: this.props.location.data,
+            userData: UserProfile.getUser()
         }
     }
 
-    render() {
+    componentDidMount(){
+        this.setState({
+            userData: UserProfile.getUser()
+        })
+
         console.log(this.state.userData);
+    }
+
+    render() {
         return  (
             <>
             <div className="flexbox">

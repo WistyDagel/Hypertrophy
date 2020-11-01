@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
 import { Link } from 'react-router-dom';
 
-import CalculateStats from './CalculateStats';
+import calcStats from './CalculateStats';
+import UserProfile from './UserProfile';
 
 //TODO 
 //Calculate the stats with the new component Calculate Stats
@@ -27,11 +28,12 @@ class SignUp3 extends Component {
         this.userGreeting = this.userGreeting.bind(this);
         this.userAlreadyExists = this.userAlreadyExists.bind(this);
         this.greeting = this.greeting.bind(this);
+        this.storeNutrientData = this.storeNutrientData.bind(this);
     }
 
-    async componentDidMount(){
+    componentDidMount(){
         //Fetch the data from the back end server and database it is connected to
-        await fetch('http://localhost:3001/users')
+        fetch('http://localhost:3001/users')
         .then(res => res.json())
         .then(data => {
             this.setState({
@@ -39,7 +41,6 @@ class SignUp3 extends Component {
             });
         });
     }
-
     googleSuccess = (response) => {
         //Stores the name and email of the current person signing up
         this.setState({
@@ -81,8 +82,28 @@ class SignUp3 extends Component {
         console.log('Error')
     }
 
+    storeNutrientData = () => {
+        var cal = calcStats.calculateCalories(this.state.user);
+        fetch(`http://localhost:3001/users/${this.state.user._id}`, {
+            method: "PUT",
+            headers: {'Content-Type': "application/json"},
+            body: JSON.stringify({
+                calories: cal
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data) {
+                console.log(data);
+            }
+        });
+
+    }
+
     userGreeting = () => {
         //Calculate data at this point with CalcStats component
+        this.storeNutrientData();
+        UserProfile.setID(this.state.user._id);
         return (
             <>
             <div className="content">
