@@ -7,7 +7,7 @@ import calcStats from './CalculateStats';
 import UserProfile from './UserProfile';
 
 //TODO 
-//Calculate the stats with the new component Calculate Stats
+//Figure out why there is a potential memory leak with the set state on CalcNutrition
 
 class SignUp3 extends Component {
     constructor(props){
@@ -82,7 +82,7 @@ class SignUp3 extends Component {
         console.log('Error')
     }
 
-    storeNutrientData = () => {
+    storeNutrientData() {
         var cal = calcStats.calculateCalories(this.state.user);
         fetch(`http://localhost:3001/users/${this.state.user._id}`, {
             method: "PUT",
@@ -94,10 +94,16 @@ class SignUp3 extends Component {
         .then(res => res.json())
         .then(data => {
             if(data) {
-                console.log(data);
+                this.setState({
+                    user: data
+                })
             }
         });
 
+    }
+
+    componentWillUnmount(){
+        this.storeNutrientData();
     }
 
     userGreeting = () => {
@@ -137,7 +143,6 @@ class SignUp3 extends Component {
     }
 
     //Return HTML content based on current data
-    //TODO - Switch from google sign in to the user greeting page or user exists page 
     greeting = () => {
         if(this.state.userExists){
             return <this.userAlreadyExists/>;

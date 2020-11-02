@@ -27,6 +27,7 @@ class UserProfile extends Component{
             if(data){
                 this.state.user = data[0];
             }
+            console.log(this.state.user);
         });
         return this.state.user;
     }

@@ -5,20 +5,14 @@ import Navigation from './Navigation';
 import NutritionalBank from './NutritionalBank';
 import UserProfile from './UserProfile';
 
+//Display user information based on the current user and their ID
+
 class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userData: UserProfile.getUser()
+            userData: this.props.location.data,
         }
-    }
-
-    componentDidMount(){
-        this.setState({
-            userData: UserProfile.getUser()
-        })
-
-        console.log(this.state.userData);
     }
 
     render() {

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 import { Link } from 'react-router-dom';
 
+//TODO
+//User cannot log in when there are multiple accounts stored
+
 class LogIn extends Component {
     constructor(props){
         super(props);
@@ -44,6 +47,7 @@ class LogIn extends Component {
         });
         //checks to see if the user array is empty
         if(this.state.users.length == 0){
+            console.log('Length is 0');
             this.setState({
                 userNotExist: true
             });
@@ -53,20 +57,16 @@ class LogIn extends Component {
             if(this.state.users[i].googleObj.googleId == response.profileObj.googleId){
                 this.setState({
                     userNotExist: false,
+                    userSignedIn: true,
                     user: this.state.users[i]
                 });
             } else {
                 this.setState({
                     userNotExist: true
-                })
+                });
             }
         }
-        //User is now signed in depeneding on their account existing in the database
-        if(!this.state.userNotExist){
-            this.setState({
-                userSignedIn: true
-            });
-        }
+
         console.log(response);
         console.log('Success')
     }
@@ -112,10 +112,10 @@ class LogIn extends Component {
     //Return HTML content based on current data
     //TODO - Switch from google sign in to the user greeting page or user exists page 
     greeting = () => {
-        if(this.state.userNotExist){
-            return <this.userNotExist/>;
-        } else if(this.state.userSignedIn) {
+        if(this.state.userSignedIn) {
             return <this.userGreeting/>;
+        } else if(this.state.userNotExist){
+            return <this.userNotExist/>;
         } else {
             return (
                 <>
