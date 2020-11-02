@@ -84,11 +84,17 @@ class SignUp3 extends Component {
 
     storeNutrientData() {
         var cal = calcStats.calculateCalories(this.state.user);
+        //0:proteins, 1: carbs, 2: fats, 3: sugars
+        var nutrientList = calcStats.calculateMacros(cal);
         fetch(`http://localhost:3001/users/${this.state.user._id}`, {
             method: "PUT",
             headers: {'Content-Type': "application/json"},
             body: JSON.stringify({
-                calories: cal
+                calories: cal,
+                proteins: nutrientList[0],
+                carbs: nutrientList[1],
+                fats: nutrientList[2],
+                sugars: nutrientList[3]
             })
         })
         .then(res => res.json())
