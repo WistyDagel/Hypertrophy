@@ -31,8 +31,8 @@ class CalculateStats extends Component{
     //TODO - CALCULATE CALORIES BASED ON ACTIVITY/GOAL
     calculateCalories = (userData) => {
         //Convert to CM
-        var heightCm = userData.accountObj.heightFt * 30.48;
-        heightCm = heightCm + (userData.accountObj.heightIn * 2.54);
+        var heightCm = userData.heightFt * 30.48;
+        heightCm = heightCm + (userData.heightIn * 2.54);
 
         var calories = 0;
         var activityPercent;
@@ -40,36 +40,36 @@ class CalculateStats extends Component{
 
         //ACTIVITY CALCULATIONS
         //BMR - increases by .15% depending on activity
-        if(userData.accountObj.goalsAndActivity.notActive){
+        if(userData.goalsAndActivity.notActive){
             //NO ACTIVITY - Standard rate
             activityPercent = 1;
-        } else if(userData.accountObj.goalsAndActivity.lightActive){
+        } else if(userData.goalsAndActivity.lightActive){
             //LIGHT ACTIVITY - 1.15
             activityPercent = 1.15;
-        } else if(userData.accountObj.goalsAndActivity.active){
+        } else if(userData.goalsAndActivity.active){
             //ACTIVE - 1.20
             activityPercent = 1.30;
-        } else if(userData.accountObj.goalsAndActivity.veryActive){
+        } else if(userData.goalsAndActivity.veryActive){
             //VERY ACTIVE - 1.25
             activityPercent = 1.45;
         }
 
         //GOALS CALCULATIONS
-        if(userData.accountObj.goalsAndActivity.loseWeight){
+        if(userData.goalsAndActivity.loseWeight){
             //LOSE WEIGHT - lose .5lbs/week
             goalPercent = .91;
-        } else if(userData.accountObj.goalsAndActivity.maintainWeight){
+        } else if(userData.goalsAndActivity.maintainWeight){
             //MAINTAIN WEIGHT 
             goalPercent = 1;
-        } else if(userData.accountObj.goalsAndActivity.gainWeight){
+        } else if(userData.goalsAndActivity.gainWeight){
             //GAIN WEIGHT - Gain .5lbs/week
             goalPercent = 1.09;
         }
 
-        if(userData.accountObj.male){
-            calories = (((10 * userData.accountObj.weight) + (6.25 * heightCm) - (5 * userData.accountObj.age) + 5) * .63) * activityPercent;
+        if(userData.male){
+            calories = (((10 * userData.weight) + (6.25 * heightCm) - (5 * userData.age) + 5) * .63) * activityPercent;
         } else {
-            calories = (((10 * userData.accountObj.weight) + (6.25 * heightCm) - (5 * userData.accountObj.age) - 161) * .68) * activityPercent;
+            calories = (((10 * userData.weight) + (6.25 * heightCm) - (5 * userData.age) - 161) * .68) * activityPercent;
         }
         return Math.trunc(calories * goalPercent);
     }   

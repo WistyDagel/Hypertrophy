@@ -28,7 +28,6 @@ class SignUp3 extends Component {
         this.userGreeting = this.userGreeting.bind(this);
         this.userAlreadyExists = this.userAlreadyExists.bind(this);
         this.greeting = this.greeting.bind(this);
-        this.storeNutrientData = this.storeNutrientData.bind(this);
     }
 
     componentDidMount(){
@@ -57,12 +56,21 @@ class SignUp3 extends Component {
         }
         //Only creates the account if the user does not exist
         if(!this.state.userExists){
+            //Calculate data at this point with CalcStats component
+            var cal = calcStats.calculateCalories(this.state.userData);
+            //0:proteins, 1: carbs, 2: fats, 3: sugars
+            var nutrientList = calcStats.calculateMacros(cal);
             fetch("http://localhost:3001/users", {
                 method: "POST",
                 headers: {'Content-Type': "application/json"},
                 body: JSON.stringify({
                     googleObj: response.profileObj,
                     accountObj: this.state.userData,
+                    calories: cal,
+                    proteins: nutrientList[0],
+                    carbs: nutrientList[1],
+                    fats: nutrientList[2],
+                    sugars: nutrientList[3]
                 })
             })
             .then(res => res.json())
@@ -82,39 +90,7 @@ class SignUp3 extends Component {
         console.log('Error')
     }
 
-    storeNutrientData() {
-        var cal = calcStats.calculateCalories(this.state.user);
-        //0:proteins, 1: carbs, 2: fats, 3: sugars
-        var nutrientList = calcStats.calculateMacros(cal);
-        fetch(`http://localhost:3001/users/${this.state.user._id}`, {
-            method: "PUT",
-            headers: {'Content-Type': "application/json"},
-            body: JSON.stringify({
-                calories: cal,
-                proteins: nutrientList[0],
-                carbs: nutrientList[1],
-                fats: nutrientList[2],
-                sugars: nutrientList[3]
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data) {
-                this.setState({
-                    user: data
-                })
-            }
-        });
-
-    }
-
-    componentWillUnmount(){
-        this.storeNutrientData();
-    }
-
     userGreeting = () => {
-        //Calculate data at this point with CalcStats component
-        this.storeNutrientData();
         UserProfile.setID(this.state.user._id);
         return (
             <>
