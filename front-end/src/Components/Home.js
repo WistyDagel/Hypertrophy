@@ -12,7 +12,19 @@ class Home extends Component {
         super(props);
         this.state = {
             userData: this.props.location.data,
+            workoutPlan: ''
         }
+    }
+
+    async componentDidMount(){
+        await fetch(`http://localhost:3001/workoutplan/${this.state.userData.workoutPlanID}`)
+        .then(res => res.json())
+        .then(data => {
+            
+            this.setState({
+                workoutPlan: data[0]
+            });
+        });
     }
 
     render() {
@@ -55,14 +67,15 @@ class Home extends Component {
                     <div className="workoutPlan maxwidth">
                         <hr/>
                         <h1>Current Workout Plan</h1>
-                        <h3>Workout Plan Name</h3>
+                        <h3>{this.state.workoutPlan.name}</h3>
                         <div className="row">
                             <div className="button">
                                 <Link
                                     id="border"
                                     to={{
                                         pathname: '/currentworkout',
-                                        data: this.state.userData
+                                        data: this.state.userData,
+                                        workoutData: this.state.workoutPlan
                                     }}
                                 >View</Link>
                                 {/* <a id="border" href='/currentworkout'>View</a> */}
