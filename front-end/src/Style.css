@@ -109,6 +109,10 @@ input {
   flex: 3;
 }
 
+.currentPlan {
+  text-decoration: underline;
+}
+
 /* FITNESS LOG */
 .breakfast {
   text-align: left;

@@ -6,7 +6,19 @@ class SelectMeal extends Component {
         super(props);
         this.state = {
             userData: this.props.location.data,
+            plans: ''
         }
+    }
+
+    async componentDidMount(){
+        await fetch('http://localhost:3001/mealplan')
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            this.setState({
+                plans: data
+            });
+        });
     }
 
     render() {

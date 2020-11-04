@@ -71,7 +71,9 @@ class CalculateStats extends Component{
         } else {
             calories = (((10 * userData.weight) + (6.25 * heightCm) - (5 * userData.age) - 161) * .68) * activityPercent;
         }
-        return Math.trunc(calories * goalPercent);
+
+        var calorieCount = calories * goalPercent;
+        return Math.trunc(calorieCount);
     }   
 
     // Carbs: 2,300 x 0.50 equals 1,150. I eat 1,150 calories worth of carbs each day (hello, extra slice of toast).

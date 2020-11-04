@@ -9,12 +9,12 @@ class CurrentWorkout extends Component {
             workoutData: this.props.location.workoutData
         }
 
-        this.buildWorkoutArray = this.buildWorkoutArray.bind(this);
+        this.renderWorkoutPlan = this.renderWorkoutPlan.bind(this);
     }
 
     //TODO
     //STREAMLINE THE RENDER WITH METHODS WHICH BUILD AN ARRAY OF WORKOUTS
-    buildWorkoutArray = () => {
+    renderWorkoutPlan = () => {
         
     }
 

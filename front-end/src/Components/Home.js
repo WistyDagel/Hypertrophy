@@ -12,7 +12,8 @@ class Home extends Component {
         super(props);
         this.state = {
             userData: this.props.location.data,
-            workoutPlan: ''
+            workoutPlan: '',
+            mealPlan: '',
         }
     }
 
@@ -20,9 +21,16 @@ class Home extends Component {
         await fetch(`http://localhost:3001/workoutplan/${this.state.userData.workoutPlanID}`)
         .then(res => res.json())
         .then(data => {
-            
             this.setState({
                 workoutPlan: data[0]
+            });
+        });
+
+        await fetch(`http://localhost:3001/mealplan/${this.state.userData.mealPlanID}`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({
+                mealPlan: data[0]
             });
         });
     }
@@ -40,14 +48,15 @@ class Home extends Component {
                     <div className="mealPlan maxwidth">
                         <hr/>
                         <h1>Current Meal Plan</h1>
-                        <h3>Meal Plan Name</h3>
+                        <h3 className='currentPlan'>{this.state.mealPlan.name}</h3>
                         <div className="row">
                             <div className="button">
                                 <Link
                                     id="border"
                                     to={{
                                         pathname: '/currentmeal',
-                                        data: this.state.userData
+                                        data: this.state.userData,
+                                        mealPlanData: this.state.mealPlan
                                     }}
                                 >View</Link>
                                 {/* <a id="border" href='/currentmeal'>View</a> */}
@@ -67,7 +76,7 @@ class Home extends Component {
                     <div className="workoutPlan maxwidth">
                         <hr/>
                         <h1>Current Workout Plan</h1>
-                        <h3>{this.state.workoutPlan.name}</h3>
+                        <h3 className='currentPlan'>{this.state.workoutPlan.name}</h3>
                         <div className="row">
                             <div className="button">
                                 <Link
