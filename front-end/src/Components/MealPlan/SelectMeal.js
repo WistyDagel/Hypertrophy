@@ -8,6 +8,8 @@ class SelectMeal extends Component {
             userData: this.props.location.data,
             plans: ''
         }
+
+        this.renderMealPlans = this.renderMealPlans.bind(this);
     }
 
     async componentDidMount(){
@@ -21,7 +23,24 @@ class SelectMeal extends Component {
         });
     }
 
+    renderMealPlans = () => {
+        var planArray = []
+        for (let i = 0; i < this.state.plans.length; i++) {     
+            planArray.push(
+                <div key={i} className="planBox">
+                    <div className="imageBox">
+                        <h3>Image Placeholder</h3>
+                    </div>
+                    <hr/>
+                    <h2>{this.state.plans[i].name}</h2>
+                </div>
+            )
+        }
+        return planArray;
+    }
+
     render() {
+        var planList = this.renderMealPlans();
         return  (
             <>
             <div className="flexbox">
@@ -34,6 +53,11 @@ class SelectMeal extends Component {
                     <h2>Select a Meal Plan</h2>  
                     <br/>
                 </div>
+                <div className="content">
+                    {planList}
+                </div>
+                <br/>
+                <br/>
                 <Navigation userData={this.state.userData}/>
             </div>
             </>

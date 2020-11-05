@@ -159,6 +159,18 @@ input {
   margin-bottom: 10px;
 }
 
+/* SELECT WORKOUT/MEAL PLAN */
+.planBox {
+  border: solid black;
+  border-radius: 8px;
+  width: 40vh;
+}
+
+.imageBox {
+  height: 10vh;
+}
+
+
 /* CREATE WORKOUT PLAN */
 .day1 {
   text-align: left;
@@ -194,6 +206,9 @@ input {
   text-align: left;
   margin-bottom: 80px;
 }
+
+
+
 /* NAVIGATION */
 .navbar {
   display: flex;
