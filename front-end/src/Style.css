@@ -172,32 +172,7 @@ input {
 
 
 /* CREATE WORKOUT PLAN */
-.day1 {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.day2 {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.day3 {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.day4 {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.day5 {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.day6 {
+.dayBox {
   text-align: left;
   margin-bottom: 20px;
 }

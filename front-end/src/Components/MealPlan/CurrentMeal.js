@@ -10,7 +10,7 @@ class CurrentMeal extends Component {
             mealPlan: ''
         }
 
-        this.renderMealPlan = this.renderMealPlan.bind(this);
+        this.renderCurrentMeal = this.renderCurrentMeal.bind(this);
     }
 
     async componentDidMount(){
@@ -25,7 +25,26 @@ class CurrentMeal extends Component {
         console.log(this.state.mealPlan);
     }
 
-    renderMealPlan = mealPlan => {
+    renderCurrentMeal = data => {
+        var currentMeal = data.currentMeal
+        var mealArray = [];
+
+        if(currentMeal == undefined){
+            return (
+                <div>
+                    <h4>N/A</h4>
+                </div>
+            )
+        } else {
+            for (let i = 0; i < currentMeal.meal.length; i++) {
+                mealArray.push(
+                    <div key={i}>
+                        <h4>{currentMeal.meal[i].description}</h4>
+                    </div>
+                )
+            }
+            return mealArray;
+        }
 
     }
 
@@ -55,29 +74,22 @@ class CurrentMeal extends Component {
                     <br/>
                     <div className="breakfast maxwidth">
                         <h2>Breakfast</h2>
-                        <h4>{this.state.mealData.breakfast.meal[0].description}</h4>
-                        <h4>{this.state.mealData.breakfast.meal[1].description}</h4>
-                        <h4>{this.state.mealData.breakfast.meal[2].description}</h4>
+                        <this.renderCurrentMeal currentMeal={this.state.mealData.breakfast}/>
                         <hr/>
                     </div>
                     <div className="lunch maxwidth">
                         <h2>Lunch</h2>
-                        <h4>{this.state.mealData.lunch.meal[0].description}</h4>
-                        <h4>{this.state.mealData.lunch.meal[1].description}</h4>
-                        <h4>{this.state.mealData.lunch.meal[2].description}</h4>
+                        <this.renderCurrentMeal currentMeal={this.state.mealData.lunch}/>
                         <hr/>
                     </div>
                     <div className="dinner maxwidth">
                         <h2>Dinner</h2>
-                        <h4>{this.state.mealData.dinner.meal[0].description}</h4>
-                        <h4>{this.state.mealData.dinner.meal[1].description}</h4>
-                        <h4>{this.state.mealData.dinner.meal[2].description}</h4>
+                        <this.renderCurrentMeal currentMeal={this.state.mealData.dinner}/>
                         <hr/>
                     </div>
                     <div className="snacks maxwidth">
                         <h2>Snacks</h2>
-                        <h4>{this.state.mealData.snacks.meal[0].description}</h4>
-                        <h4>{this.state.mealData.snacks.meal[1].description}</h4>
+                        <this.renderCurrentMeal currentMeal={this.state.mealData.snacks}/>
                         <hr/>
                     </div>
                 </div>

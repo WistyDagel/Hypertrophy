@@ -9,16 +9,43 @@ class CurrentWorkout extends Component {
             workoutData: this.props.location.workoutData
         }
 
-        this.renderWorkoutPlan = this.renderWorkoutPlan.bind(this);
+        this.renderDay = this.renderDay.bind(this);
     }
 
     //TODO
     //STREAMLINE THE RENDER WITH METHODS WHICH BUILD AN ARRAY OF WORKOUTS
-    renderWorkoutPlan = () => {
-        
+    renderDay = (data) => {
+        var day = data.currentDay;
+        var dayArray = [];
+
+        if(day == undefined){
+            return (
+                <div className="row">
+                    <h4>Rest Day</h4>
+                </div>
+            );
+        } else {
+            for (let i = 0; i < day.exercises.length; i++) {
+                dayArray.push(
+                    <div key={i} className="row">
+                        <div className="col">
+                            <h4>{day.exercises[i].description}</h4>
+                        </div>
+                        <div className="col">
+                            <h4>Sets: {day.exercises[i].sets}</h4>
+                        </div>
+                        <div className="col">
+                            <h4>Reps: {day.exercises[i].reps}</h4>
+                        </div>
+                    </div>
+                );
+            }
+            return dayArray;
+        }
     }
 
     render() {
+        console.log(this.state.workoutData);
         return  (
             <>
             <div className="flexbox">
@@ -42,158 +69,40 @@ class CurrentWorkout extends Component {
                         </div>
                     </div>    
                     <br/>
-                    <div className="day1 maxwidth">
+                    <div className="dayBox maxwidth">
                         <h2>{this.state.workoutData.day1.name}</h2>
                         <hr/>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day1.exercises[0].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day1.exercises[0].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day1.exercises[0].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day1.exercises[1].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day1.exercises[1].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day1.exercises[1].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day1.exercises[2].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day1.exercises[2].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day1.exercises[2].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day1.exercises[3].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day1.exercises[3].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day1.exercises[3].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day1.exercises[4].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day1.exercises[4].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day1.exercises[4].reps}</h4>
-                        </div>
+                        <this.renderDay currentDay={this.state.workoutData.day1}/>
                     </div>
                     <div className="day2 maxwidth">
                         <h2>{this.state.workoutData.day2.name}</h2>
                         <hr/>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day2.exercises[0].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day2.exercises[0].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day2.exercises[0].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day2.exercises[1].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day2.exercises[1].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day2.exercises[1].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day2.exercises[2].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day2.exercises[2].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day2.exercises[2].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day2.exercises[3].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day2.exercises[3].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day2.exercises[3].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day2.exercises[4].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day2.exercises[4].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day2.exercises[4].reps}</h4>
-                        </div>
+                        <this.renderDay currentDay={this.state.workoutData.day2}/>
                     </div>
                     <div className="day3 maxwidth">
                         <h2>{this.state.workoutData.day3.name}</h2>
                         <hr/>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day3.exercises[0].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day3.exercises[0].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day3.exercises[0].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day3.exercises[1].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day3.exercises[1].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day3.exercises[1].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day3.exercises[2].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day3.exercises[2].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day3.exercises[2].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day3.exercises[3].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day3.exercises[3].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day3.exercises[3].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day3.exercises[4].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day3.exercises[4].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day3.exercises[4].reps}</h4>
-                        </div>
+                        <this.renderDay currentDay={this.state.workoutData.day3}/>
                     </div>
                     <div className="day4 maxwidth">
                         <h2>{this.state.workoutData.day4.name}</h2>
                         <hr/>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day4.exercises[0].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day4.exercises[0].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day4.exercises[0].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day4.exercises[1].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day4.exercises[1].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day4.exercises[1].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day4.exercises[2].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day4.exercises[2].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day4.exercises[2].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day4.exercises[3].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day4.exercises[3].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day4.exercises[3].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day4.exercises[4].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day4.exercises[4].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day4.exercises[4].reps}</h4>
-                        </div>
+                        <this.renderDay currentDay={this.state.workoutData.day4}/>
                     </div>
                     <div className="day5 maxwidth">
                         <h2>{this.state.workoutData.day5.name}</h2>
                         <hr/>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day5.exercises[0].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day5.exercises[0].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day5.exercises[0].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day5.exercises[1].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day5.exercises[1].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day5.exercises[1].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day5.exercises[2].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day5.exercises[2].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day5.exercises[2].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day5.exercises[3].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day5.exercises[3].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day5.exercises[3].reps}</h4>
-                        </div>
-                        <div className="row">
-                            <h4>{this.state.workoutData.day5.exercises[4].description}</h4>
-                            <h4>Sets: {this.state.workoutData.day5.exercises[4].sets}</h4>
-                            <h4>Reps: {this.state.workoutData.day5.exercises[4].reps}</h4>
-                        </div>
+                        <this.renderDay currentDay={this.state.workoutData.day5}/>
                     </div>
                     <div className="day6 maxwidth">
                         <h2>Day 6</h2>
                         <hr/>
+                        <this.renderDay currentDay={this.state.workoutData.day6}/>
                     </div>
                     <div className="day7 maxwidth">
                         <h2>Day 7</h2>
                         <hr/>
+                        <this.renderDay currentDay={this.state.workoutData.day7}/>
                     </div>
                     <br/>
                 </div>
