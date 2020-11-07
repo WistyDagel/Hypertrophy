@@ -9,6 +9,9 @@ class CreateWorkout extends Component {
         }
     }
 
+    //TODO
+    //CREATE ACTUAL JSON BASED ON USER ENTRY
+
     componentDidMount(){
         var day1 = {
             "name": "Chest Day",

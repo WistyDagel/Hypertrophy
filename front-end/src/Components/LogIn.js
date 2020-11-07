@@ -47,7 +47,6 @@ class LogIn extends Component {
         });
         //checks to see if the user array is empty
         if(this.state.users.length == 0){
-            console.log('Length is 0');
             this.setState({
                 userNotExist: true
             });

@@ -21,8 +21,6 @@ class CurrentMeal extends Component {
                 mealPlan: data[0]
             });
         });
-
-        console.log(this.state.mealPlan);
     }
 
     renderCurrentMeal = data => {

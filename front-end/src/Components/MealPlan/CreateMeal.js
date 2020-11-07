@@ -10,7 +10,7 @@ class CreateMeal extends Component {
     }
 
     //TODO
-    //Objects are not saving to JSON properly
+    //CREATE ACTUAL JSON BASED ON USER ENTRY
 
     componentDidMount(){
         var breakfast = {

@@ -45,7 +45,6 @@ class CurrentWorkout extends Component {
     }
 
     render() {
-        console.log(this.state.workoutData);
         return  (
             <>
             <div className="flexbox">
