@@ -13,7 +13,7 @@ class Greeting extends Component {
                 <div className="content">
                     <div className="logo">
                         <img src={logo}></img>
-                        <h2>Hypertrophy</h2>
+                        <h1>Hypertrophy</h1>
                     </div>
                     <div className="clickables">
                         <div className="button">
