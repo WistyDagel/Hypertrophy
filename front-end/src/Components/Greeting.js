@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from '../Logo/logo.png';
 
 class Greeting extends Component {
     constructor(props){
@@ -11,7 +12,7 @@ class Greeting extends Component {
             <div className="flexbox">
                 <div className="content">
                     <div className="logo">
-                        <img></img>
+                        <img src={logo}></img>
                         <h2>Hypertrophy</h2>
                     </div>
                     <div className="clickables">
