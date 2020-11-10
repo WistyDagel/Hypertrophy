@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
 import { Link } from 'react-router-dom';
+import logo from '../Logo/logo.png';
 
 import calcStats from './CalculateStats';
 import UserProfile from './UserProfile';
@@ -94,7 +95,7 @@ class SignUp3 extends Component {
         UserProfile.setID(this.state.user._id);
         return (
             <>
-            <div className="content">
+            <div>
                 <h3>Welcome, {this.state.name}!</h3>
                 <br/>
                 <h4>Please proceed to the home screen</h4>
@@ -114,7 +115,7 @@ class SignUp3 extends Component {
     userAlreadyExists = () => {
         return (
             <>
-            <div className="content">
+            <div>
                 <p>A user with the associated email already exists!</p>
                 <br/>
                 <h4>Please, login below.</h4>
@@ -151,15 +152,17 @@ class SignUp3 extends Component {
         return  (
             <>
             {/* <CalculateStats userData={this.props.location.data}/> */}
-            <div className="header">
-                <h2>Sign Up</h2>
-                <hr/>
+            <div className="flexbox">
+                <div className="content">
+                    <div className="logo">
+                        <img src={logo}></img>
+                        <h1>Hypertrophy</h1>
+                    </div>
+                    <this.greeting/>
+                </div>
+                <br/>
+                <br/>
             </div>
-            <div className="content">
-                <this.greeting/>
-            </div>
-            <br/>
-            <br/>
             </>
         );
     }

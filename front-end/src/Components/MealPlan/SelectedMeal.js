@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Navigation from '../Navigation';
 
-class CurrentMeal extends Component {
+class SelectedMeal extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -11,6 +12,7 @@ class CurrentMeal extends Component {
         }
 
         this.renderCurrentMeal = this.renderCurrentMeal.bind(this);
+        this.updateCurrentMeal = this.updateCurrentMeal.bind(this);
     }
 
     renderCurrentMeal = data => {
@@ -33,6 +35,17 @@ class CurrentMeal extends Component {
             }
             return mealArray;
         }
+
+    }
+
+    updateCurrentMeal = () => {
+        fetch(`http://localhost:3001/users/${this.state.userData._id}`, {
+            method: "PUT",
+            headers: {'Content-Type': "application/json"},
+            body: JSON.stringify({
+                mealPlanID: this.state.mealData._id
+            })
+        })
     }
 
     render() {
@@ -75,15 +88,19 @@ class CurrentMeal extends Component {
                         <this.renderCurrentMeal currentMeal={this.state.mealData.snacks}/>
                         <hr/>
                     </div>
+                    <button
+                        id="border"
+                        onClick={() =>this.updateCurrentMeal()}
+                    >Select Meal Plan</button>
+                    <br/>
+                    <br/>
+                    <br/>
                 </div>
                 <Navigation userData={this.state.userData}/>
             </div>
-            <br/>
-            <br/>
-            <br/>
             </>
         );
     }
 }
 
-export default CurrentMeal;
+export default SelectedMeal;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Header from '../Header';
 import Navigation from '../Navigation';
 
 class SelectMeal extends Component {
@@ -27,13 +29,23 @@ class SelectMeal extends Component {
         var planArray = []
         for (let i = 0; i < this.state.plans.length; i++) {     
             planArray.push(
-                <div key={i} className="planBox">
-                    <div className="imageBox">
-                        <h3>Image Placeholder</h3>
+                <Link
+                    key={i}
+                    className="planLink"
+                    to={{
+                        pathname: '/selectedmeal',
+                        data: this.state.userData,
+                        mealPlanData: this.state.plans[i]
+                    }}
+                >
+                    <div className="planBox">
+                        <div className="imageBox">
+                            <h3>Image Placeholder</h3>
+                        </div>
+                        <hr/>
+                        <h2>{this.state.plans[i].name}</h2>
                     </div>
-                    <hr/>
-                    <h2>{this.state.plans[i].name}</h2>
-                </div>
+                </Link>
             )
         }
         return planArray;
@@ -44,11 +56,7 @@ class SelectMeal extends Component {
         return  (
             <>
             <div className="flexbox">
-                <div className="header">
-                    <h2>Hypertrophy</h2>
-                    <hr/>
-                    <br/>
-                </div>
+                <Header/>
                 <div className="col">
                     <h2>Select a Meal Plan</h2>  
                     <br/>

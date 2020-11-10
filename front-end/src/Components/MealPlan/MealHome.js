@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../Header';
 import Navigation from '../Navigation';
 
 class MealHome extends Component {
@@ -9,22 +10,30 @@ class MealHome extends Component {
             userData: this.props.location.data,
         }
     }
+
+    async componentDidMount(){
+        await fetch(`http://localhost:3001/mealplan/${this.state.userData.mealPlanID}`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({
+                mealPlan: data[0]
+            });
+        });
+    }
     
     render() {
         return  (
             <>
             <div className="flexbox">
-                <div className="header">
-                    <h2>Hypertrophy</h2>
-                    <hr/>
-                </div>
+                <Header/>
                 <div className="content">
                     <div className="button">
                         <Link
                             id="border"
                             to={{
                                 pathname: '/currentmeal',
-                                data: this.state.userData
+                                data: this.state.userData,
+                                mealPlanData: this.state.mealPlan
                             }}
                         >Current Meal Plan</Link>
                         {/* <a id="border" href='/currentmeal'>Current Meal Plan</a> */}

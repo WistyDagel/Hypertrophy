@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../Header';
 import Navigation from '../Navigation';
 
 class WorkoutHome extends Component {
@@ -9,22 +10,30 @@ class WorkoutHome extends Component {
             userData: this.props.location.data,
         }
     }
+
+    async componentDidMount(){
+        await fetch(`http://localhost:3001/workoutplan/${this.state.userData.workoutPlanID}`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({
+                workoutPlan: data[0]
+            });
+        });
+    }
     
     render() {
         return  (
             <>
             <div className="flexbox">
-                <div className="header">
-                    <h2>Hypertrophy</h2>
-                    <hr/>
-                </div>
+                <Header/>
                 <div className="content">
                     <div className="button">
                         <Link
                             id="border"
                             to={{
                                 pathname: '/currentworkout',
-                                data: this.state.userData
+                                data: this.state.userData,
+                                workoutData: this.state.workoutPlan
                             }}
                         >Current Workout Plan</Link>
                         {/* <a id="border" href='/currentworkout'>Current Workout Plan</a> */}

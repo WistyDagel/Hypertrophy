@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from './Header';
+import Header from '../Header';
 import Navigation from './Navigation';
 
-class AddFood extends Component {
+class AddFoodMP extends Component {
     constructor(){
         super();
     }
@@ -29,4 +29,4 @@ class AddFood extends Component {
     }
 }
 
-export default AddFood;
+export default AddFoodMP;

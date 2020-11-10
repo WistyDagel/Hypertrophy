@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import Navigation from './Navigation';
 import NutritionalBank from './NutritionalBank';
 
@@ -14,10 +15,7 @@ class FitnessLog extends Component {
         return  (
             <>
             <div className="flexbox">
-                <div className="header">
-                    <h2>Hypertrophy</h2>
-                    <hr/>
-                </div>
+                <Header/>
                 <div className="content">
                     <NutritionalBank userData={this.state.userData}/>
                     <br/>

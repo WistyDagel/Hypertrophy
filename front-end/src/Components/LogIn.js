@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 import { Link } from 'react-router-dom';
+import logo from '../Logo/logo.png';
+import Header from './Header';
 
 //TODO
 //User cannot log in when there are multiple accounts stored
@@ -78,7 +80,7 @@ class LogIn extends Component {
     userGreeting = () => {
         return (
             <>
-            <div className="content">
+            <div>
                 <h3>Welcome, {this.state.name}!</h3>
                 <br/>
                 <h4>Please proceed to the home screen</h4>
@@ -98,7 +100,7 @@ class LogIn extends Component {
     userNotExist = () => {
         return (
             <>
-            <div className="content">
+            <div>
                 <p>A user with that email doesn't exist</p>
                 <br/>
                 <h4>Please, sign up below.</h4>
@@ -135,15 +137,17 @@ class LogIn extends Component {
     render() {
         return  (
             <>
-            <div className="header">
-                <h2>Log In</h2>
-                <hr/>
+            <div className="flexbox">
+                <div className="content">
+                    <div className="logo">
+                        <img src={logo}></img>
+                        <h1>Hypertrophy</h1>
+                    </div>
+                    <this.greeting/>
+                </div>
+                <br/>
+                <br/>
             </div>
-            <div className="content">
-                <this.greeting/>
-            </div>
-            <br/>
-            <br/>
             </>
         );
     }

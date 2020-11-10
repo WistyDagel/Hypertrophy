@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from './Header';
+import Header from '../Header';
 import Navigation from './Navigation';
 
-class AddExercise extends Component {
+class AddExerciseWP extends Component {
     constructor(){
         super();
     }
@@ -18,8 +18,16 @@ class AddExercise extends Component {
                             <h4>Description:</h4>
                             <br/>
                             <h4>Duration: </h4>
+                            <br/>
+                            <h4>Sets: </h4>
+                            <br/>
+                            <h4>Reps: </h4>
                         </div>
                         <div className="col">
+                            <input></input>
+                            <br/>
+                            <input></input>
+                            <br/>
                             <input></input>
                             <br/>
                             <input></input>
@@ -39,4 +47,4 @@ class AddExercise extends Component {
     }
 }
 
-export default AddExercise;
+export default AddExerciseWP;

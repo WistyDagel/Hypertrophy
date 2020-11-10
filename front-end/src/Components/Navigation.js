@@ -11,7 +11,7 @@ class Navigation extends Component {
             userData: this.props.userData
         }
     }
-
+    
     render(){
         return (
             <div className="navbar">

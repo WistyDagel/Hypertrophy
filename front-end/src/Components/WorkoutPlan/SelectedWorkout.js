@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header';
 import Navigation from '../Navigation';
 
-class CurrentWorkout extends Component {
+class SelectedWorkout extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -11,6 +11,7 @@ class CurrentWorkout extends Component {
         }
 
         this.renderDay = this.renderDay.bind(this);
+        this.updateCurrentWorkout = this.updateCurrentWorkout.bind(this);
     }
 
     //TODO
@@ -43,6 +44,16 @@ class CurrentWorkout extends Component {
             }
             return dayArray;
         }
+    }
+
+    updateCurrentWorkout = () => {
+        fetch(`http://localhost:3001/users/${this.state.userData._id}`, {
+            method: "PUT",
+            headers: {'Content-Type': "application/json"},
+            body: JSON.stringify({
+                workoutPlanID: this.state.workoutData._id
+            })
+        })
     }
 
     render() {
@@ -100,6 +111,12 @@ class CurrentWorkout extends Component {
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day7}/>
                     </div>
+                    <button
+                        id="border"
+                        onClick={() =>this.updateCurrentWorkout()}
+                    >Select Workout Plan</button>
+                    <br/>
+                    <br/>
                     <br/>
                 </div>
                 <Navigation userData={this.state.userData}/>
@@ -109,4 +126,4 @@ class CurrentWorkout extends Component {
     }
 }
 
-export default CurrentWorkout;
+export default SelectedWorkout;

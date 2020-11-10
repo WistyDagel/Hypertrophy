@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
 class SignUp2 extends Component {
     constructor(props){
@@ -56,10 +57,7 @@ class SignUp2 extends Component {
     render() {
         return  (
             <>
-            <div className="header">
-                <h2>Sign Up</h2>
-                <hr/>
-            </div>
+            <Header/>
             <div className="content">
                 <h2>I am</h2>
                 <div className="button" onClick={this.handleMale}>

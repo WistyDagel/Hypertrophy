@@ -24,11 +24,13 @@ import AddExercise from './Components/AddExercise';
 import CurrentMeal from './Components/MealPlan/CurrentMeal';
 import SelectMeal from './Components/MealPlan/SelectMeal';
 import CreateMeal from './Components/MealPlan/CreateMeal';
+import SelectedMeal from './Components/MealPlan/SelectedMeal';
 
 // WORKOUT PLAN COMPONENTS
 import CurrentWorkout from './Components/WorkoutPlan/CurrentWorkout';
 import SelectWorkout from './Components/WorkoutPlan/SelectWorkout';
 import CreateWorkout from './Components/WorkoutPlan/CreateWorkout';
+import SelectedWorkout from './Components/WorkoutPlan/SelectedWorkout';
 
 class App extends Component {
     constructor(props){
@@ -62,11 +64,13 @@ class App extends Component {
             <Route path="/currentmeal" component={CurrentMeal}/>
             <Route path="/selectmeal" component={SelectMeal}/>
             <Route path="/createmeal" component={CreateMeal}/>
+            <Route path="/selectedmeal" component={SelectedMeal}/>
 
             {/* WORKOUT PLAN COMPONENTS */}
             <Route path="/currentworkout" component={CurrentWorkout}/>
             <Route path="/selectworkout" component={SelectWorkout}/>
             <Route path="/createworkout" component={CreateWorkout}/>
+            <Route path="/selectedworkout" component={SelectedWorkout}/>
 
           </Switch>
         </div>

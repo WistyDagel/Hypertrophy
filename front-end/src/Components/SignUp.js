@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
 class SignUp extends Component {
     constructor(props){
@@ -89,10 +90,7 @@ class SignUp extends Component {
     render() {
         return  (
             <>
-            <div className="header">
-                <h2>Sign Up</h2>
-                <hr/>
-            </div>
+            <Header/>
             <form onSubmit={this.handleSubmit}>
                 <div className="content">
                     <h2>What is your goal?</h2>

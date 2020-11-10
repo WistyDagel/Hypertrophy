@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Header from '../Header';
 import Navigation from '../Navigation';
 
 class SelectWorkout extends Component {
@@ -20,21 +22,29 @@ class SelectWorkout extends Component {
                 plans: data
             });
         });
-
-        console.log(this.state.plans[0]);
     }
 
     renderWorkoutPlans = () => {
         var planArray = []
         for (let i = 0; i < this.state.plans.length; i++) {     
             planArray.push(
-                <div key={i} className="planBox">
-                    <div className="imageBox">
-                        <h3>Image Placeholder</h3>
+                <Link
+                    key={i}
+                    className="planLink"
+                    to={{
+                        pathname: '/selectedworkout',
+                        data: this.state.userData,
+                        workoutData: this.state.plans[i]
+                    }}
+                >
+                    <div className="planBox">
+                        <div className="imageBox">
+                            <h3>Image Placeholder</h3>
+                        </div>
+                        <hr/>
+                        <h2>{this.state.plans[i].name}</h2>
                     </div>
-                    <hr/>
-                    <h2>{this.state.plans[i].name}</h2>
-                </div>
+                </Link>
             )
         }
         return planArray;
@@ -45,11 +55,7 @@ class SelectWorkout extends Component {
         return  (
             <>
             <div className="flexbox">
-                <div className="header">
-                    <h2>Hypertrophy</h2>
-                    <hr/>
-                    <br/>
-                </div>
+                <Header/>
                 <div className="col">
                     <h2>Select a Workout Plan</h2> 
                     <hr/> 

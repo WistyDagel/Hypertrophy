@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
 import Navigation from './Navigation';
 import NutritionalBank from './NutritionalBank';
@@ -18,6 +19,16 @@ class Home extends Component {
     }
 
     async componentDidMount(){
+        //Gets the most current iteration of the user
+        await fetch(`http://localhost:3001/users/${this.state.userData._id}`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({
+                userData: data[0]
+            });
+        });
+
+        //Gets the most current iteration of the user's workoutPlan
         await fetch(`http://localhost:3001/workoutplan/${this.state.userData.workoutPlanID}`)
         .then(res => res.json())
         .then(data => {
@@ -26,6 +37,7 @@ class Home extends Component {
             });
         });
 
+        //Gets the most current iteration of the user's mealPlan
         await fetch(`http://localhost:3001/mealplan/${this.state.userData.mealPlanID}`)
         .then(res => res.json())
         .then(data => {
@@ -39,10 +51,7 @@ class Home extends Component {
         return  (
             <>
             <div className="flexbox">
-                <div className="header">
-                    <h2>Hypertrophy</h2>
-                    <hr/>
-                </div>
+                <Header/>
                 <div className="content">
                     <NutritionalBank userData={this.state.userData}/>
                     <div className="mealPlan maxwidth">
