@@ -27,41 +27,40 @@ class WorkoutHome extends Component {
             <div className="flexbox">
                 <Header/>
                 <div className="content">
-                    <div className="button">
-                        <Link
-                            id="border"
-                            to={{
-                                pathname: '/currentworkout',
-                                data: this.state.userData,
-                                workoutData: this.state.workoutPlan
-                            }}
-                        >Current Workout Plan</Link>
-                        {/* <a id="border" href='/currentworkout'>Current Workout Plan</a> */}
+                    <Link
+                        className="planHomeLink"
+                        to={{
+                            pathname: '/currentworkout',
+                            data: this.state.userData,
+                            workoutData: this.state.workoutPlan
+                        }}
+                    >
+                    <div className="planHomeButton">
+                        <h3>Current Workout Plan</h3>
                     </div>
-                    <br/>
-                    <br/>
-                    <div className="button">
-                        <Link
-                            id="border"
-                            to={{
-                                pathname: '/selectworkout',
-                                data: this.state.userData
-                            }}
-                        >Select Workout Plan</Link>
-                        {/* <a id="border" href='/selectworkout'>Select Workout Plan</a> */}
+                    </Link>
+                    <Link
+                        className="planHomeLink"
+                        to={{
+                            pathname: '/selectworkout',
+                            data: this.state.userData
+                        }}
+                    >                    
+                    <div className="planHomeButton">
+                        <h3>Select Workout Plan</h3>
                     </div>
-                    <br/>
-                    <br/>
-                    <div className="button">
-                        <Link
-                            id="border"
-                            to={{
-                                pathname: '/createworkout',
-                                data: this.state.userData
-                            }}
-                        >Create Workout Plan</Link>
-                        {/* <a id="border" href='/createworkout'>Create Workout Plan</a> */}
+                    </Link>
+                    <Link
+                        className="planHomeLink"
+                        to={{
+                            pathname: '/createworkout',
+                            data: this.state.userData
+                        }}
+                    >
+                    <div className="planHomeButton">
+                        <h3>Create Workout Plan</h3>
                     </div>
+                    </Link>
                 </div>
                 <Navigation userData={this.state.userData}/>
             </div>

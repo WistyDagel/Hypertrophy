@@ -100,12 +100,14 @@ class SignUp3 extends Component {
         UserProfile.setID(this.state.user._id);
         return (
             <>
-            <div>
+            <div className="welcomeGreeting">
                 <h3>Welcome, {this.state.name}!</h3>
                 <br/>
                 <h4>Please proceed to the home screen</h4>
+                <br/>
                 <div className="button">
                     <Link
+                        id="border"
                         to={{
                             pathname: '/home',
                             data: this.state.user
@@ -120,11 +122,19 @@ class SignUp3 extends Component {
     userAlreadyExists = () => {
         return (
             <>
-            <div>
+            <div className="welcomeGreeting">
                 <p>A user with the associated email already exists!</p>
                 <br/>
                 <h4>Please, login below.</h4>
-                <a href="/login">Login</a>
+                <br/>
+                <div className="button">
+                    <Link
+                        id="border"
+                        to={{
+                            pathname: '/login',
+                        }}
+                    >Login</Link>
+                </div>
             </div>
             </>
         )
@@ -161,7 +171,7 @@ class SignUp3 extends Component {
                 <div className="content">
                     <div className="logo">
                         <img src={logo}></img>
-                        <h1>Hypertrophy</h1>
+                        <h1 className="logoText">Hypertrophy</h1>
                     </div>
                     <this.greeting/>
                 </div>

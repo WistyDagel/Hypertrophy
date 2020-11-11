@@ -27,41 +27,40 @@ class MealHome extends Component {
             <div className="flexbox">
                 <Header/>
                 <div className="content">
-                    <div className="button">
-                        <Link
-                            id="border"
-                            to={{
-                                pathname: '/currentmeal',
-                                data: this.state.userData,
-                                mealPlanData: this.state.mealPlan
-                            }}
-                        >Current Meal Plan</Link>
-                        {/* <a id="border" href='/currentmeal'>Current Meal Plan</a> */}
+                    <Link
+                        className="planHomeLink"
+                        to={{
+                            pathname: '/currentmeal',
+                            data: this.state.userData,
+                            mealPlanData: this.state.mealPlan
+                        }}
+                    >
+                    <div className="planHomeButton">
+                        <h3>Current Meal Plan</h3>
                     </div>
-                    <br/>
-                    <br/>
-                    <div className="button">
-                        <Link
-                            id="border"
-                            to={{
-                                pathname: '/selectmeal',
-                                data: this.state.userData
-                            }}
-                        >Select Meal Plan</Link>
-                        {/* <a id="border" href='/selectmeal'>Select Meal Plan</a> */}
+                    </Link>
+                    <Link
+                        className="planHomeLink"
+                        to={{
+                            pathname: '/selectmeal',
+                            data: this.state.userData
+                        }}
+                    >
+                    <div className="planHomeButton">
+                        <h3>Select Meal Plan</h3>
                     </div>
-                    <br/>
-                    <br/>
-                    <div className="button">
-                        <Link
-                            id="border"
-                            to={{
-                                pathname: '/createmeal',
-                                data: this.state.userData
-                            }}
-                        >Create Meal Plan</Link>
-                        {/* <a id="border" href='/createmeal'>Create Meal Plan</a> */}
+                    </Link>
+                    <Link
+                        className="planHomeLink"
+                        to={{
+                            pathname: '/createmeal',
+                            data: this.state.userData
+                        }}
+                    >
+                    <div className="planHomeButton">
+                        <h3>Create Meal Plan</h3>
                     </div>
+                   </Link>
                 </div>
                 <Navigation userData={this.state.userData}/>
             </div>

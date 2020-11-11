@@ -2,9 +2,18 @@ html{
   margin: 0;
 }
 
+/* COLORS */
+/* #29abe2 */
+/* #0071bc */
+
 /* DIRECT HTML STYLING */
 h1 {
   margin: 10px 0px;
+  color: #333;
+}
+
+.logoText {
+  color: #29abe2;
 }
 
 h2 {
@@ -14,6 +23,7 @@ h2 {
 
 h3 {
   margin: 10px 0px;
+  color: #29abe2;
 }
 
 h4 {
@@ -106,6 +116,16 @@ input {
   height: 40%;
 }
 
+/* LOGIN */
+.welcomeGreeting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
 /* HOME */
 
 .logoImage {
@@ -171,6 +191,24 @@ input {
 
 /* ADD EXERCISE */
 
+/* MEAL / WWORKOUT HOME */
+
+.planHomeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid black;
+  border-radius: 8px;
+  height: 20vh;
+  width: 40vh;
+  text-decoration: none;
+}
+
+.planHomeLink {
+  text-decoration: none;
+  color: black;
+}
+
 /* CREATE A MEAL PLAN */
 .entrybox {
   margin-bottom: 10px;
@@ -207,6 +245,7 @@ input {
 
 .planLink {
   text-decoration: none;
+  color: black;
 }
 
 /* CREATE WORKOUT PLAN */
@@ -218,6 +257,12 @@ input {
 .day7 {
   text-align: left;
   margin-bottom: 80px;
+}
+
+/* CURRENT MEAL / WORKOUT PLAN */
+.planTitle {
+  text-decoration: underline;
+  color: #29abe2;
 }
 
 /* NAVIGATION */

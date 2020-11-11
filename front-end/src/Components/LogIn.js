@@ -80,12 +80,14 @@ class LogIn extends Component {
     userGreeting = () => {
         return (
             <>
-            <div>
+            <div className="welcomeGreeting">
                 <h3>Welcome, {this.state.name}!</h3>
                 <br/>
                 <h4>Please proceed to the home screen</h4>
+                <br/>
                 <div className="button">
                     <Link
+                        id="border"
                         to={{
                             pathname: '/home',
                             data: this.state.user
@@ -100,11 +102,19 @@ class LogIn extends Component {
     userNotExist = () => {
         return (
             <>
-            <div>
+            <div className="welcomeGreeting">
                 <p>A user with that email doesn't exist</p>
                 <br/>
                 <h4>Please, sign up below.</h4>
-                <a href="/signup">Sign Up</a>
+                <br/>
+                <div className="button">
+                    <Link
+                        id="border"
+                        to={{
+                            pathname: '/signup',
+                        }}
+                    >Sign Up</Link>
+                </div>
             </div>
             </>
         )
@@ -141,7 +151,7 @@ class LogIn extends Component {
                 <div className="content">
                     <div className="logo">
                         <img src={logo}></img>
-                        <h1>Hypertrophy</h1>
+                        <h1 className="logoText">Hypertrophy</h1>
                     </div>
                     <this.greeting/>
                 </div>

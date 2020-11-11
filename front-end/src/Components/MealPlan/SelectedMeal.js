@@ -57,12 +57,7 @@ class SelectedMeal extends Component {
                     <h2>Current Meal Plan</h2>
                     <div className="row">
                         <div className="col">
-                            <h3>Name:</h3>
-                            <br/>
-                            <h3>Description: </h3>
-                        </div>
-                        <div className="col">
-                            <h4>{this.state.mealData.name}</h4>
+                            <h2 className="planTitle">{this.state.mealData.name}</h2>
                             <br/>
                             <h4>{this.state.mealData.description}</h4>
                         </div>

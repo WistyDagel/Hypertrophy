@@ -11,7 +11,7 @@ class Header extends Component {
             <div className="header">
                 <div className="headerRow">
                     <img className="logoImage" src={logo}></img>
-                    <h2>Hypertrophy</h2>
+                    <h2 className="logoText">Hypertrophy</h2>
                 </div>
                 <hr/>
             </div>
