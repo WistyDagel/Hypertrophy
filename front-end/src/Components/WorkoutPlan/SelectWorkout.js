@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Navigation from '../Navigation';
+import workoutplan1 from '../Photos/workoutplan1.jpg';
+
 
 class SelectWorkout extends Component {
     constructor(props){
@@ -39,7 +41,7 @@ class SelectWorkout extends Component {
                 >
                     <div className="planBox">
                         <div className="imageBox">
-                            <h3>Image Placeholder</h3>
+                            <img className="planImage" src={workoutplan1}></img>
                         </div>
                         <hr/>
                         <h2>{this.state.plans[i].name}</h2>

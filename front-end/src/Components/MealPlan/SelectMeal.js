@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Navigation from '../Navigation';
+import mealplan1 from '../Photos/mealplan1.jpg';
 
 class SelectMeal extends Component {
     constructor(props){
@@ -18,7 +19,6 @@ class SelectMeal extends Component {
         await fetch('http://localhost:3001/mealplan')
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             this.setState({
                 plans: data
             });
@@ -40,7 +40,7 @@ class SelectMeal extends Component {
                 >
                     <div className="planBox">
                         <div className="imageBox">
-                            <h3>Image Placeholder</h3>
+                            <img className="planImage" src={mealplan1}></img>
                         </div>
                         <hr/>
                         <h2>{this.state.plans[i].name}</h2>

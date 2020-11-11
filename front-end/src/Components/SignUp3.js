@@ -10,6 +10,9 @@ import UserProfile from './UserProfile';
 //TODO 
 //Figure out why there is a potential memory leak with the set state on CalcNutrition
 
+//STRETCH GOAL
+//Assign the current meal plan and workout plan based on their respective activity and goals
+
 class SignUp3 extends Component {
     constructor(props){
         super(props);
@@ -71,7 +74,9 @@ class SignUp3 extends Component {
                     proteins: nutrientList[0],
                     carbs: nutrientList[1],
                     fats: nutrientList[2],
-                    sugars: nutrientList[3]
+                    sugars: nutrientList[3],
+                    workoutPlanID: '',
+                    mealPlanID: ''
                 })
             })
             .then(res => res.json())
