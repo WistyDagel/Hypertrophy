@@ -38,7 +38,7 @@ class AddExerciseWP extends Component {
 
     appendExercise = () => {
         var exerciseArray = [];
-        
+
         exerciseArray.push(
             this.state
         );
