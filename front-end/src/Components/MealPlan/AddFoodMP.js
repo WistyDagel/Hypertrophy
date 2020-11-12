@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header';
-import Navigation from './Navigation';
+import Navigation from '../Navigation';
 
 class AddFoodMP extends Component {
     constructor(){
