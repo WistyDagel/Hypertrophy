@@ -11,10 +11,7 @@ class AddExerciseWP extends Component {
         this.state = {
             workoutData: this.props.location.data,
             currentDay: this.props.location.currentDay,
-            description: "",
-            duration: "",
-            sets: "",
-            reps: ""
+
         }
 
         console.log(this.state.currentDay);
