@@ -113,17 +113,6 @@ class CreateWorkout extends Component {
 
         this.setStorage = this.setStorage.bind(this);
 
-        //UPDATES ALL THE INPUT BOX FIELDS - EXERCISE PAGE
-        // this.updateDescription = this.updateDescription.bind(this);
-        // this.updateDuration = this.updateDuration.bind(this);
-        // this.updateSets = this.updateSets.bind(this);
-        // this.updateReps = this.updateReps.bind(this);
-
-        //FUNCTIONS FOR PAGE RENDERING AND EDITING THE CURRENT WORKOUT PLAN
-        // this.appendExercise = this.appendExercise.bind(this);
-        // this.renderCreateWorkout = this.renderCreateWorkout.bind(this);
-        // this.renderAddExercise = this.renderAddExercise.bind(this);
-        // this.renderCreateWorkout = this.renderCreateWorkout.bind(this);
         this.createWorkoutPlan = this.createWorkoutPlan.bind(this);
     }
 
@@ -137,77 +126,6 @@ class CreateWorkout extends Component {
             })
         }
     }
-
-    // FUNCTIONS FOR ADDING AN EXERCISE
-    // async updateDescription(evt) {
-    //     await this.setState({description: evt.target.value});
-    // }
-
-    // async updateDuration(evt) {
-    //     await this.setState({duration: evt.target.value});
-    // }
-
-    // async updateSets(evt) {
-    //     await this.setState({sets: evt.target.value});
-    // }
-
-    // async updateReps(evt) {
-    //     await this.setState({reps: evt.target.value});
-    // }
-
-    // appendExercise() {
-    //     var exercise = {   
-    //         description: this.state.description,
-    //         duration: this.state.duration,
-    //         sets: this.state.sets,
-    //         reps: this.state.reps
-    //     }
-    //     switch (this.state.currentDay) {
-    //         case "day1":
-    //             console.log(this.state.workoutData.day1.exercises.push({   
-    //                 description: this.state.description,
-    //                 duration: this.state.duration,
-    //                 sets: this.state.sets,
-    //                 reps: this.state.reps
-    //             }));
-    //             // this.state.workoutData.day1.exercises.push(exercise);
-    //             break;
-    //         case "day2":
-    //             this.state.workoutData.day2.exercises.push(exercise);
-    //             break;
-    //         case "day3":
-    //             this.state.workoutData.day3.exercises.push(exercise);
-    //             break;        
-    //         case "day4":
-    //             this.state.workoutData.day4.exercises.push(exercise);
-    //             break;   
-    //         case "day5":
-    //             this.state.workoutData.day5.exercises.push(exercise);
-    //             break; 
-    //         case "day6":
-    //             this.state.workoutData.day6.exercises.push(exercise);
-    //             break;
-    //         case "day7":
-    //             this.state.workoutData.day7.exercises.push(exercise);
-    //             break;
-    //         default:
-    //             break;
-    //     }
-
-    //     workoutPlan.setWorkoutPlan(this.state.workoutData);
-    //     console.log(workoutPlan.getWorkoutPlan());
-
-    //     this.setState({
-    //         renderExercise: false
-    //     });
-    // }
-
-    // renderAddExercise(currentDay){
-    //     this.setState({
-    //         renderExercise: true,
-    //         currentDay: currentDay
-    //     })
-    // }
 
     // FUNCTIONS FOR CREATE WORKOUT PAGE
     updateWorkoutName(evt) {
@@ -270,46 +188,6 @@ class CreateWorkout extends Component {
             }
         });
     }
-    
-    // FUNCTION RENDERING CURRENT PAGE
-    // renderCreateWorkout = () => {
-    //     // if(this.state.renderExercise){
-    //     //     return(
-    //     //         <div className="col">
-    //     //             <div className="row">
-    //     //                 <div className="col">
-    //     //                     <h4>Description:</h4>
-    //     //                     <br/>
-    //     //                     <h4>Duration: </h4>
-    //     //                     <br/>
-    //     //                     <h4>Sets: </h4>
-    //     //                     <br/>
-    //     //                     <h4>Reps: </h4>
-    //     //                 </div>
-    //     //                 <div className="col">
-    //     //                     <input onChange={this.updateDescription}></input>
-    //     //                     <br/>
-    //     //                     <input onChange={this.updateDuration}></input>
-    //     //                     <br/>
-    //     //                     <input onChange={this.updateSets}></input>
-    //     //                     <br/>
-    //     //                     <input onChange={this.updateReps}></input>
-    //     //                 </div>
-    //     //             </div>    
-    //     //             <br/>
-    //     //             <br/>
-    //     //             <br/>
-    //     //             <div id="border" onClick={this.appendExercise} className="button">
-    //     //                 <h3>Add Exercise</h3>
-    //     //             </div>
-    //     //         </div>
-    //     //     )
-    //     // } else {    
-    //     //     return (
-                
-    //     //     )
-    //     // }
-    // }
 
     setStorage = () => {
         console.log(this.state.workoutData);
@@ -357,22 +235,26 @@ class CreateWorkout extends Component {
                                     data: "day1"
                                 }}
                             >Add Exercise</Link>
-                            {/* <h4>Add Exercise</h4> */}
                         </div>
                     </div>
-                    {/* <div className="dayBox maxwidth">
+                    <div className="dayBox maxwidth">
                         <h2>Day 2</h2>
                         <div className="row alignLeft">
                             <div className="col">
                                 <h4>Name:</h4>
                             </div>
                             <div className="col">
-                                <input onChange={this.updateNameDay2}></input>
+                                <input onChange={this.updateNameDay2} defaultValue={this.state.workoutData.day2.name}></input>
                             </div>
                         </div> 
                         <hr/>
-                        <div id="border" onClick={() => this.renderAddExercise("day2")} className="button">
-                            <h4>Add Exercise</h4>
+                        <div id="border" onClick={() => this.setStorage()} className="button">
+                            <Link
+                                to={{
+                                    pathname: "/addexercisewp",
+                                    data: "day2"
+                                }}
+                            >Add Exercise</Link>
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
@@ -382,12 +264,17 @@ class CreateWorkout extends Component {
                                 <h4>Name:</h4>
                             </div>
                             <div className="col">
-                                <input onChange={this.updateNameDay3}></input>
+                                <input onChange={this.updateNameDay3} defaultValue={this.state.workoutData.day3.name}></input>
                             </div>
                         </div> 
                         <hr/>
-                        <div id="border" onClick={() => this.renderAddExercise("day3")} className="button">
-                            <h4>Add Exercise</h4>
+                        <div id="border" onClick={() => this.setStorage()} className="button">
+                            <Link
+                                to={{
+                                    pathname: "/addexercisewp",
+                                    data: "day3"
+                                }}
+                            >Add Exercise</Link>
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
@@ -397,12 +284,17 @@ class CreateWorkout extends Component {
                                 <h4>Name:</h4>
                             </div>
                             <div className="col">
-                                <input onChange={this.updateNameDay4}></input>
+                                <input onChange={this.updateNameDay4} defaultValue={this.state.workoutData.day4.name}></input>
                             </div>
                         </div> 
                         <hr/>
-                        <div id="border" onClick={() => this.renderAddExercise("day4")} className="button">
-                            <h4>Add Exercise</h4>
+                        <div id="border" onClick={() => this.setStorage()} className="button">
+                            <Link
+                                to={{
+                                    pathname: "/addexercisewp",
+                                    data: "day4"
+                                }}
+                            >Add Exercise</Link>
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
@@ -412,12 +304,17 @@ class CreateWorkout extends Component {
                                 <h4>Name:</h4>
                             </div>
                             <div className="col">
-                                <input onChange={this.updateNameDay5}></input>
+                                <input onChange={this.updateNameDay5} defaultValue={this.state.workoutData.day5.name}></input>
                             </div>
                         </div> 
                         <hr/>
-                        <div id="border" onClick={() => this.renderAddExercise("day5")} className="button">
-                            <h4>Add Exercise</h4>
+                        <div id="border" onClick={() => this.setStorage()} className="button">
+                            <Link
+                                to={{
+                                    pathname: "/addexercisewp",
+                                    data: "day5"
+                                }}
+                            >Add Exercise</Link>
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
@@ -427,12 +324,17 @@ class CreateWorkout extends Component {
                                 <h4>Name:</h4>
                             </div>
                             <div className="col">
-                                <input onChange={this.updateNameDay6}></input>
+                                <input onChange={this.updateNameDay6} defaultValue={this.state.workoutData.day6.name}></input>
                             </div>
                         </div> 
                         <hr/>
-                        <div id="border" onClick={() => this.renderAddExercise("day6")} className="button">
-                            <h4>Add Exercise</h4>
+                        <div id="border" onClick={() => this.setStorage()} className="button">
+                            <Link
+                                to={{
+                                    pathname: "/addexercisewp",
+                                    data: "day6"
+                                }}
+                            >Add Exercise</Link>
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
@@ -442,14 +344,19 @@ class CreateWorkout extends Component {
                                 <h4>Name:</h4>
                             </div>
                             <div className="col">
-                                <input onChange={this.updateNameDay7}></input>
+                                <input onChange={this.updateNameDay7} defaultValue={this.state.workoutData.day7.name}></input>
                             </div>
                         </div> 
                         <hr/>
-                        <div id="border" onClick={() => this.renderAddExercise("day7")} className="button">
-                            <h4>Add Exercise</h4>
+                        <div id="border" onClick={() => this.setStorage()} className="button">
+                            <Link
+                                to={{
+                                    pathname: "/addexercisewp",
+                                    data: "day7"
+                                }}
+                            >Add Exercise</Link>
                         </div>
-                    </div> */}
+                    </div>
                     <br/>
                     <button
                         id="border"
