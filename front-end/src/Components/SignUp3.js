@@ -13,6 +13,9 @@ import UserProfile from './UserProfile';
 //STRETCH GOAL
 //Assign the current meal plan and workout plan based on their respective activity and goals
 
+//IDEA
+//STORE USER ID AS SESSION STORAGE VARIABLE
+
 class SignUp3 extends Component {
     constructor(props){
         super(props);
