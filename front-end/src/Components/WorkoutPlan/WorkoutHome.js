@@ -7,18 +7,9 @@ class WorkoutHome extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userData: this.props.location.data,
+            userData: '',
+            workoutPlan: ''
         }
-    }
-
-    async componentDidMount(){
-        await fetch(`http://localhost:3001/workoutplan/${this.state.userData.workoutPlanID}`)
-        .then(res => res.json())
-        .then(data => {
-            this.setState({
-                workoutPlan: data[0]
-            });
-        });
     }
     
     render() {
@@ -30,9 +21,7 @@ class WorkoutHome extends Component {
                     <Link
                         className="planHomeLink"
                         to={{
-                            pathname: '/currentworkout',
-                            data: this.state.userData,
-                            workoutData: this.state.workoutPlan
+                            pathname: '/currentworkout'
                         }}
                     >
                     <div className="planHomeButton">
@@ -42,8 +31,7 @@ class WorkoutHome extends Component {
                     <Link
                         className="planHomeLink"
                         to={{
-                            pathname: '/selectworkout',
-                            data: this.state.userData
+                            pathname: '/selectworkout'
                         }}
                     >                    
                     <div className="planHomeButton">
@@ -53,8 +41,7 @@ class WorkoutHome extends Component {
                     <Link
                         className="planHomeLink"
                         to={{
-                            pathname: '/createworkout',
-                            data: this.state.userData
+                            pathname: '/createworkout'
                         }}
                     >
                     <div className="planHomeButton">
@@ -62,7 +49,7 @@ class WorkoutHome extends Component {
                     </div>
                     </Link>
                 </div>
-                <Navigation userData={this.state.userData}/>
+                <Navigation/>
             </div>
             </>
         );

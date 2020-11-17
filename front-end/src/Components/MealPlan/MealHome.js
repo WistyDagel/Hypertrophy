@@ -6,19 +6,6 @@ import Navigation from '../Navigation';
 class MealHome extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            userData: this.props.location.data,
-        }
-    }
-
-    async componentDidMount(){
-        await fetch(`http://localhost:3001/mealplan/${this.state.userData.mealPlanID}`)
-        .then(res => res.json())
-        .then(data => {
-            this.setState({
-                mealPlan: data[0]
-            });
-        });
     }
     
     render() {
@@ -31,8 +18,6 @@ class MealHome extends Component {
                         className="planHomeLink"
                         to={{
                             pathname: '/currentmeal',
-                            data: this.state.userData,
-                            mealPlanData: this.state.mealPlan
                         }}
                     >
                     <div className="planHomeButton">
@@ -42,8 +27,7 @@ class MealHome extends Component {
                     <Link
                         className="planHomeLink"
                         to={{
-                            pathname: '/selectmeal',
-                            data: this.state.userData
+                            pathname: '/selectmeal'
                         }}
                     >
                     <div className="planHomeButton">
@@ -53,8 +37,7 @@ class MealHome extends Component {
                     <Link
                         className="planHomeLink"
                         to={{
-                            pathname: '/createmeal',
-                            data: this.state.userData
+                            pathname: '/createmeal'
                         }}
                     >
                     <div className="planHomeButton">
@@ -62,7 +45,7 @@ class MealHome extends Component {
                     </div>
                    </Link>
                 </div>
-                <Navigation userData={this.state.userData}/>
+                <Navigation/>
             </div>
             </>
         );

@@ -6,6 +6,9 @@ class Greeting extends Component {
         super(props);
     }
 
+    componentDidMount(){
+        window.sessionStorage.clear();
+    }
     render() {
         return  (
             <>

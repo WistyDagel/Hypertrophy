@@ -51,42 +51,42 @@ class CreateWorkout extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userData: this.props.location.data,
+            userData: '',
             workoutData: {
                 name: '',
                 description: '',
                 day1: {
-                    "name": "",
+                    "name": "Sunday",
                     "exercises": [
                     ]
                 },
                 day2: {
-                    "name": "",
+                    "name": "Monday",
                     "exercises": [
                     ]
                 },
                 day3: {
-                    "name": "",
+                    "name": "Tuesday",
                     "exercises": [
                     ]
                 },
                 day4: {
-                    "name": "",
+                    "name": "Wednesday",
                     "exercises": [
                     ]
                 },
                 day5: {
-                    "name": "",
+                    "name": "Thursday",
                     "exercises": [
                     ]
                 },
                 day6: {
-                    "name": "",
+                    "name": "Friday",
                     "exercises": [
                     ]
                 },
                 day7: {
-                    "name": "",
+                    "name": "Saturday",
                     "exercises": [
                     ]
                 },
@@ -115,8 +115,18 @@ class CreateWorkout extends Component {
 
         this.createWorkoutPlan = this.createWorkoutPlan.bind(this);
     }
+    
+    
+    async componentDidMount(){
+        //Gets the most current iteration of the user
+        await fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({
+                userData: data[0]
+            })
+        });
 
-    componentDidMount(){
         var workoutSession = JSON.parse(window.sessionStorage.getItem("workoutPlan"));
 
         if(workoutSession != undefined){
@@ -126,6 +136,17 @@ class CreateWorkout extends Component {
             })
         }
     }
+
+    // componentDidMount(){
+    //     var workoutSession = JSON.parse(window.sessionStorage.getItem("workoutPlan"));
+
+    //     if(workoutSession != undefined){
+    //         console.log(workoutSession);
+    //         this.setState({
+    //             workoutData: workoutSession
+    //         })
+    //     }
+    // }
 
     // FUNCTIONS FOR CREATE WORKOUT PAGE
     updateWorkoutName(evt) {
@@ -166,6 +187,22 @@ class CreateWorkout extends Component {
 
     //Creates the Workout Plan
     createWorkoutPlan = () => {
+        // if(this.state.workoutData.day1.name == ""){
+        //     this.state.workoutData.day1.name == "Sunday"
+        // } else if (this.state.workoutData.day2.name == ""){
+        //     this.state.workoutData.day2.name == "Monday"
+        // } else if (this.state.workoutData.day3.name == ""){
+        //     this.state.workoutData.day3.name == "Tuesday"            
+        // } else if (this.state.workoutData.day4.name == ""){
+        //     this.state.workoutData.day4.name == "Wednesday"            
+        // } else if (this.state.workoutData.day5.name == ""){
+        //     this.state.workoutData.day5.name == "Thursday"            
+        // } else if (this.state.workoutData.day6.name == ""){
+        //     this.state.workoutData.day6.name == "Friday"          
+        // } else if (this.state.workoutData.day7.name == ""){
+        //     this.state.workoutData.day7.name == "Saturday"            
+        // }
+        
         fetch("http://localhost:3001/workoutplan", {
             method: "POST",
             headers: {'Content-Type': "application/json"},
@@ -187,6 +224,8 @@ class CreateWorkout extends Component {
                 console.log(data);
             }
         });
+
+        window.sessionStorage.removeItem("workoutPlan");
     }
 
     setStorage = () => {
@@ -218,7 +257,7 @@ class CreateWorkout extends Component {
                     </div>
                     <br/>
                     <div className="dayBox maxwidth">
-                        <h2>Day 1</h2>
+                        <h2>Sunday</h2>
                         <div className="row alignLeft">
                             <div className="col">
                                 <h4>Name:</h4>
@@ -238,7 +277,7 @@ class CreateWorkout extends Component {
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
-                        <h2>Day 2</h2>
+                        <h2>Monday</h2>
                         <div className="row alignLeft">
                             <div className="col">
                                 <h4>Name:</h4>
@@ -258,7 +297,7 @@ class CreateWorkout extends Component {
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
-                        <h2>Day 3</h2>
+                        <h2>Tuesday</h2>
                         <div className="row alignLeft">
                             <div className="col">
                                 <h4>Name:</h4>
@@ -278,7 +317,7 @@ class CreateWorkout extends Component {
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
-                        <h2>Day 4</h2>
+                        <h2>Wednesday</h2>
                         <div className="row alignLeft">
                             <div className="col">
                                 <h4>Name:</h4>
@@ -298,7 +337,7 @@ class CreateWorkout extends Component {
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
-                        <h2>Day 5</h2>
+                        <h2>Thursday</h2>
                         <div className="row alignLeft">
                             <div className="col">
                                 <h4>Name:</h4>
@@ -318,7 +357,7 @@ class CreateWorkout extends Component {
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
-                        <h2>Day 6</h2>
+                        <h2>Friday</h2>
                         <div className="row alignLeft">
                             <div className="col">
                                 <h4>Name:</h4>
@@ -338,7 +377,7 @@ class CreateWorkout extends Component {
                         </div>
                     </div>
                     <div className="dayBox maxwidth">
-                        <h2>Day 7</h2>
+                        <h2>Saturday</h2>
                         <div className="row alignLeft">
                             <div className="col">
                                 <h4>Name:</h4>
@@ -366,7 +405,7 @@ class CreateWorkout extends Component {
                     <br/>
                     <br/>
                 </div>                
-                <Navigation userData={this.state.userData}/>
+                <Navigation/>
             </div>
             </>
         );

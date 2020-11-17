@@ -8,8 +8,19 @@ class NutritionalBank extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userData: this.props.userData,
+            userData: ''
         }
+    }
+
+    async componentDidMount(){
+        //Gets the most current iteration of the user
+        await fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({
+                userData: data[0]
+            })
+        });
     }
 
     render() {

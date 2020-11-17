@@ -7,8 +7,19 @@ class FitnessLog extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userData: this.props.location.data,
+            userData: '',
         }
+    }
+
+    async componentDidMount(){
+        //Gets the most current iteration of the user
+        await fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({
+                userData: data[0]
+            })
+        });
     }
 
     render() {
@@ -17,7 +28,7 @@ class FitnessLog extends Component {
             <div className="flexbox">
                 <Header/>
                 <div className="content">
-                    <NutritionalBank userData={this.state.userData}/>
+                    <NutritionalBank/>
                     <br/>
                     <div className="breakfast maxwidth">
                         <h2>Breakfast</h2>
@@ -45,7 +56,7 @@ class FitnessLog extends Component {
                         <a href="/addexercise">Add Exercise</a>
                     </div>
                 </div>
-                <Navigation userData={this.state.userData}/>
+                <Navigation/>
             </div>
             </>
         );

@@ -6,10 +6,6 @@ import { Link, NavLink } from 'react-router-dom';
 class Navigation extends Component {
     constructor(props){
         super(props);
-
-        this.state = {
-            userData: this.props.userData
-        }
     }
     
     render(){
@@ -19,7 +15,6 @@ class Navigation extends Component {
                     <Link
                         to={{
                             pathname: '/home',
-                            data: this.state.userData
                         }}
                     >Home</Link>
                     {/* <a href="/home">Home</a> */}
@@ -28,7 +23,6 @@ class Navigation extends Component {
                     <Link
                         to={{
                             pathname: '/fitnesslog',
-                            data: this.state.userData
                         }}
                     >Log</Link>
                     {/* <a href="/fitnesslog">Log</a> */}
@@ -37,7 +31,6 @@ class Navigation extends Component {
                     <Link
                         to={{
                             pathname: '/mealhome',
-                            data: this.state.userData
                         }}
                     >Diet</Link>
                     {/* <a href="/mealhome">Diet</a> */}
@@ -46,7 +39,6 @@ class Navigation extends Component {
                     <Link
                         to={{
                             pathname: '/workouthome',
-                            data: this.state.userData
                         }}
                     >Exercise</Link>
                     {/* <a href="/workouthome">Exercise</a> */}

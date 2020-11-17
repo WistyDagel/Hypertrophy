@@ -6,12 +6,23 @@ class SelectedWorkout extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userData: this.props.location.data,
-            workoutData: this.props.location.workoutData
+            userData: '',
+            workoutPlan: this.props.location.workoutPlan
         }
 
         this.renderDay = this.renderDay.bind(this);
         this.updateCurrentWorkout = this.updateCurrentWorkout.bind(this);
+    }
+
+    async componentDidMount(){
+        //Gets the most current iteration of the user
+        await fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({
+                userData: data[0]
+            })
+        });
     }
 
     //TODO
@@ -29,15 +40,22 @@ class SelectedWorkout extends Component {
         } else {
             for (let i = 0; i < day.exercises.length; i++) {
                 dayArray.push(
-                    <div key={i} className="row">
-                        <div className="col">
-                            <h4>{day.exercises[i].description}</h4>
+                    <div key={i}>
+                        <div className="">
+                            <div className="workoutDescription">
+                                <h4 className="planTitle">{day.exercises[i].description}</h4>
+                            </div>
                         </div>
-                        <div className="col">
-                            <h4>Sets: {day.exercises[i].sets}</h4>
-                        </div>
-                        <div className="col">
-                            <h4>Reps: {day.exercises[i].reps}</h4>
+                        <div className="planRow">
+                            <div className="workoutDuration">
+                                <h4>Duration: {day.exercises[i].duration}</h4>
+                            </div>
+                            <div className="workoutSets">
+                                <h4>Sets: {day.exercises[i].sets}</h4>
+                            </div>
+                            <div className="workoutSets">
+                                <h4>Reps: {day.exercises[i].reps}</h4>
+                            </div>
                         </div>
                     </div>
                 );
@@ -51,7 +69,7 @@ class SelectedWorkout extends Component {
             method: "PUT",
             headers: {'Content-Type': "application/json"},
             body: JSON.stringify({
-                workoutPlanID: this.state.workoutData._id
+                workoutPlanID: this.state.workoutPlan._id
             })
         })
     }
@@ -65,46 +83,46 @@ class SelectedWorkout extends Component {
                     <h2>Current Workout Plan</h2>
                     <div className="row">
                         <div className="col">
-                            <h2 className="planTitle">{this.state.workoutData.name}</h2>
+                            <h2 className="planTitle">{this.state.workoutPlan.name}</h2>
                             <br/>
-                            <h4>{this.state.workoutData.description}</h4>
+                            <h4 className="planDescription">{this.state.workoutPlan.description}</h4>
                         </div>
                     </div>    
                     <br/>
                     <div className="dayBox maxwidth">
-                        <h2>{this.state.workoutData.day1.name}</h2>
+                        <h2>{this.state.workoutPlan.day1.name}</h2>
                         <hr/>
-                        <this.renderDay currentDay={this.state.workoutData.day1}/>
+                        <this.renderDay currentDay={this.state.workoutPlan.day1}/>
                     </div>
-                    <div className="day2 maxwidth">
-                        <h2>{this.state.workoutData.day2.name}</h2>
+                    <div className="dayBox maxwidth">
+                        <h2>{this.state.workoutPlan.day2.name}</h2>
                         <hr/>
-                        <this.renderDay currentDay={this.state.workoutData.day2}/>
+                        <this.renderDay currentDay={this.state.workoutPlan.day2}/>
                     </div>
-                    <div className="day3 maxwidth">
-                        <h2>{this.state.workoutData.day3.name}</h2>
+                    <div className="dayBox maxwidth">
+                        <h2>{this.state.workoutPlan.day3.name}</h2>
                         <hr/>
-                        <this.renderDay currentDay={this.state.workoutData.day3}/>
+                        <this.renderDay currentDay={this.state.workoutPlan.day3}/>
                     </div>
-                    <div className="day4 maxwidth">
-                        <h2>{this.state.workoutData.day4.name}</h2>
+                    <div className="dayBox maxwidth">
+                        <h2>{this.state.workoutPlan.day4.name}</h2>
                         <hr/>
-                        <this.renderDay currentDay={this.state.workoutData.day4}/>
+                        <this.renderDay currentDay={this.state.workoutPlan.day4}/>
                     </div>
-                    <div className="day5 maxwidth">
-                        <h2>{this.state.workoutData.day5.name}</h2>
+                    <div className="dayBox maxwidth">
+                        <h2>{this.state.workoutPlan.day5.name}</h2>
                         <hr/>
-                        <this.renderDay currentDay={this.state.workoutData.day5}/>
+                        <this.renderDay currentDay={this.state.workoutPlan.day5}/>
                     </div>
-                    <div className="day6 maxwidth">
-                        <h2>Day 6</h2>
+                    <div className="dayBox maxwidth">
+                        {/* <h2>{this.state.workoutPlan.day6.name}</h2> */}
                         <hr/>
-                        <this.renderDay currentDay={this.state.workoutData.day6}/>
+                        <this.renderDay currentDay={this.state.workoutPlan.day6}/>
                     </div>
-                    <div className="day7 maxwidth">
-                        <h2>Day 7</h2>
+                    <div className="dayBox maxwidth">
+                        {/* <h2>{this.state.workoutPlan.day7.name}</h2> */}
                         <hr/>
-                        <this.renderDay currentDay={this.state.workoutData.day7}/>
+                        <this.renderDay currentDay={this.state.workoutPlan.day7}/>
                     </div>
                     <button
                         id="border"
@@ -114,7 +132,7 @@ class SelectedWorkout extends Component {
                     <br/>
                     <br/>
                 </div>
-                <Navigation userData={this.state.userData}/>
+                <Navigation/>
             </div>
             </>
         );

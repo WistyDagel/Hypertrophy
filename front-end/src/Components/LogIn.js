@@ -58,9 +58,9 @@ class LogIn extends Component {
             if(this.state.users[i].googleObj.googleId == response.profileObj.googleId){
                 this.setState({
                     userNotExist: false,
-                    userSignedIn: true,
-                    user: this.state.users[i]
+                    userSignedIn: true
                 });
+                window.sessionStorage.setItem("userId", this.state.users[i]._id);
             } else {
                 this.setState({
                     userNotExist: true
@@ -89,8 +89,7 @@ class LogIn extends Component {
                     <Link
                         id="border"
                         to={{
-                            pathname: '/home',
-                            data: this.state.user
+                            pathname: '/home'
                         }}
                     >Home</Link>
                 </div>

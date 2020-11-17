@@ -89,6 +89,8 @@ class SignUp3 extends Component {
                         userCreated: true,
                         user: data
                     })
+
+                    window.sessionStorage.setItem("userId", data._id);
                 }
             })
         }
@@ -112,8 +114,7 @@ class SignUp3 extends Component {
                     <Link
                         id="border"
                         to={{
-                            pathname: '/home',
-                            data: this.state.user
+                            pathname: '/home'
                         }}
                     >Home</Link>
                 </div>

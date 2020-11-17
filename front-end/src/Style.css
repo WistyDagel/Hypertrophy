@@ -270,6 +270,19 @@ input {
   color: #29abe2;
 }
 
+.workoutInfo {
+  text-align: left;
+  max-width: 10vh;
+  min-width: 10vh;
+  height: auto;
+}
+
+.planRow {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 12px;
+}
+
 /* NAVIGATION */
 .navbar {
   display: flex;

@@ -13,10 +13,10 @@ class AddExerciseWP extends Component {
         this.state = {
             workoutData: JSON.parse(window.sessionStorage.getItem("workoutPlan")),
             currentDay: this.props.location.data,
-            description: "",
-            duration: "",
-            sets: "",
-            reps: ""
+            description: "N/A",
+            duration: "N/A",
+            sets: "N/A",
+            reps: "N/A"
         }
 
         this.updateDescription = this.updateDescription.bind(this);

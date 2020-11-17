@@ -12,20 +12,20 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userData: this.props.location.data,
+            userData: '',
             workoutPlan: '',
             mealPlan: '',
         }
     }
 
-    async componentDidMount(){
+    async componentDidMount() {
         //Gets the most current iteration of the user
-        await fetch(`http://localhost:3001/users/${this.state.userData._id}`)
+        await fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`)
         .then(res => res.json())
         .then(data => {
             this.setState({
                 userData: data[0]
-            });
+            })
         });
 
         //Gets the most current iteration of the user's workoutPlan
@@ -37,6 +37,8 @@ class Home extends Component {
             });
         });
 
+        window.sessionStorage.setItem("workoutPlan", JSON.stringify(this.state.workoutPlan));
+
         //Gets the most current iteration of the user's mealPlan
         await fetch(`http://localhost:3001/mealplan/${this.state.userData.mealPlanID}`)
         .then(res => res.json())
@@ -45,7 +47,19 @@ class Home extends Component {
                 mealPlan: data[0]
             });
         });
+
+        window.sessionStorage.setItem("mealPlan", JSON.stringify(this.state.mealPlan));
     }
+
+    // componentDidMount(){
+    //     fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         this.setState({
+    //             userData: data[0]
+    //         })
+    //     });
+    // }
 
     render() {
         return  (
@@ -53,7 +67,7 @@ class Home extends Component {
             <div className="flexbox">
                 <Header/>
                 <div className="content">
-                    <NutritionalBank userData={this.state.userData}/>
+                    <NutritionalBank/>
                     <div className="mealPlan maxwidth">
                         <hr/>
                         <h1>Current Meal Plan</h1>
@@ -63,9 +77,7 @@ class Home extends Component {
                                 <Link
                                     id="border"
                                     to={{
-                                        pathname: '/currentmeal',
-                                        data: this.state.userData,
-                                        mealPlanData: this.state.mealPlan
+                                        pathname: '/currentmeal'
                                     }}
                                 >View</Link>
                                 {/* <a id="border" href='/currentmeal'>View</a> */}
@@ -74,8 +86,7 @@ class Home extends Component {
                                 <Link
                                     id="border"
                                     to={{
-                                        pathname: '/selectmeal',
-                                        data: this.state.userData
+                                        pathname: '/selectmeal'
                                     }}
                                 >Change Plan</Link>
                                 {/* <a id="border" href='/selectmeal'>Change Plan</a> */}
@@ -91,9 +102,7 @@ class Home extends Component {
                                 <Link
                                     id="border"
                                     to={{
-                                        pathname: '/currentworkout',
-                                        data: this.state.userData,
-                                        workoutData: this.state.workoutPlan
+                                        pathname: '/currentworkout'
                                     }}
                                 >View</Link>
                                 {/* <a id="border" href='/currentworkout'>View</a> */}
@@ -102,8 +111,7 @@ class Home extends Component {
                                 <Link
                                     id="border"
                                     to={{
-                                        pathname: '/selectworkout',
-                                        data: this.state.userData
+                                        pathname: '/selectworkout'
                                     }}
                                 >Change Plan</Link>
                                 {/* <a id="border" href='/selectworkout'>Change Plan</a> */}
@@ -111,7 +119,7 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <Navigation userData={this.state.userData}/>
+                <Navigation/>
             </div>
             </>
         );

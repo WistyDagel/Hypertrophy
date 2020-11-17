@@ -9,14 +9,24 @@ class SelectWorkout extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userData: this.props.location.data,
+            userData: '',
             plans: ''
         }
 
         this.renderWorkoutPlans = this.renderWorkoutPlans.bind(this);
     }
 
+    
     async componentDidMount(){
+        //Gets the most current iteration of the user
+        await fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`)
+        .then(res => res.json())
+        .then(data => {
+            this.setState({
+                userData: data[0]
+            })
+        });
+
         await fetch('http://localhost:3001/workoutplan')
         .then(res => res.json())
         .then(data => {
@@ -35,8 +45,7 @@ class SelectWorkout extends Component {
                     className="planLink"
                     to={{
                         pathname: '/selectedworkout',
-                        data: this.state.userData,
-                        workoutData: this.state.plans[i]
+                        workoutPlan: this.state.plans[i]
                     }}
                 >
                     <div className="planBox">
@@ -46,6 +55,7 @@ class SelectWorkout extends Component {
                         <hr/>
                         <h2>{this.state.plans[i].name}</h2>
                     </div>
+                    <br/>
                 </Link>
             )
         }
@@ -68,7 +78,7 @@ class SelectWorkout extends Component {
                 </div>
                 <br/>
                 <br/>
-                <Navigation userData={this.state.userData}/>
+                <Navigation/>
             </div>
             </>
         );
