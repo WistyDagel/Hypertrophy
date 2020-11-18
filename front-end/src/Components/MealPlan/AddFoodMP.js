@@ -125,13 +125,18 @@ class AddFoodMP extends Component {
                     <h2 className="planTitle">Results</h2>
                     <br/>
                     {foodResultArray}
+                    <br/>
+                    <div className="row">
+                        <a target="_blank" href="http://www.nutritionix.com/api">
+                            <img src="https://d2eawub7utcl6.cloudfront.net/images/poweredby_nutritionix_api.png"></img>
+                        </a>
+                    </div>
+                    <br/>
                 </div>
             )
         } else if(!this.state.result) {
             return(
-                <div className="results">
-                    <h2 className="planTitle">No Results Found</h2>
-                </div>
+                <></>
             )
         }
         
@@ -151,6 +156,7 @@ class AddFoodMP extends Component {
                     <hr/>
                 </div>
                 <this.renderResults/>
+
                 <Navigation/>
             </div>
             </>
