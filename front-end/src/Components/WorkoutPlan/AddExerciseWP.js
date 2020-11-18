@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header';
 import Navigation from '../Navigation';
-import workoutPlan from './WorkoutPlan';
 
 //IDEA
 //USE LOCAL STORAGE TO PULL CURRENT WORKOUT PLAN BEING CREATED
@@ -11,7 +10,7 @@ class AddExerciseWP extends Component {
         super(props);
 
         this.state = {
-            workoutData: JSON.parse(window.sessionStorage.getItem("workoutPlan")),
+            workoutData: JSON.parse(window.sessionStorage.getItem("workoutSession")),
             currentDay: this.props.location.data,
             description: "N/A",
             duration: "N/A",
@@ -28,7 +27,7 @@ class AddExerciseWP extends Component {
     }
 
     async componentDidMount(){
-        await console.log(JSON.parse(window.sessionStorage.getItem("workoutPlan")));
+        await console.log(JSON.parse(window.sessionStorage.getItem("workoutSession")));
     }
 
     async updateDescription(evt) {
@@ -56,13 +55,7 @@ class AddExerciseWP extends Component {
         }
         switch (this.state.currentDay) {
             case "day1":
-                this.state.workoutData.day1.exercises.push({   
-                    description: this.state.description,
-                    duration: this.state.duration,
-                    sets: this.state.sets,
-                    reps: this.state.reps
-                });
-                // this.state.workoutData.day1.exercises.push(exercise);
+                this.state.workoutData.day1.exercises.push(exercise);
                 break;
             case "day2":
                 this.state.workoutData.day2.exercises.push(exercise);
@@ -85,7 +78,7 @@ class AddExerciseWP extends Component {
             default:
                 break;
         }
-        await window.sessionStorage.setItem("workoutPlan", JSON.stringify(this.state.workoutData));
+        await window.sessionStorage.setItem("workoutSession", JSON.stringify(this.state.workoutData));
     }
 
     setStorage = () => {

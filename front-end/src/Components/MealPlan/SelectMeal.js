@@ -53,6 +53,7 @@ class SelectMeal extends Component {
                         <hr/>
                         <h2>{this.state.plans[i].name}</h2>
                     </div>
+                    <br/>
                 </Link>
             )
         }

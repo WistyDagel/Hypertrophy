@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Navigation from '../Navigation';
-import workoutPlan from './WorkoutPlan';
 
 //IDEA
 //USE SESSION STORAGE FOR CREATING ZWORKOUT PLAN
@@ -114,6 +113,8 @@ class CreateWorkout extends Component {
         this.setStorage = this.setStorage.bind(this);
 
         this.createWorkoutPlan = this.createWorkoutPlan.bind(this);
+
+        this.renderDay = this.renderDay.bind(this);
     }
     
     
@@ -127,7 +128,7 @@ class CreateWorkout extends Component {
             })
         });
 
-        var workoutSession = JSON.parse(window.sessionStorage.getItem("workoutPlan"));
+        var workoutSession = JSON.parse(window.sessionStorage.getItem("workoutSession"));
 
         if(workoutSession != undefined){
             console.log(workoutSession);
@@ -202,7 +203,7 @@ class CreateWorkout extends Component {
         // } else if (this.state.workoutData.day7.name == ""){
         //     this.state.workoutData.day7.name == "Saturday"            
         // }
-        
+
         fetch("http://localhost:3001/workoutplan", {
             method: "POST",
             headers: {'Content-Type': "application/json"},
@@ -225,12 +226,47 @@ class CreateWorkout extends Component {
             }
         });
 
-        window.sessionStorage.removeItem("workoutPlan");
+        window.sessionStorage.removeItem("workoutSession");
     }
 
     setStorage = () => {
         console.log(this.state.workoutData);
-        window.sessionStorage.setItem("workoutPlan", JSON.stringify(this.state.workoutData));
+        window.sessionStorage.setItem("workoutSession", JSON.stringify(this.state.workoutData));
+    }
+
+    renderDay = (data) => {
+        var day = data.currentDay;
+        var dayArray = [];
+
+        if(day == undefined){
+            return (
+                <></>
+            );
+        } else {
+            for (let i = 0; i < day.exercises.length; i++) {
+                dayArray.push(
+                    <div key={i}>
+                        <div className="">
+                            <div className="workoutDescription">
+                                <h4 className="planTitle">{day.exercises[i].description}</h4>
+                            </div>
+                        </div>
+                        <div className="planRow">
+                            <div className="workoutDuration">
+                                <h4>Duration: {day.exercises[i].duration}</h4>
+                            </div>
+                            <div className="workoutSets">
+                                <h4>Sets: {day.exercises[i].sets}</h4>
+                            </div>
+                            <div className="workoutSets">
+                                <h4>Reps: {day.exercises[i].reps}</h4>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+            return dayArray;
+        }
     }
 
     render() {
@@ -267,6 +303,7 @@ class CreateWorkout extends Component {
                             </div>
                         </div> 
                         <hr/>
+                        <this.renderDay currentDay={this.state.workoutData.day1}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
@@ -287,6 +324,7 @@ class CreateWorkout extends Component {
                             </div>
                         </div> 
                         <hr/>
+                        <this.renderDay currentDay={this.state.workoutData.day2}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
@@ -307,6 +345,7 @@ class CreateWorkout extends Component {
                             </div>
                         </div> 
                         <hr/>
+                        <this.renderDay currentDay={this.state.workoutData.day3}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
@@ -327,6 +366,7 @@ class CreateWorkout extends Component {
                             </div>
                         </div> 
                         <hr/>
+                        <this.renderDay currentDay={this.state.workoutData.day4}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
@@ -347,6 +387,7 @@ class CreateWorkout extends Component {
                             </div>
                         </div> 
                         <hr/>
+                        <this.renderDay currentDay={this.state.workoutData.day5}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
@@ -367,6 +408,7 @@ class CreateWorkout extends Component {
                             </div>
                         </div> 
                         <hr/>
+                        <this.renderDay currentDay={this.state.workoutData.day6}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
@@ -387,6 +429,7 @@ class CreateWorkout extends Component {
                             </div>
                         </div> 
                         <hr/>
+                        <this.renderDay currentDay={this.state.workoutData.day7}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{

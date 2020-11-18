@@ -75,6 +75,7 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .headerRow {
@@ -184,6 +185,7 @@ input {
 /* ADD FOOD */
 .results {
   width: 100%;
+  text-align: center;
 }
 
 .results h2 {
@@ -194,6 +196,20 @@ input {
   margin: 20px 0px;
 }
 
+.mealName {
+  text-align: left;
+}
+
+.results {
+  padding-bottom: 10vh;
+}
+
+.nutritionFacts {
+  display: flex;
+  flex-direction: column;
+  max-width: 10vh;
+  min-width: 10vh;
+}
 /* ADD EXERCISE */
 
 /* MEAL / WWORKOUT HOME */
