@@ -96,6 +96,7 @@ class FitnessLog extends Component {
 
         this.setStorage = this.setStorage.bind(this);
         this.renderCurrentMeal = this.renderCurrentMeal.bind(this);
+        this.renderCurrentExercises = this.renderCurrentExercises.bind(this);
     }
 
     async componentDidMount(){
@@ -116,7 +117,6 @@ class FitnessLog extends Component {
                 fitnessLog: fitnessLogSession
             })
         }
-        
     }
 
     renderCurrentMeal = data => {
@@ -136,6 +136,74 @@ class FitnessLog extends Component {
                 )
             }
             return mealArray;
+        }
+    }
+
+    renderCurrentExercises = (data) => {
+        // var day = data.currentDay;
+        // var dayArray = [];
+
+        // if(day == undefined){
+        //     return (
+        //         <></>
+        //     );
+        // } else {
+        //     for (let i = 0; i < day.exercises.length; i++) {
+        //         dayArray.push(
+        //             <div key={i}>
+        //                 <div className="">
+        //                     <div className="workoutDescription">
+        //                         <h4 className="planTitle">{day.exercises[i].description}</h4>
+        //                     </div>
+        //                 </div>
+        //                 <div className="planRow">
+        //                     <div className="workoutDuration">
+        //                         <h4>Duration: {day.exercises[i].duration}</h4>
+        //                     </div>
+        //                     <div className="workoutSets">
+        //                         <h4>Sets: {day.exercises[i].sets}</h4>
+        //                     </div>
+        //                     <div className="workoutSets">
+        //                         <h4>Reps: {day.exercises[i].reps}</h4>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         );
+        //     }
+        //     return dayArray;
+        // }
+
+        var exercises = data.currentExercises;
+        var exerciseArray = [];
+
+        if(exercises == undefined){
+            return (
+                <></>
+            );
+        } else {
+            for (let i = 0; i < exercises.length; i++) {
+                exerciseArray.push(
+                    <div key={i}>
+                        <div className="">
+                            <div className="workoutDescription">
+                                <h4 className="planTitle">{exercises[i].description}</h4>
+                            </div>
+                        </div>
+                        <div className="planRow">
+                            <div className="workoutDuration">
+                                <h4>Duration: {exercises[i].duration}</h4>
+                            </div>
+                            <div className="workoutSets">
+                                <h4>Sets: {exercises[i].sets}</h4>
+                            </div>
+                            <div className="workoutSets">
+                                <h4>Reps: {exercises[i].reps}</h4>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+            return exerciseArray;
         }
     }
 
@@ -214,6 +282,7 @@ class FitnessLog extends Component {
                     <div className="exercises maxwidth">
                         <h2>Exercises</h2>
                         <hr/>
+                        <this.renderCurrentExercises currentExercises={this.state.fitnessLog.exercises}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{

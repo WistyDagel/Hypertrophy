@@ -7,7 +7,7 @@ class AddExercise extends Component {
         super();
 
         this.state = {
-            fitnessLog: '',
+            fitnessLog: JSON.parse(window.sessionStorage.getItem("fitnessLog")),
             description: "N/A",
             duration: "N/A",
             sets: "N/A",
@@ -18,6 +18,10 @@ class AddExercise extends Component {
         this.updateDuration = this.updateDuration.bind(this);
         this.updateSets = this.updateSets.bind(this);
         this.updateReps = this.updateReps.bind(this);
+    }
+
+    async componentDidMount(){
+        await console.log(JSON.parse(window.sessionStorage.getItem("fitnessLog")));
     }
 
     async updateDescription(evt) {
@@ -35,6 +39,20 @@ class AddExercise extends Component {
     async updateReps(evt) {
         await this.setState({reps: evt.target.value});
     }
+
+    async appendExercise() {
+        var exercise = {   
+            description: this.state.description,
+            duration: this.state.duration,
+            sets: this.state.sets,
+            reps: this.state.reps
+        }
+
+        this.state.fitnessLog.exercises.push(exercise);
+
+        await window.sessionStorage.setItem("fitnessLog", JSON.stringify(this.state.fitnessLog));
+    }
+
 
     render() {
         return  (
@@ -66,7 +84,7 @@ class AddExercise extends Component {
                     <br/>
                     <br/>
                     <div id="border" onClick={() => this.appendExercise()} className="button">
-                        <a href='/createworkout'>Add Exercise</a>
+                        <a href='/fitnesslog'>Add Exercise</a>
                     </div>
                 </div>
                 <Navigation/>
