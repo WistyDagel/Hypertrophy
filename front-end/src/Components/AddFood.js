@@ -10,7 +10,7 @@ class AddFood extends Component {
             foodResults: '',
             result: false,
             currentMeal: this.props.location.data,
-            // mealPlan: JSON.parse(window.sessionStorage.getItem("mealSession"))
+            fitnessLog: JSON.parse(window.sessionStorage.getItem("fitnessLog"))
         }
 
         this.updateFoodInput = this.updateFoodInput.bind(this);
@@ -25,7 +25,7 @@ class AddFood extends Component {
     //https://api.nutritionix.com/v1_1/search/mashed+potatoes+gravy?results=0:20&fields=item_name,item_description,image,nf_calories,nf_protein,nf_total_carbohydrate,nf_total_fat,nf_sugars&appId=a26ca4ac&appKey=020c2cb566c8fabe83c4819e737fae18    
     
     async componentDidMount(){
-        // await console.log(JSON.parse(window.sessionStorage.getItem("mealSession")));
+        await console.log(JSON.parse(window.sessionStorage.getItem("fitnessLog")));
     }
 
     updateFoodInput = (evt) => {
@@ -52,33 +52,33 @@ class AddFood extends Component {
     async appendFood(value) {
         console.log(value);
 
-        // var food = {
-        //     description: value.item_name,
-        //     calories: value.nf_calories,
-        //     protein: value.nf_protein,
-        //     carbs: value.nf_total_carbohydrate,
-        //     fats: value.nf_total_fat,
-        //     sugars: value.nf_sugars
-        // }
+        var food = {
+            description: value.item_name,
+            calories: value.nf_calories,
+            protein: value.nf_protein,
+            carbs: value.nf_total_carbohydrate,
+            fats: value.nf_total_fat,
+            sugars: value.nf_sugars
+        }
 
-        // switch (this.state.currentMeal) {
-        //     case "breakfast":
-        //         this.state.mealPlan.breakfast.meal.push(food);
-        //         break;
-        //     case "lunch":
-        //         this.state.mealPlan.lunch.meal.push(food);
-        //         break;
-        //     case "dinner":
-        //         this.state.mealPlan.dinner.meal.push(food);
-        //         break;        
-        //     case "snacks":
-        //         this.state.mealPlan.snacks.meal.push(food);
-        //         break;   
-        //     default:
-        //         break;
-        // }
+        switch (this.state.currentMeal) {
+            case "breakfast":
+                this.state.fitnessLog.breakfast.meal.push(food);
+                break;
+            case "lunch":
+                this.state.fitnessLog.lunch.meal.push(food);
+                break;
+            case "dinner":
+                this.state.fitnessLog.dinner.meal.push(food);
+                break;        
+            case "snacks":
+                this.state.fitnessLog.snacks.meal.push(food);
+                break;   
+            default:
+                break;
+        }
 
-        // await window.sessionStorage.setItem("mealSession", JSON.stringify(this.state.mealPlan));
+        await window.sessionStorage.setItem("fitnessLog", JSON.stringify(this.state.fitnessLog));
     }
 
     renderResults = () => {

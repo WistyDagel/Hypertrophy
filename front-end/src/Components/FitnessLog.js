@@ -95,6 +95,7 @@ class FitnessLog extends Component {
         }
 
         this.setStorage = this.setStorage.bind(this);
+        this.renderCurrentMeal = this.renderCurrentMeal.bind(this);
     }
 
     async componentDidMount(){
@@ -106,10 +107,39 @@ class FitnessLog extends Component {
                 userData: data[0]
             })
         });
+
+        var fitnessLogSession = JSON.parse(window.sessionStorage.getItem("fitnessLog"));
+
+        if(fitnessLogSession != undefined){
+            console.log(fitnessLogSession);
+            this.setState({
+                fitnessLog: fitnessLogSession
+            })
+        }
+        
+    }
+
+    renderCurrentMeal = data => {
+        var currentMeal = data.currentMeal
+        var mealArray = [];
+
+        if(currentMeal == undefined){
+            return (
+                <></>
+            )
+        } else {
+            for (let i = 0; i < currentMeal.meal.length; i++) {
+                mealArray.push(
+                    <div key={i}>
+                        <h3>{currentMeal.meal[i].description}</h3>
+                    </div>
+                )
+            }
+            return mealArray;
+        }
     }
 
     setStorage = () => {
-        console.log(this.state.fitnessLog);
         window.sessionStorage.setItem("fitnessLog", JSON.stringify(this.state.fitnessLog));
     }
 
@@ -132,10 +162,12 @@ class FitnessLog extends Component {
                     <div className="breakfast maxwidth">
                         <h2>Breakfast</h2>
                         <hr/>
-                        <div id="border" className="button">
+                        <this.renderCurrentMeal currentMeal={this.state.fitnessLog.breakfast}/>
+                        <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
                                     pathname: "/addfood",
+                                    data: "breakfast"
                                 }}
                             >Add Food</Link>
                         </div>
@@ -143,10 +175,12 @@ class FitnessLog extends Component {
                     <div className="lunch maxwidth">
                         <h2>Lunch</h2>
                         <hr/>
-                        <div id="border" className="button">
+                        <this.renderCurrentMeal currentMeal={this.state.fitnessLog.lunch}/>
+                        <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
                                     pathname: "/addfood",
+                                    data: "lunch"
                                 }}
                             >Add Food</Link>
                         </div>                        
@@ -154,10 +188,12 @@ class FitnessLog extends Component {
                     <div className="dinner maxwidth">
                         <h2>Dinner</h2>
                         <hr/>
-                        <div id="border" className="button">
+                        <this.renderCurrentMeal currentMeal={this.state.fitnessLog.dinner}/>
+                        <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
                                     pathname: "/addfood",
+                                    data: "dinner"
                                 }}
                             >Add Food</Link>
                         </div>  
@@ -165,10 +201,12 @@ class FitnessLog extends Component {
                     <div className="snacks maxwidth">
                         <h2>Snacks</h2>
                         <hr/>
-                        <div id="border" className="button">
+                        <this.renderCurrentMeal currentMeal={this.state.fitnessLog.snacks}/>
+                        <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
                                     pathname: "/addfood",
+                                    data: "snacks"
                                 }}
                             >Add Food</Link>
                         </div>  
@@ -176,7 +214,7 @@ class FitnessLog extends Component {
                     <div className="exercises maxwidth">
                         <h2>Exercises</h2>
                         <hr/>
-                        <div id="border" className="button">
+                        <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
                                 to={{
                                     pathname: "/addexercise",
