@@ -156,7 +156,6 @@ class AddFoodMP extends Component {
                     <hr/>
                 </div>
                 <this.renderResults/>
-
                 <Navigation/>
             </div>
             </>

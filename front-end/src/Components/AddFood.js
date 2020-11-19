@@ -3,19 +3,20 @@ import Header from './Header';
 import Navigation from './Navigation';
 
 class AddFood extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             foodInput: '',
             foodResults: '',
-            result: false
+            result: false,
+            currentMeal: this.props.location.data,
+            // mealPlan: JSON.parse(window.sessionStorage.getItem("mealSession"))
         }
 
         this.updateFoodInput = this.updateFoodInput.bind(this);
         this.searchFood = this.searchFood.bind(this);
         this.renderResults = this.renderResults.bind(this);
-
-
+        this.appendFood = this.appendFood.bind(this);
     }
 
     //API EXAMPLE FOR FOOD DB SEARCH AND NUTRITION FACTS
@@ -23,6 +24,10 @@ class AddFood extends Component {
 
     //https://api.nutritionix.com/v1_1/search/mashed+potatoes+gravy?results=0:20&fields=item_name,item_description,image,nf_calories,nf_protein,nf_total_carbohydrate,nf_total_fat,nf_sugars&appId=a26ca4ac&appKey=020c2cb566c8fabe83c4819e737fae18    
     
+    async componentDidMount(){
+        // await console.log(JSON.parse(window.sessionStorage.getItem("mealSession")));
+    }
+
     updateFoodInput = (evt) => {
         this.state.foodInput = evt.target.value;
     }
@@ -42,43 +47,96 @@ class AddFood extends Component {
                 }
             })
         }
+    }
 
+    async appendFood(value) {
+        console.log(value);
+
+        // var food = {
+        //     description: value.item_name,
+        //     calories: value.nf_calories,
+        //     protein: value.nf_protein,
+        //     carbs: value.nf_total_carbohydrate,
+        //     fats: value.nf_total_fat,
+        //     sugars: value.nf_sugars
+        // }
+
+        // switch (this.state.currentMeal) {
+        //     case "breakfast":
+        //         this.state.mealPlan.breakfast.meal.push(food);
+        //         break;
+        //     case "lunch":
+        //         this.state.mealPlan.lunch.meal.push(food);
+        //         break;
+        //     case "dinner":
+        //         this.state.mealPlan.dinner.meal.push(food);
+        //         break;        
+        //     case "snacks":
+        //         this.state.mealPlan.snacks.meal.push(food);
+        //         break;   
+        //     default:
+        //         break;
+        // }
+
+        // await window.sessionStorage.setItem("mealSession", JSON.stringify(this.state.mealPlan));
     }
 
     renderResults = () => {
-        if(this.state.result){
+        if(this.state.result && this.state.foodResults.length != 0){
             var foodResultArray = [];
             for (let i = 0; i < this.state.foodResults.length; i++) {
                 foodResultArray.push(
                     <div key={i}>
-                        <div className="workoutDescription">
-                            <h3>{this.state.foodResults[i].fields.item_name}</h3>
+                        <div className="mealName">
+                            <h3>{i}) {this.state.foodResults[i].fields.item_name}</h3>
                         </div>
-                        <div className="planRow">
-                            <h4>Calories: {this.state.foodResults[i].fields.nf_calories}</h4>
-                            <h4>Proteins: {this.state.foodResults[i].fields.nf_protein}</h4>
-                            <h4>Carbs: {this.state.foodResults[i].fields.nf_total_carbohydrate}</h4>
-                            <h4>Fats: {this.state.foodResults[i].fields.nf_total_fat}</h4>
-                            <h4>Sugars: {this.state.foodResults[i].fields.nf_sugars}</h4>
+                        <div className="row">
+                            <div className="col">
+                                <h4>Calories:</h4>
+                                <h4>{this.state.foodResults[i].fields.nf_calories}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Proteins:</h4>
+                                <h4>{this.state.foodResults[i].fields.nf_protein}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Carbs:</h4>
+                                <h4>{this.state.foodResults[i].fields.nf_total_carbohydrate}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Fats:</h4>
+                                <h4>{this.state.foodResults[i].fields.nf_total_fat}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Sugars:</h4>
+                                <h4>{this.state.foodResults[i].fields.nf_sugars}</h4>
+                            </div>
                         </div>
-
+                        <br/>
+                        <div id="border" onClick={() => this.appendFood(this.state.foodResults[i].fields)} className="button">
+                            <a href='/fitnesslog'>Add Food</a>
+                        </div>
+                        <br/>
                     </div>
                 )
             }
             return(
                 <div className="results">
-                    <hr/>
                     <h2 className="planTitle">Results</h2>
                     <br/>
                     {foodResultArray}
+                    <br/>
+                    <div className="row">
+                        <a target="_blank" href="http://www.nutritionix.com/api">
+                            <img src="https://d2eawub7utcl6.cloudfront.net/images/poweredby_nutritionix_api.png"></img>
+                        </a>
+                    </div>
+                    <br/>
                 </div>
             )
-        } else {
+        } else if(!this.state.result) {
             return(
-                <div className="results">
-                    <hr/>
-                    <h2 className="planTitle">No Results Found</h2>
-                </div>
+                <></>
             )
         }
         
@@ -94,6 +152,8 @@ class AddFood extends Component {
                         <input onChange={this.updateFoodInput}></input>
                         <button onClick={()=> this.searchFood()}>Search</button>
                     </div>    
+                    <br/>
+                    <hr/>
                 </div>
                 <this.renderResults/>
                 <Navigation/>
