@@ -95,6 +95,7 @@ class CreateMeal extends Component {
         this.updateMealDescription = this.updateMealDescription.bind(this);
 
         this.renderCurrentMeal = this.renderCurrentMeal.bind(this);
+        // this.renderMealNutrition = this.renderMealNutrition.bind(this);
         this.mealSummation = this.mealSummation.bind(this);
     }
 
@@ -117,10 +118,10 @@ class CreateMeal extends Component {
                 mealPlan: mealSession
             })
 
-            await this.mealSummation(this.state.mealPlan.breakfast);
-            await this.mealSummation(this.state.mealPlan.lunch);
-            await this.mealSummation(this.state.mealPlan.dinner);
-            await this.mealSummation(this.state.mealPlan.snacks);
+            this.mealSummation(this.state.mealPlan.breakfast);
+            this.mealSummation(this.state.mealPlan.lunch);
+            this.mealSummation(this.state.mealPlan.dinner);
+            this.mealSummation(this.state.mealPlan.snacks);
         }
     }
 
@@ -147,6 +148,38 @@ class CreateMeal extends Component {
         window.sessionStorage.setItem("mealSession", JSON.stringify(this.state.mealPlan));
     }
 
+    //NEEDS WORK
+    // renderMealNutrition = data => {
+    //     var categoryTitle = data.category;
+
+    //     return (
+    //         <div>
+    //             <div className="row">
+    //                 <h2>{categoryTitle}</h2>
+    //                 <h4>{this.state.mealPlan.breakfast.calories}</h4>
+    //             </div>
+    //             <div className="row">
+    //                 <div className="col">
+    //                     <h4>Proteins</h4>
+    //                     <h4>{this.state.mealPlan.breakfast.proteins}</h4>
+    //                 </div>
+    //                 <div className="col">
+    //                     <h4>Carbs</h4>
+    //                     <h4>{this.state.mealPlan.breakfast.carbs}</h4>
+    //                 </div>
+    //                 <div className="col">
+    //                     <h4>Fats</h4>
+    //                     <h4>{this.state.mealPlan.breakfast.fats}</h4>
+    //                 </div>
+    //                 <div className="col">
+    //                     <h4>Sugars</h4>
+    //                     <h4>{this.state.mealPlan.breakfast.sugars}</h4>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     )
+    // }
+
     renderCurrentMeal = data => {
         var currentMeal = data.currentMeal
         var mealArray = [];
@@ -159,7 +192,28 @@ class CreateMeal extends Component {
             for (let i = 0; i < currentMeal.meal.length; i++) {
                 mealArray.push(
                     <div key={i}>
-                        <h3>{currentMeal.meal[i].description}</h3>
+                        <div className="row">
+                            <h3>{currentMeal.meal[i].description}</h3>
+                            <h4>{currentMeal.meal[i].calories}</h4>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                <h4>Proteins:</h4>
+                                <h4>{currentMeal.meal[i].protein}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Carbs:</h4>
+                                <h4>{currentMeal.meal[i].carbs}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Fats:</h4>
+                                <h4>{currentMeal.meal[i].fats}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Sugars:</h4>
+                                <h4>{currentMeal.meal[i].sugars}</h4>
+                            </div>
+                        </div>
                     </div>
                 )
             }
@@ -190,8 +244,8 @@ class CreateMeal extends Component {
         window.sessionStorage.removeItem("mealSession");
     }
 
-    render() {
-        return  (
+    render() {   
+       return  (
             <>
             <div className="flexbox">
                 <Header/>
@@ -213,28 +267,9 @@ class CreateMeal extends Component {
                         </div>    
                     </div>
                     <div className="breakfast maxwidth">
-                        <div className="row">
-                            <h2>Breakfast</h2>
-                            <h4>{this.state.mealPlan.breakfast.calories}</h4>
-                        </div>
-                        <div className="row">
-                            <div className="col">
-                                <h4>Proteins</h4>
-                                <h4>{this.state.mealPlan.breakfast.proteins}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Carbs</h4>
-                                <h4>{this.state.mealPlan.breakfast.carbs}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Fats</h4>
-                                <h4>{this.state.mealPlan.breakfast.fats}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Sugars</h4>
-                                <h4>{this.state.mealPlan.breakfast.sugars}</h4>
-                            </div>
-                        </div>
+                        <hr/>
+                        <h2>Breakfast</h2>
+                        {/* <this.renderMealNutrition category={"Breakfast"}/> */}
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.breakfast}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
@@ -247,28 +282,8 @@ class CreateMeal extends Component {
                         </div>
                     </div>
                     <div className="lunch maxwidth">
-                        <div className="row">
-                            <h2>Lunch</h2>
-                            <h4>{this.state.mealPlan.lunch.calories}</h4>
-                        </div>
-                        <div className="row">
-                            <div className="col">
-                                <h4>Proteins</h4>
-                                <h4>{this.state.mealPlan.lunch.proteins}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Carbs</h4>
-                                <h4>{this.state.mealPlan.lunch.carbs}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Fats</h4>
-                                <h4>{this.state.mealPlan.lunch.fats}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Sugars</h4>
-                                <h4>{this.state.mealPlan.lunch.sugars}</h4>
-                            </div>
-                        </div>
+                        <hr/>
+                        <h2>Lunch</h2>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.lunch}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
@@ -281,29 +296,8 @@ class CreateMeal extends Component {
                         </div>
                     </div>
                     <div className="dinner maxwidth">
-                        <div className="row">
-                            <h2>Dinner</h2>
-                            <h4>{this.state.mealPlan.dinner.calories}</h4>
-                        </div>
                         <hr/>
-                        <div className="row">
-                            <div className="col">
-                                <h4>Proteins</h4>
-                                <h4>{this.state.mealPlan.dinner.proteins}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Carbs</h4>
-                                <h4>{this.state.mealPlan.dinner.carbs}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Fats</h4>
-                                <h4>{this.state.mealPlan.dinner.fats}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Sugars</h4>
-                                <h4>{this.state.mealPlan.dinner.sugars}</h4>
-                            </div>
-                        </div>
+                        <h2>Dinner</h2>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.dinner}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
@@ -316,29 +310,8 @@ class CreateMeal extends Component {
                         </div>
                     </div>
                     <div className="snacks maxwidth">
-                        <div className="row">
-                            <h2>Snacks</h2>
-                            <h4>{this.state.mealPlan.snacks.calories}</h4>
-                        </div>
                         <hr/>
-                        <div className="row">
-                            <div className="col">
-                                <h4>Proteins</h4>
-                                <h4>{this.state.mealPlan.snacks.proteins}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Carbs</h4>
-                                <h4>{this.state.mealPlan.snacks.carbs}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Fats</h4>
-                                <h4>{this.state.mealPlan.snacks.fats}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Sugars</h4>
-                                <h4>{this.state.mealPlan.snacks.sugars}</h4>
-                            </div>
-                        </div>
+                        <h2>Snacks</h2>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.snacks}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">

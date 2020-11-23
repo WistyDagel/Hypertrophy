@@ -54,11 +54,11 @@ class AddFood extends Component {
 
         var food = {
             description: value.item_name,
-            calories: value.nf_calories,
-            protein: value.nf_protein,
-            carbs: value.nf_total_carbohydrate,
-            fats: value.nf_total_fat,
-            sugars: value.nf_sugars
+            calories: Math.trunc(value.nf_calories),
+            protein: Math.trunc(value.nf_protein),
+            carbs: Math.trunc(value.nf_total_carbohydrate),
+            fats: Math.trunc(value.nf_total_fat),
+            sugars: Math.trunc(value.nf_sugars)
         }
 
         switch (this.state.currentMeal) {
@@ -93,23 +93,23 @@ class AddFood extends Component {
                         <div className="row">
                             <div className="col">
                                 <h4>Calories:</h4>
-                                <h4>{this.state.foodResults[i].fields.nf_calories}</h4>
+                                <h4>{Math.trunc(this.state.foodResults[i].fields.nf_calories)}</h4>
                             </div>
                             <div className="col">
                                 <h4>Proteins:</h4>
-                                <h4>{this.state.foodResults[i].fields.nf_protein}</h4>
+                                <h4>{Math.trunc(this.state.foodResults[i].fields.nf_protein)}</h4>
                             </div>
                             <div className="col">
                                 <h4>Carbs:</h4>
-                                <h4>{this.state.foodResults[i].fields.nf_total_carbohydrate}</h4>
+                                <h4>{Math.trunc(this.state.foodResults[i].fields.nf_total_carbohydrate)}</h4>
                             </div>
                             <div className="col">
                                 <h4>Fats:</h4>
-                                <h4>{this.state.foodResults[i].fields.nf_total_fat}</h4>
+                                <h4>{Math.trunc(this.state.foodResults[i].fields.nf_total_fat)}</h4>
                             </div>
                             <div className="col">
                                 <h4>Sugars:</h4>
-                                <h4>{this.state.foodResults[i].fields.nf_sugars}</h4>
+                                <h4>{Math.trunc(this.state.foodResults[i].fields.nf_sugars)}</h4>
                             </div>
                         </div>
                         <br/>

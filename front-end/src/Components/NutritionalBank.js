@@ -50,6 +50,7 @@ class NutritionalBank extends Component {
                         <h4 id="sugars">{this.state.userData.sugars}g</h4>
                     </div>
                 </div>
+                <hr/>
             </div>
             </>
         );

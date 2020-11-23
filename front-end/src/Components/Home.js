@@ -69,7 +69,6 @@ class Home extends Component {
                 <div className="content">
                     <NutritionalBank/>
                     <div className="mealPlan maxwidth">
-                        <hr/>
                         <h1>Current Meal Plan</h1>
                         <h3 className='currentPlan'>{this.state.mealPlan.name}</h3>
                         <div className="row">
@@ -94,7 +93,6 @@ class Home extends Component {
                         </div>
                     </div>
                     <div className="workoutPlan maxwidth">
-                        <hr/>
                         <h1>Current Workout Plan</h1>
                         <h3 className='currentPlan'>{this.state.workoutPlan.name}</h3>
                         <div className="row">

@@ -80,6 +80,7 @@ input {
 }
 
 .headerRow {
+  margin-left: 50%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -183,6 +184,14 @@ input {
   margin-bottom: 80px;
 }
 
+.divider {
+  height: 30px;
+  width: 5px;
+  margin: 0px 10px;
+  border: none;
+  background-color: #333;
+}
+
 /* ADD FOOD */
 .results {
   width: 100%;
@@ -213,7 +222,7 @@ input {
 }
 /* ADD EXERCISE */
 
-/* MEAL / WWORKOUT HOME */
+/* MEAL / WORKOUT HOME */
 
 .planHomeButton {
   display: flex;
