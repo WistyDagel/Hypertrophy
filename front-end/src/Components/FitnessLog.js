@@ -338,6 +338,10 @@ class FitnessLog extends Component {
         }
     }
 
+    resetFitnessLog = () => {
+        window.sessionStorage.setItem("fitnessLog", JSON.stringify(fitnessLog));
+    }
+
     render() {
         this.updateMealCalories(this.state.fitnessLog.breakfast);
         this.updateMealCalories(this.state.fitnessLog.lunch);
@@ -440,6 +444,12 @@ class FitnessLog extends Component {
                             >Add Exercise</Link>
                         </div>  
                     </div>
+                    <div id="border" onClick={() =>this.resetFitnessLog()} className="button">
+                        <a href='/fitnesslog'>Reset Today's Log</a>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
                 </div>
                 <Navigation/>
             </div>
