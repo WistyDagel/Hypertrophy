@@ -9,6 +9,7 @@ import SignUp2 from './Components/SignUp2';
 import SignUp3 from './Components/SignUp3';
 import LogIn from './Components/LogIn';
 import Greeting from './Components/Greeting';
+import EditInformation from './Components/EditInformation';
 
 // HOME COMPONENTS
 import Home from './Components/Home';
@@ -34,6 +35,7 @@ import CreateWorkout from './Components/WorkoutPlan/CreateWorkout';
 import SelectedWorkout from './Components/WorkoutPlan/SelectedWorkout';
 import AddExerciseWP from './Components/WorkoutPlan/AddExerciseWP';
 
+
 class App extends Component {
     constructor(props){
       super(props);
@@ -51,6 +53,7 @@ class App extends Component {
             <Route path="/signup3" component={SignUp3}/>
             <Route path="/login" component={LogIn}/>
             <Route path="/login" component={LogIn}/>
+            <Route path="/editaccount" component={EditInformation}/>
 
             {/* HOME COMPONENTS */}
             <Route path="/home" component={Home}/>

@@ -1,29 +1,14 @@
 import React, { Component } from 'react';
 import logo from '../Logo/favicon-32x32.png';
-import sidebarIcon from '../Logo/sidebar.png'
-import Sidebar from "react-sidebar";
+import Sidebar from "./SideBar";
+
 
 class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          sidebarOpen: false
+            userData: '',
         };
-
-        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
-        this.renderSideBar = this.renderSideBar.bind(this);
-    }
-      
-    onSetSidebarOpen(open) {
-        this.setState({ sidebarOpen: open });
-    }
-
-    renderSideBar(){
-        return (
-            <>
-            <b>Sidebar content</b>
-            </>
-        );
     }
     
     render(){
@@ -35,18 +20,7 @@ class Header extends Component {
                         <h2 className="logoText">Hypertrophy</h2>
                     </div>
                     <div className="sidebar">
-                        <Sidebar
-                            sidebar= {<div>
-                                <b>Sidebar content</b>
-                                <a href="/">Log Out</a>
-                            </div>
-                            }
-                            open={this.state.sidebarOpen}
-                            onSetOpen={this.onSetSidebarOpen}
-                            styles={{ sidebar: { background: "white", width: "50%" } }}
-                        >
-                        <img className="logoImage" onClick={() => this.onSetSidebarOpen(true)} src={sidebarIcon}></img>
-                        </Sidebar>                
+                        <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
                     </div>
                 </div>
             </div>

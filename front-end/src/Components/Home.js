@@ -28,6 +28,8 @@ class Home extends Component {
             })
         });
 
+        console.log(this.state.userData);
+
         //Gets the most current iteration of the user's workoutPlan
         await fetch(`http://localhost:3001/workoutplan/${this.state.userData.workoutPlanID}`)
         .then(res => res.json())
