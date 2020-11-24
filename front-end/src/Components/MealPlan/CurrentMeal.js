@@ -7,7 +7,49 @@ class CurrentMeal extends Component {
         super(props);
         this.state = {
             userData: '',
-            mealPlan: ''
+            mealPlan: {
+                name: '',
+                description: '',
+                breakfast: {
+                    "calories": 0,
+                    "proteins": 0,
+                    "carbs": 0,
+                    "fats": 0,
+                    "sugars": 0,
+                    "meal": [
+                    ]
+                },
+            
+                lunch: {
+                    "calories": 0,
+                    "proteins": 0,
+                    "carbs": 0,
+                    "fats": 0,
+                    "sugars": 0,
+                    "meal": [
+                    ]
+                },
+            
+                dinner: {
+                    "calories": 0,
+                    "proteins": 0,
+                    "carbs": 0,
+                    "fats": 0,
+                    "sugars": 0,
+                    "meal": [
+                    ]
+                }, 
+            
+                snacks: {
+                    "calories": 0,
+                    "proteins": 0,
+                    "carbs": 0,
+                    "fats": 0,
+                    "sugars": 0,
+                    "meal": [
+                    ]
+                }
+            }
         }
 
         this.renderCurrentMeal = this.renderCurrentMeal.bind(this);
@@ -28,7 +70,7 @@ class CurrentMeal extends Component {
         .then(res => res.json())
         .then(data => {
             this.setState({
-                mealPlan: data[0]
+                mealPlan: data[0],
             });
             console.log(data);
         });
@@ -40,15 +82,34 @@ class CurrentMeal extends Component {
 
         if(currentMeal == undefined){
             return (
-                <div>
-                    <h4>N/A</h4>
-                </div>
+                <></>
             )
         } else {
             for (let i = 0; i < currentMeal.meal.length; i++) {
                 mealArray.push(
                     <div key={i}>
-                        <h4>{currentMeal.meal[i].description}</h4>
+                        <div className="row">
+                            <h3>{currentMeal.meal[i].description}</h3>
+                            <h4>{currentMeal.meal[i].calories}</h4>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                <h4>Proteins:</h4>
+                                <h4>{currentMeal.meal[i].protein}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Carbs:</h4>
+                                <h4>{currentMeal.meal[i].carbs}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Fats:</h4>
+                                <h4>{currentMeal.meal[i].fats}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Sugars:</h4>
+                                <h4>{currentMeal.meal[i].sugars}</h4>
+                            </div>
+                        </div>
                     </div>
                 )
             }
@@ -61,7 +122,7 @@ class CurrentMeal extends Component {
             <>
             <div className="flexbox">
                 <Header/>
-                <div className="col">
+                <div className="col content">
                     <h2>Current Meal Plan</h2>
                     <div className="row">
                         <div className="col">
@@ -72,31 +133,47 @@ class CurrentMeal extends Component {
                     </div>    
                     <br/>
                     <div className="breakfast maxwidth">
-                        <h2>Breakfast</h2>
-                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.breakfast}/>
                         <hr/>
+                        <div className="row">
+                            <h2>Breakfast</h2>
+                            <h3>{this.state.mealPlan.breakfast.calories}</h3>
+                        </div>
+                        <hr/>
+                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.breakfast}/>
                     </div>
                     <div className="lunch maxwidth">
-                        <h2>Lunch</h2>
-                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.lunch}/>
                         <hr/>
+                        <div className="row">
+                            <h2>Lunch</h2>
+                            <h3>{this.state.mealPlan.lunch.calories}</h3>
+                        </div>
+                        <hr/>
+                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.lunch}/>
                     </div>
                     <div className="dinner maxwidth">
-                        <h2>Dinner</h2>
-                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.dinner}/>
                         <hr/>
+                        <div className="row">
+                            <h2>Dinner</h2>
+                            <h3>{this.state.mealPlan.dinner.calories}</h3>
+                        </div>
+                        <hr/>
+                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.dinner}/>
                     </div>
                     <div className="snacks maxwidth">
-                        <h2>Snacks</h2>
-                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.snacks}/>
                         <hr/>
+                        <div className="row">
+                            <h2>Snacks</h2>
+                            <h3>{this.state.mealPlan.snacks.calories}</h3>
+                        </div>
+                        <hr/>
+                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.snacks}/>
                     </div>
+                    <br/>
+                    <br/>
+                    <br/>
                 </div>
                 <Navigation/>
             </div>
-            <br/>
-            <br/>
-            <br/>
             </>
         );
     }

@@ -124,10 +124,9 @@ class SelectedWorkout extends Component {
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutPlan.day7}/>
                     </div>
-                    <button
-                        id="border"
-                        onClick={() =>this.updateCurrentWorkout()}
-                    >Select Workout Plan</button>
+                    <div id="border" onClick={() =>this.updateCurrentWorkout()} className="button">
+                        <a href='/home'>Select Workout Plan</a>
+                    </div>
                     <br/>
                     <br/>
                     <br/>

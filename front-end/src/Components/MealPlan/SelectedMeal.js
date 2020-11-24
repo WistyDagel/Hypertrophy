@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Header from '../Header';
 import Navigation from '../Navigation';
 
@@ -32,21 +32,39 @@ class SelectedMeal extends Component {
 
         if(currentMeal == undefined){
             return (
-                <div>
-                    <h4>N/A</h4>
-                </div>
+                <></>
             )
         } else {
             for (let i = 0; i < currentMeal.meal.length; i++) {
                 mealArray.push(
                     <div key={i}>
-                        <h4>{currentMeal.meal[i].description}</h4>
+                        <div className="row">
+                            <h3>{currentMeal.meal[i].description}</h3>
+                            <h4>{currentMeal.meal[i].calories}</h4>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                <h4>Proteins:</h4>
+                                <h4>{currentMeal.meal[i].protein}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Carbs:</h4>
+                                <h4>{currentMeal.meal[i].carbs}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Fats:</h4>
+                                <h4>{currentMeal.meal[i].fats}</h4>
+                            </div>
+                            <div className="col">
+                                <h4>Sugars:</h4>
+                                <h4>{currentMeal.meal[i].sugars}</h4>
+                            </div>
+                        </div>
                     </div>
                 )
             }
             return mealArray;
         }
-
     }
 
     updateCurrentMeal = () => {
@@ -75,29 +93,44 @@ class SelectedMeal extends Component {
                     </div>    
                     <br/>
                     <div className="breakfast maxwidth">
-                        <h2>Breakfast</h2>
-                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.breakfast}/>
                         <hr/>
+                        <div className="row">
+                            <h2>Breakfast</h2>
+                            <h3>{this.state.mealPlan.breakfast.calories}</h3>
+                        </div>
+                        <hr/>
+                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.breakfast}/>
                     </div>
                     <div className="lunch maxwidth">
-                        <h2>Lunch</h2>
-                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.lunch}/>
                         <hr/>
+                        <div className="row">
+                            <h2>Lunch</h2>
+                            <h3>{this.state.mealPlan.lunch.calories}</h3>
+                        </div>
+                        <hr/>
+                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.lunch}/>
                     </div>
                     <div className="dinner maxwidth">
-                        <h2>Dinner</h2>
-                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.dinner}/>
                         <hr/>
+                        <div className="row">
+                            <h2>Dinner</h2>
+                            <h3>{this.state.mealPlan.dinner.calories}</h3>
+                        </div>
+                        <hr/>
+                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.dinner}/>
                     </div>
                     <div className="snacks maxwidth">
-                        <h2>Snacks</h2>
-                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.snacks}/>
                         <hr/>
+                        <div className="row">
+                            <h2>Snacks</h2>
+                            <h3>{this.state.mealPlan.snacks.calories}</h3>
+                        </div>
+                        <hr/>
+                        <this.renderCurrentMeal currentMeal={this.state.mealPlan.snacks}/>
                     </div>
-                    <button
-                        id="border"
-                        onClick={() =>this.updateCurrentMeal()}
-                    >Select Meal Plan</button>
+                    <div id="border" onClick={() =>this.updateCurrentMeal()} className="button">
+                        <a href='/home'>Select Meal Plan</a>
+                    </div>
                     <br/>
                     <br/>
                     <br/>

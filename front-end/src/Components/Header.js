@@ -13,7 +13,7 @@ class Header extends Component {
     
     render(){
         return (
-            <div className="row">
+            <div className="row header">
                 <div className="row">
                     <div className="headerRow">
                         <img className="logoImage" style={{marginTop: "5px"}} src={logo}></img>

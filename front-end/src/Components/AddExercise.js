@@ -59,7 +59,7 @@ class AddExercise extends Component {
             <>
             <div className="flexbox">
                 <Header/>
-                <div className="col">
+                <div className="col addExercise">
                     <div className="row">
                         <div className="col">
                             <h4>Description:</h4>

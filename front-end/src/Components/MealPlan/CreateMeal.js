@@ -95,8 +95,9 @@ class CreateMeal extends Component {
         this.updateMealDescription = this.updateMealDescription.bind(this);
 
         this.renderCurrentMeal = this.renderCurrentMeal.bind(this);
+        this.updateMealCalories = this.updateMealCalories.bind(this);
         // this.renderMealNutrition = this.renderMealNutrition.bind(this);
-        this.mealSummation = this.mealSummation.bind(this);
+        // this.mealSummation = this.mealSummation.bind(this);
     }
 
     
@@ -118,22 +119,22 @@ class CreateMeal extends Component {
                 mealPlan: mealSession
             })
 
-            this.mealSummation(this.state.mealPlan.breakfast);
-            this.mealSummation(this.state.mealPlan.lunch);
-            this.mealSummation(this.state.mealPlan.dinner);
-            this.mealSummation(this.state.mealPlan.snacks);
+            // this.mealSummation(this.state.mealPlan.breakfast);
+            // this.mealSummation(this.state.mealPlan.lunch);
+            // this.mealSummation(this.state.mealPlan.dinner);
+            // this.mealSummation(this.state.mealPlan.snacks);
         }
     }
 
-    mealSummation(currentMeal){
-        for (let i = 0; i < currentMeal.meal.length; i++) {
-            currentMeal.calories += Math.trunc(currentMeal.meal[i].calories);
-            currentMeal.carbs += Math.trunc(currentMeal.meal[i].carbs);
-            currentMeal.fats += Math.trunc(currentMeal.meal[i].fats);
-            currentMeal.proteins += Math.trunc(currentMeal.meal[i].protein);
-            currentMeal.sugars += Math.trunc(currentMeal.meal[i].sugars);
-        }
-    }
+    // mealSummation(currentMeal){
+    //     for (let i = 0; i < currentMeal.meal.length; i++) {
+    //         currentMeal.calories += Math.trunc(currentMeal.meal[i].calories);
+    //         currentMeal.carbs += Math.trunc(currentMeal.meal[i].carbs);
+    //         currentMeal.fats += Math.trunc(currentMeal.meal[i].fats);
+    //         currentMeal.proteins += Math.trunc(currentMeal.meal[i].protein);
+    //         currentMeal.sugars += Math.trunc(currentMeal.meal[i].sugars);
+    //     }
+    // }
 
     updateMealName(evt) {
         this.state.mealPlan.name = evt.target.value;
@@ -244,7 +245,20 @@ class CreateMeal extends Component {
         window.sessionStorage.removeItem("mealSession");
     }
 
-    render() {   
+    updateMealCalories = (currentMeal) => {
+        var calories = 0;
+        for (let i = 0; i < currentMeal.meal.length; i++) {
+            calories += currentMeal.meal[i].calories;
+            console.log(calories);
+        }
+        currentMeal.calories = calories;
+    }
+
+    render() {  
+        this.updateMealCalories(this.state.mealPlan.breakfast);
+        this.updateMealCalories(this.state.mealPlan.lunch);
+        this.updateMealCalories(this.state.mealPlan.dinner);
+        this.updateMealCalories(this.state.mealPlan.snacks);
        return  (
             <>
             <div className="flexbox">
@@ -268,7 +282,10 @@ class CreateMeal extends Component {
                     </div>
                     <div className="breakfast maxwidth">
                         <hr/>
-                        <h2>Breakfast</h2>
+                        <div className="row">
+                            <h2>Breakfast</h2>
+                            <h3>{this.state.mealPlan.breakfast.calories}</h3>
+                        </div>
                         {/* <this.renderMealNutrition category={"Breakfast"}/> */}
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.breakfast}/>
@@ -283,7 +300,10 @@ class CreateMeal extends Component {
                     </div>
                     <div className="lunch maxwidth">
                         <hr/>
-                        <h2>Lunch</h2>
+                        <div className="row">
+                            <h2>Lunch</h2>
+                            <h3>{this.state.mealPlan.lunch.calories}</h3>
+                        </div>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.lunch}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
@@ -297,7 +317,10 @@ class CreateMeal extends Component {
                     </div>
                     <div className="dinner maxwidth">
                         <hr/>
-                        <h2>Dinner</h2>
+                        <div className="row">
+                            <h2>Dinner</h2>
+                            <h3>{this.state.mealPlan.dinner.calories}</h3>
+                        </div>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.dinner}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
@@ -311,7 +334,10 @@ class CreateMeal extends Component {
                     </div>
                     <div className="snacks maxwidth">
                         <hr/>
-                        <h2>Snacks</h2>
+                        <div className="row">
+                            <h2>Snacks</h2>
+                            <h3>{this.state.mealPlan.snacks.calories}</h3>
+                        </div>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.snacks}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
@@ -324,10 +350,9 @@ class CreateMeal extends Component {
                         </div>
                     </div>
                     <br/>
-                    <button
-                        id="border"
-                        onClick={() => this.createMealPlan()}
-                    >Create Meal Plan</button>
+                    <div id="border" onClick={() =>this.createMealPlan()} className="button">
+                        <a href='/selectmeal'>Create Meal Plan</a>
+                    </div>
                     <br/>
                     <br/>
                     <br/>

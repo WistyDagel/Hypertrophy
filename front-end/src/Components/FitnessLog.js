@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import Navigation from './Navigation';
 import NutritionalBank from './NutritionalBank';
+import calcStats from './CalculateStats';
 
 var fitnessLog = {
     breakfast: {
@@ -108,6 +109,8 @@ class FitnessLog extends Component {
         this.renderCurrentExercises = this.renderCurrentExercises.bind(this);
         this.renderCurrentMealPlan = this.renderCurrentMealPlan.bind(this);
         this.renderCurrentWorkoutPlan = this.renderCurrentWorkoutPlan.bind(this);
+        this.updateMealCalories = this.updateMealCalories.bind(this);
+        this.updateAccountCalories = this.updateAccountCalories.bind(this);
     }
 
     async componentDidMount(){
@@ -300,7 +303,46 @@ class FitnessLog extends Component {
         window.sessionStorage.setItem("fitnessLog", JSON.stringify(this.state.fitnessLog));
     }
 
+    updateMealCalories = (currentMeal) => {
+        var calories = 0;
+        for (let i = 0; i < currentMeal.meal.length; i++) {
+            calories += currentMeal.meal[i].calories;
+        }
+        currentMeal.calories = calories;
+    }
+
+    //NEEDS WORK
+    updateAccountCalories = (currentMeal) => {
+        var cal = currentMeal.calories;
+        if(cal != 0){
+            var calories = this.state.userData.calories;
+            calories -= currentMeal.calories;
+            var nutrientList = calcStats.calculateMacros(calories);
+            fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`, {
+                method: "PUT",
+                headers: {'Content-Type': "application/json"},
+                body: JSON.stringify({
+                    calories: calories,
+                    proteins: nutrientList[0],
+                    carbs: nutrientList[1],
+                    fats: nutrientList[2],
+                    sugars: nutrientList[3],
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data){
+                    console.log(data);
+                }
+            });
+        }
+    }
+
     render() {
+        this.updateMealCalories(this.state.fitnessLog.breakfast);
+        this.updateMealCalories(this.state.fitnessLog.lunch);
+        this.updateMealCalories(this.state.fitnessLog.dinner);
+        this.updateMealCalories(this.state.fitnessLog.snacks);
         return  (
             <>
             <div className="flexbox">
@@ -338,7 +380,10 @@ class FitnessLog extends Component {
                     </div>
                     <div className="lunch maxwidth">
                         <hr/>
-                        <h2>Lunch</h2>
+                        <div className="row">
+                            <h2>Lunch</h2>
+                            <h3>{this.state.fitnessLog.lunch.calories}</h3>
+                        </div>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.lunch}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
@@ -352,8 +397,10 @@ class FitnessLog extends Component {
                     </div>
                     <div className="dinner maxwidth">
                         <hr/>
-                        <h2>Dinner</h2>
-                        <hr/>
+                        <div className="row">
+                            <h2>Dinner</h2>
+                            <h3>{this.state.fitnessLog.dinner.calories}</h3>
+                        </div>                        <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.dinner}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link
@@ -366,8 +413,10 @@ class FitnessLog extends Component {
                     </div>
                     <div className="snacks maxwidth">
                         <hr/>
-                        <h2>Snacks</h2>
-                        <hr/>
+                        <div className="row">
+                            <h2>Snacks</h2>
+                            <h3>{this.state.fitnessLog.snacks.calories}</h3>
+                        </div>                        <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.snacks}/>
                         <div id="border" onClick={() => this.setStorage()} className="button">
                             <Link

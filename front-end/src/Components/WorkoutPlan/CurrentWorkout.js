@@ -77,7 +77,7 @@ class CurrentWorkout extends Component {
             <>
             <div className="flexbox">
                 <Header/>
-                <div className="col">
+                <div className="col content">
                     <h2>Current Workout Plan</h2>
                     <div className="row">
                         <div className="col">

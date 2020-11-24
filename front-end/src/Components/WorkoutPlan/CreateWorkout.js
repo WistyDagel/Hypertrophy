@@ -440,10 +440,9 @@ class CreateWorkout extends Component {
                         </div>
                     </div>
                     <br/>
-                    <button
-                        id="border"
-                        onClick={() => this.createWorkoutPlan()}
-                    >Create Workout Plan</button>
+                    <div id="border" onClick={() =>this.createWorkoutPlan()} className="button">
+                        <a href='/selectworkout'>Create Workout Plan</a>
+                    </div>
                     <br/>
                     <br/>
                     <br/>
