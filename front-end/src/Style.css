@@ -366,11 +366,6 @@ input {
   align-content: flex-start;
 }
 
-.siderBar > div.flexbox{
-  width: 0;
-  height: 0;
-}
-
 /* ID CONTENT */
 #border {
   display: flex;
@@ -439,6 +434,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-menu {
   background: #373a47;
   font-size: 1.15em;
+  min-width: 90%;
+  max-width: 90%;
 }
 
 /* Morph shape necessary with bubble or elastic */

@@ -19,9 +19,7 @@ class Header extends Component {
                         <img className="logoImage" style={{marginTop: "5px"}} src={logo}></img>
                         <h2 className="logoText">Hypertrophy</h2>
                     </div>
-                    <div className="sidebar">
-                        <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
-                    </div>
+                    <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
                 </div>
             </div>
         );
