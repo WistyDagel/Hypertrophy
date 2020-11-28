@@ -363,11 +363,11 @@ class FitnessLog extends Component {
                     <NutritionalBank/>
                     <br/>
                     <div className="row">
-                        <div id="border" onClick={() => this.renderCurrentMealPlan()} className="button">
+                        <div className="button border-black" onClick={() => this.renderCurrentMealPlan()}>
                             <h4>Load Current Meal Plan</h4>
                         </div>
                         <hr className="divider"/>
-                        <div id="border" onClick={() => this.renderCurrentWorkoutPlan()} className="button">
+                        <div className="button border-black" onClick={() => this.renderCurrentWorkoutPlan()}>
                             <h4>Load Today's Workout Plan</h4>
                         </div>
                     </div>
@@ -381,7 +381,7 @@ class FitnessLog extends Component {
                         {/* <this.renderMealNutrition category={"Breakfast"}/> */}
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.breakfast}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfood",
@@ -398,7 +398,7 @@ class FitnessLog extends Component {
                         </div>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.lunch}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfood",
@@ -414,7 +414,7 @@ class FitnessLog extends Component {
                             <h3>{this.state.fitnessLog.dinner.calories}</h3>
                         </div>                        <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.dinner}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfood",
@@ -430,7 +430,7 @@ class FitnessLog extends Component {
                             <h3>{this.state.fitnessLog.snacks.calories}</h3>
                         </div>                        <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.snacks}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfood",
@@ -444,7 +444,7 @@ class FitnessLog extends Component {
                         <h2>Exercises</h2>
                         <hr/>
                         <this.renderCurrentExercises currentExercises={this.state.fitnessLog.exercises}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercise",
@@ -452,7 +452,7 @@ class FitnessLog extends Component {
                             >Add Exercise</Link>
                         </div>  
                     </div>
-                    <div id="border" onClick={() =>this.resetFitnessLog()} className="button">
+                    <div onClick={() =>this.resetFitnessLog()} className="button border-black">
                         <a href='/fitnesslog'>Reset Today's Log</a>
                     </div>
                     <br/>

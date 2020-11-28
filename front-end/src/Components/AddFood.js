@@ -113,7 +113,7 @@ class AddFood extends Component {
                             </div>
                         </div>
                         <br/>
-                        <div id="border" onClick={() => this.appendFood(this.state.foodResults[i].fields)} className="button">
+                        <div onClick={() => this.appendFood(this.state.foodResults[i].fields)} className="button border-black">
                             <a href='/fitnesslog'>Add Food</a>
                         </div>
                         <br/>

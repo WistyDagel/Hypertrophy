@@ -114,7 +114,7 @@ class AddExerciseWP extends Component {
                     <br/>
                     <br/>
                     <br/>
-                    <div id="border" onClick={() => this.appendExercise()} className="button">
+                    <div onClick={() => this.appendExercise()} className="button border-black">
                         <a href='/createworkout'>Add Exercise</a>
                     </div>
                 </div>

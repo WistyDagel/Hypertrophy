@@ -304,7 +304,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day1}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -325,7 +325,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day2}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -346,7 +346,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day3}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -367,7 +367,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day4}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -388,7 +388,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day5}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -409,7 +409,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day6}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -430,7 +430,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day7}/>
-                        <div id="border" onClick={() => this.setStorage()} className="button">
+                        <div onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -440,7 +440,7 @@ class CreateWorkout extends Component {
                         </div>
                     </div>
                     <br/>
-                    <div id="border" onClick={() =>this.createWorkoutPlan()} className="button">
+                    <div onClick={() =>this.createWorkoutPlan()} className="button border-black">
                         <a href='/selectworkout'>Create Workout Plan</a>
                     </div>
                     <br/>

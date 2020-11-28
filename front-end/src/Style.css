@@ -289,12 +289,14 @@ input {
 }
 
 /* MEAL / WORKOUT HOME */
+/* Image shown for HOME Page buttons - on hover text appears */
 
 .planHomeButton {
   display: flex;
   align-items: center;
   justify-content: center;
   border: solid black;
+  background-color: #fff;
   border-radius: 8px;
   height: 20vh;
   width: 40vh;
@@ -416,15 +418,16 @@ input {
 }
 
 /* ID CONTENT */
-
+/* 
 #planButton {
   border: black 2px 2px;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   margin: 18% 0px;
-}
+} */
 
 /* SIDE BAR */
 .bm-burger-button {

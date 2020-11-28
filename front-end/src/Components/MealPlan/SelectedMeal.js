@@ -128,7 +128,7 @@ class SelectedMeal extends Component {
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.snacks}/>
                     </div>
-                    <div id="border" onClick={() =>this.updateCurrentMeal()} className="button">
+                    <div onClick={() =>this.updateCurrentMeal()} className="button border-black">
                         <a href='/home'>Select Meal Plan</a>
                     </div>
                     <br/>
