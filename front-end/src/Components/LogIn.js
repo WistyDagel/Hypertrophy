@@ -85,9 +85,8 @@ class LogIn extends Component {
                 <br/>
                 <h4>Please proceed to the home screen</h4>
                 <br/>
-                <div className="button">
+                <div className="button black">
                     <Link
-                        id="border"
                         to={{
                             pathname: '/home'
                         }}
@@ -106,9 +105,8 @@ class LogIn extends Component {
                 <br/>
                 <h4>Please, sign up below.</h4>
                 <br/>
-                <div className="button">
+                <div className="button black">
                     <Link
-                        id="border"
                         to={{
                             pathname: '/signup',
                         }}
@@ -149,7 +147,7 @@ class LogIn extends Component {
             <div className="flexbox">
                 <div className="content">
                     <div className="logo">
-                        <img src={logo}></img>
+                        <img style={{borderRadius: "100px"}} src={logo}></img>
                         <h1 className="logoText">Hypertrophy</h1>
                     </div>
                     <this.greeting/>

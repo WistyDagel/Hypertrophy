@@ -74,18 +74,16 @@ class Home extends Component {
                         <h1>Current Meal Plan</h1>
                         <h3 className='currentPlan'>{this.state.mealPlan.name}</h3>
                         <div className="row">
-                            <div className="button">
+                            <div className="button border-black">
                                 <Link
-                                    id="border"
                                     to={{
                                         pathname: '/currentmeal'
                                     }}
                                 >View</Link>
                                 {/* <a id="border" href='/currentmeal'>View</a> */}
                             </div>
-                            <div className="button">
+                            <div className="button border-black">
                                 <Link
-                                    id="border"
                                     to={{
                                         pathname: '/selectmeal'
                                     }}
@@ -98,18 +96,16 @@ class Home extends Component {
                         <h1>Current Workout Plan</h1>
                         <h3 className='currentPlan'>{this.state.workoutPlan.name}</h3>
                         <div className="row">
-                            <div className="button">
+                            <div className="button border-black">
                                 <Link
-                                    id="border"
                                     to={{
                                         pathname: '/currentworkout'
                                     }}
                                 >View</Link>
                                 {/* <a id="border" href='/currentworkout'>View</a> */}
                             </div>
-                            <div className="button">
+                            <div className="button border-black">
                                 <Link
-                                    id="border"
                                     to={{
                                         pathname: '/selectworkout'
                                     }}

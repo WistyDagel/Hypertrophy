@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
+import logo from '../Logo/logo.png';
 
 class SignUp extends Component {
     constructor(props){
@@ -90,34 +91,47 @@ class SignUp extends Component {
     render() {
         return  (
             <>
-            <Header/>
+            <div className="row header">
+                <div className="row">
+                    <div className="headerRow">
+                        <img className="logoImage" style={{marginTop: "5px"}} src={logo}></img>
+                        <h2 className="logoText">Hypertrophy</h2>
+                    </div>
+                </div>
+            </div>
             <form onSubmit={this.handleSubmit}>
                 <div className="content">
                     <h2>What is your goal?</h2>
-                    <div className="button" onClick={this.handleLoseWeight}>
-                        <p id="border">Lose Weight</p>
-                    </div>
-                    <div className="button" onClick={this.handleMaintainWeight}>
-                        <p id="border">Maintain Weight</p>
-                    </div>
-                    <div className="button" onClick={this.handleGainWeight}>
-                        <p id="border">Gain Weight</p>
-                    </div>
-                    <h2>What is your daily activity?</h2>
-                    <div className="button" onClick={this.handleNotActive}>
-                        <p id="border">Not Very Active</p>
-                    </div>
-                    <div className="button" onClick={this.handleLightActive}>
-                        <p id="border">Lightly Active</p>
-                    </div>
-                    <div className="button" onClick={this.handleActive}>
-                        <p id="border">Active</p>
-                    </div>
-                    <div className="button" onClick={this.handleVeryActive}>
-                        <p id="border">Very Active</p>
+                    <div className="button border-blue" onClick={this.handleLoseWeight}>
+                        <p>Lose Weight</p>
                     </div>
                     <br/>
-                    <div className="button">
+                    <div className="button border-blue" onClick={this.handleMaintainWeight}>
+                        <p>Maintain Weight</p>
+                    </div>
+                    <br/>
+                    <div className="button border-blue" onClick={this.handleGainWeight}>
+                        <p>Gain Weight</p>
+                    </div>
+                    <br/>
+                    <h2>What is your daily activity?</h2>
+                    <div className="button border-blue" onClick={this.handleNotActive}>
+                        <p>Not Very Active</p>
+                    </div>
+                    <br/>
+                    <div className="button border-blue" onClick={this.handleLightActive}>
+                        <p>Lightly Active</p>
+                    </div>
+                    <br/>
+                    <div className="button border-blue" onClick={this.handleActive}>
+                        <p>Active</p>
+                    </div>
+                    <br/>
+                    <div className="button border-blue" onClick={this.handleVeryActive}>
+                        <p>Very Active</p>
+                    </div>
+                    <br/>
+                    <div className="button black">
                         <Link 
                             to={{
                                 pathname: "/signup2",

@@ -5,7 +5,7 @@ html{
 }
 
 body {
-  /* background-color: #373a47; */
+  background-color: #ececea;
 }
 
 /* COLORS */
@@ -76,11 +76,61 @@ input {
 .button {
   cursor: pointer;
   text-align: center;
+  display: flex;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
 }
 
 .button > a {
   text-decoration: none;
   color: inherit;
+}
+
+.black {
+  background-color: #515050;
+}
+
+.black:hover {
+  background-color: #585858;
+}
+
+.blue {
+  background-color: #29abe2;
+}
+
+.blue:hover {
+  background-color: #58c8f8;
+}
+
+.border-blue {
+  border-style: solid;
+  border-color: #29abe2;
+  border: 2px 2px;
+  background-color: #fff;
+  color: #515050;
+}
+
+.border-blue:hover {
+  background-color: #29abe2;
+  color: #fff;
+}
+
+.border-black {
+  border-style: solid;
+  border-color: #515050;
+  border: 2px 2px;
+  background-color: #fff;
+  color: #515050;
+}
+
+.border-black:hover {
+  background-color: #515050;
+  color: #fff;
 }
 
 .row { 
@@ -144,7 +194,6 @@ input {
   align-items: center;
   text-align: center;
 }
-
 
 /* HOME */
 
@@ -367,19 +416,6 @@ input {
 }
 
 /* ID CONTENT */
-#border {
-  display: flex;
-  border: black 2px 2px;
-  border-style: solid;
-  justify-content: center;
-  align-items: center;
-  width: 150px;
-  height: 40px;
-}
-
-#border:hover {
-  background-color: rgb(202, 202, 202);
-}
 
 #planButton {
   border: black 2px 2px;

@@ -100,7 +100,8 @@ class FitnessLog extends Component {
                 exercises: [
                     
                 ]
-            }
+            },
+            currentCalories: 0
         }
 
         this.setStorage = this.setStorage.bind(this);
@@ -131,6 +132,8 @@ class FitnessLog extends Component {
             this.setState({
                 fitnessLog: fitnessLogSession
             })
+
+            
         }
     }
 
@@ -310,32 +313,36 @@ class FitnessLog extends Component {
         }
         currentMeal.calories = calories;
     }
-
     //NEEDS WORK
-    updateAccountCalories = (currentMeal) => {
-        var cal = currentMeal.calories;
-        if(cal != 0){
-            var calories = this.state.userData.calories;
-            calories -= currentMeal.calories;
-            var nutrientList = calcStats.calculateMacros(calories);
-            fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`, {
-                method: "PUT",
-                headers: {'Content-Type': "application/json"},
-                body: JSON.stringify({
-                    calories: calories,
-                    proteins: nutrientList[0],
-                    carbs: nutrientList[1],
-                    fats: nutrientList[2],
-                    sugars: nutrientList[3],
-                })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data){
-                    console.log(data);
-                }
-            });
-        }
+    updateAccountCalories = () => {
+        // var breakfastCalories = this.state.fitnessLog.breakfast.calories;
+        // var lunchCalories = this.state.fitnessLog.lunch.calories;
+        // var dinnerCalories = this.state.fitnessLog.dinner.calories;
+        // var snackCalories = this.state.fitnessLog.snacks.calories;
+        // var cal = breakfastCalories + lunchCalories + dinnerCalories + snackCalories;
+
+        // if(cal != 0){
+        //     var calories = this.state.userData.caloriesCopy;
+        //     calories -= cal;
+        //     var nutrientList = calcStats.calculateMacros(calories);
+        //     fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`, {
+        //         method: "PUT",
+        //         headers: {'Content-Type': "application/json"},
+        //         body: JSON.stringify({
+        //             caloriesCopy: calories,
+        //             proteins: nutrientList[0],
+        //             carbs: nutrientList[1],
+        //             fats: nutrientList[2],
+        //             sugars: nutrientList[3],
+        //         })
+        //     })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if(data){
+        //             console.log(data);
+        //         }
+        //     });
+        // }
     }
 
     resetFitnessLog = () => {
@@ -347,6 +354,7 @@ class FitnessLog extends Component {
         this.updateMealCalories(this.state.fitnessLog.lunch);
         this.updateMealCalories(this.state.fitnessLog.dinner);
         this.updateMealCalories(this.state.fitnessLog.snacks);
+        // this.updateAccountCalories();
         return  (
             <>
             <div className="flexbox">

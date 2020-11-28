@@ -132,6 +132,7 @@ class EditInformation extends Component {
             body: JSON.stringify({
                 accountObj: this.state.accountObj,
                 calories: cal,
+                caloriesCopy: cal,
                 proteins: nutrientList[0],
                 carbs: nutrientList[1],
                 fats: nutrientList[2],

@@ -15,14 +15,14 @@ class Greeting extends Component {
             <div className="flexbox">
                 <div className="content">
                     <div className="logo">
-                        <img src={logo}></img>
+                        <img style={{borderRadius: "100px"}} src={logo}></img>
                         <h1 className="logoText">Hypertrophy</h1>
                     </div>
                     <div className="clickables">
-                        <div className="button">
-                            <a id="border" href='/signup'>Sign Up</a>
+                        <div className="button blue">
+                            <a href='/signup'>Sign Up</a>
                         </div>
-                        <div className="button">
+                        <div className="button border-black">
                             <a href='/login'>Log In</a>
                         </div>
                     </div>

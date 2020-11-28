@@ -74,6 +74,7 @@ class SignUp3 extends Component {
                     googleObj: response.profileObj,
                     accountObj: this.state.userData,
                     calories: cal,
+                    caloriesCopy: cal,
                     proteins: nutrientList[0],
                     carbs: nutrientList[1],
                     fats: nutrientList[2],
@@ -131,9 +132,8 @@ class SignUp3 extends Component {
                 <br/>
                 <h4>Please, login below.</h4>
                 <br/>
-                <div className="button">
+                <div className="button black">
                     <Link
-                        id="border"
                         to={{
                             pathname: '/login',
                         }}
@@ -174,7 +174,7 @@ class SignUp3 extends Component {
             <div className="flexbox">
                 <div className="content">
                     <div className="logo">
-                        <img src={logo}></img>
+                        <img style={{borderRadius: "100px"}} src={logo}></img>
                         <h1 className="logoText">Hypertrophy</h1>
                     </div>
                     <this.greeting/>

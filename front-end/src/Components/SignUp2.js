@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
+import logo from '../Logo/logo.png';
+
 
 class SignUp2 extends Component {
     constructor(props){
@@ -57,14 +59,22 @@ class SignUp2 extends Component {
     render() {
         return  (
             <>
-            <Header/>
+            <div className="row header">
+                <div className="row">
+                    <div className="headerRow">
+                        <img className="logoImage" style={{marginTop: "5px"}} src={logo}></img>
+                        <h2 className="logoText">Hypertrophy</h2>
+                    </div>
+                </div>
+            </div>
             <div className="content">
                 <h2>I am</h2>
-                <div className="button" onClick={this.handleMale}>
-                    <p id="border">Male</p>
+                <div className="button border-blue" onClick={this.handleMale}>
+                    <p>Male</p>
                 </div>
-                <div className="button" onClick={this.handleFemale}>
-                    <p id="border">Female</p>
+                <br/>
+                <div className="button border-blue" onClick={this.handleFemale}>
+                    <p>Female</p>
                 </div>
                 <h2>How old are you?</h2>
                 <div className="row center">
@@ -84,7 +94,7 @@ class SignUp2 extends Component {
                     <p>lbs</p>
                 </div>
                 <br/>
-                <div className="button">
+                <div className="button black">
                     <Link
                         to={{
                             pathname: '/signup3',

@@ -30,7 +30,7 @@ class NutritionalBank extends Component {
                 <h1>Nutrional Bank</h1>
                 <hr/>
                 <h2>Calories Remaning</h2>
-                <h4>{this.state.userData.calories}</h4>
+                <h4>{this.state.userData.caloriesCopy}</h4>
                 <h2>Macros Remaning</h2>
                 <div className="row">
                     <div className="col">

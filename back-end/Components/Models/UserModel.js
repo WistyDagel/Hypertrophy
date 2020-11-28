@@ -17,6 +17,9 @@ let userSchema = new mongoose.Schema({
     calories: {
         type: Number
     },
+    caloriesCopy: {
+        type: Number
+    },
     proteins: {
         type: Number
     },
