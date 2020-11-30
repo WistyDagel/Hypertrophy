@@ -71,48 +71,56 @@ class Home extends Component {
                 <div className="content">
                     <NutritionalBank/>
                     <div className="mealPlan maxwidth">
-                        <h1>Current Meal Plan</h1>
-                        <h3 className='currentPlan'>{this.state.mealPlan.name}</h3>
-                        <div className="row">
-                            <div className="button border-black">
-                                <Link
-                                    to={{
-                                        pathname: '/currentmeal'
-                                    }}
-                                >View</Link>
-                                {/* <a id="border" href='/currentmeal'>View</a> */}
-                            </div>
-                            <div className="button border-black">
-                                <Link
-                                    to={{
-                                        pathname: '/selectmeal'
-                                    }}
-                                >Change Plan</Link>
-                                {/* <a id="border" href='/selectmeal'>Change Plan</a> */}
+                        <div className="homeHeader">
+                            <h1>Current Meal Plan</h1>
+                        </div>
+                        <div className="currentPlanContent">
+                            <h2 className='currentPlan'>{this.state.mealPlan.name}</h2>
+                            <div className="row">
+                                <div className="button border-black">
+                                    <Link
+                                        to={{
+                                            pathname: '/currentmeal'
+                                        }}
+                                    >View</Link>
+                                    {/* <a id="border" href='/currentmeal'>View</a> */}
+                                </div>
+                                <div className="button border-black">
+                                    <Link
+                                        to={{
+                                            pathname: '/selectmeal'
+                                        }}
+                                    >Change Plan</Link>
+                                    {/* <a id="border" href='/selectmeal'>Change Plan</a> */}
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="workoutPlan maxwidth">
-                        <h1>Current Workout Plan</h1>
-                        <h3 className='currentPlan'>{this.state.workoutPlan.name}</h3>
-                        <div className="row">
-                            <div className="button border-black">
-                                <Link
-                                    to={{
-                                        pathname: '/currentworkout'
-                                    }}
-                                >View</Link>
-                                {/* <a id="border" href='/currentworkout'>View</a> */}
+                        <div className="homeHeader">
+                            <h1>Current Workout Plan</h1>
+                        </div>  
+                        <div className="currentPlanContent">
+                            <h2 className='currentPlan'>{this.state.workoutPlan.name}</h2>
+                            <div className="row">
+                                <div className="button border-black">
+                                    <Link
+                                        to={{
+                                            pathname: '/currentworkout'
+                                        }}
+                                    >View</Link>
+                                    {/* <a id="border" href='/currentworkout'>View</a> */}
+                                </div>
+                                <div className="button border-black">
+                                    <Link
+                                        to={{
+                                            pathname: '/selectworkout'
+                                        }}
+                                    >Change Plan</Link>
+                                    {/* <a id="border" href='/selectworkout'>Change Plan</a> */}
+                                </div>
                             </div>
-                            <div className="button border-black">
-                                <Link
-                                    to={{
-                                        pathname: '/selectworkout'
-                                    }}
-                                >Change Plan</Link>
-                                {/* <a id="border" href='/selectworkout'>Change Plan</a> */}
-                            </div>
-                        </div>
+                        </div>                      
                     </div>
                 </div>
                 <Navigation/>

@@ -304,7 +304,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day1}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -325,7 +325,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day2}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -346,7 +346,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day3}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -367,7 +367,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day4}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -388,7 +388,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day5}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -409,7 +409,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day6}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",
@@ -430,7 +430,7 @@ class CreateWorkout extends Component {
                         </div> 
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutData.day7}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercisewp",

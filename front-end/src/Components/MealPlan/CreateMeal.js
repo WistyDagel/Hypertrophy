@@ -289,7 +289,7 @@ class CreateMeal extends Component {
                         {/* <this.renderMealNutrition category={"Breakfast"}/> */}
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.breakfast}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfoodmp",
@@ -306,7 +306,7 @@ class CreateMeal extends Component {
                         </div>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.lunch}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfoodmp",
@@ -323,7 +323,7 @@ class CreateMeal extends Component {
                         </div>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.dinner}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfoodmp",
@@ -340,7 +340,7 @@ class CreateMeal extends Component {
                         </div>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.snacks}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfoodmp",

@@ -127,8 +127,6 @@ class LogIn extends Component {
         } else {
             return (
                 <>
-                <h2>Google sign in</h2>
-                <br/>
                 <GoogleLogin
                     clientId="274810096435-rdi9f6mopojj0be9d141h8dbr79iflud.apps.googleusercontent.com"
                     buttonText="Login with Google"

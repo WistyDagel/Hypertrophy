@@ -5,7 +5,7 @@ html{
 }
 
 body {
-  background-color: #ececea;
+  background-color: #e7ebf1;
 }
 
 /* COLORS */
@@ -29,11 +29,16 @@ h2 {
 
 h3 {
   margin: 10px 0px;
-  color: #29abe2;
 }
 
 h4 {
-  margin: 0;
+  margin: 0px 4px;
+}
+
+hr {
+  border: none;
+  height: 5px;
+  background-color: #fff;
 }
 
 input {
@@ -43,7 +48,7 @@ input {
 
 .smallInput {
   height: 15px;
-  width: 30px;
+  width: 50px;
   margin-right: 10px;
 }
 
@@ -55,6 +60,12 @@ input {
   left: 0;
   top: 0;
   width: 100%;
+}
+
+.headerHr {
+  margin-bottom: 0px;
+  height: 8px;
+  background-color: #5265b9; 
 }
 
 .flexbox {
@@ -77,6 +88,7 @@ input {
   cursor: pointer;
   text-align: center;
   display: flex;
+  font-weight: bold;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -186,6 +198,13 @@ input {
   height: 40%;
 }
 
+/* SIGN UP */
+
+.signUpPrint {
+  margin: 0;
+  color: #333;
+}
+
 /* LOGIN */
 .welcomeGreeting {
   display: flex;
@@ -203,12 +222,43 @@ input {
   height: 32px;
 }
 
+.homeImage {
+  width: 50px;
+  height: auto;
+}
+
 .nutritionBank {
   flex: 2;
 }
 
+.nutritionText {
+  font-size: 14pt;
+  color: #29abe2;
+}
+
+.nutritionHeader {
+  background-color: #373a47;
+  padding: 10px 0px;
+}
+
+.nutritionHeader> h1 {
+  color: #f2f6fc;
+  margin: 0;
+}
+
+.homeHeader {
+  background-color: #303b6d;
+  padding: 10px 0px;
+}
+
+.homeHeader> h1 {
+  color: #f2f6fc;
+  margin: 0;
+}
+
 .mealPlan { 
-  flex: 3;
+  flex: 2.5;
+  justify-content: space-evenly;
 }
 
 .workoutPlan {
@@ -217,6 +267,15 @@ input {
 
 .currentPlan {
   text-decoration: underline;
+  font-size: 24px;
+  color: #29abe2;
+}
+
+.currentPlanContent {
+  display: flex;
+  height: 150px;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 /* FITNESS LOG */
@@ -250,7 +309,7 @@ input {
   width: 5px;
   margin: 0px 10px;
   border: none;
-  background-color: #333;
+  background-color: #5265b9;
 }
 
 /* ADD FOOD */
@@ -393,6 +452,10 @@ input {
   text-transform: uppercase;
 }
 
+.navText {
+  font-size: 11pt;
+}
+
 /* SIDEBAR */
 .sideBar {
   display: flex;
@@ -405,7 +468,7 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 84vh;
+  height: 80vh;
   width: 100%;
 }
 
@@ -414,7 +477,15 @@ input {
   flex-direction: row;
   height: 6vh;
   width: 100%;
+  font-weight: bold;
+  color: #fff;
+  border: none;
   align-content: flex-start;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* ID CONTENT */

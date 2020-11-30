@@ -364,7 +364,7 @@ class FitnessLog extends Component {
                     <br/>
                     <div className="row">
                         <div className="button border-black" onClick={() => this.renderCurrentMealPlan()}>
-                            <h4>Load Current Meal Plan</h4>
+                            <h4>Load Your Current Meal Plan</h4>
                         </div>
                         <hr className="divider"/>
                         <div className="button border-black" onClick={() => this.renderCurrentWorkoutPlan()}>
@@ -381,7 +381,7 @@ class FitnessLog extends Component {
                         {/* <this.renderMealNutrition category={"Breakfast"}/> */}
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.breakfast}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}}  onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfood",
@@ -398,7 +398,7 @@ class FitnessLog extends Component {
                         </div>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.lunch}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}}  onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfood",
@@ -414,7 +414,7 @@ class FitnessLog extends Component {
                             <h3>{this.state.fitnessLog.dinner.calories}</h3>
                         </div>                        <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.dinner}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}}  onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfood",
@@ -430,7 +430,7 @@ class FitnessLog extends Component {
                             <h3>{this.state.fitnessLog.snacks.calories}</h3>
                         </div>                        <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.snacks}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addfood",
@@ -441,10 +441,12 @@ class FitnessLog extends Component {
                     </div>
                     <div className="exercises maxwidth">
                         <hr/>
-                        <h2>Exercises</h2>
+                        <div className="row">
+                            <h2>Exercises</h2>
+                        </div>
                         <hr/>
                         <this.renderCurrentExercises currentExercises={this.state.fitnessLog.exercises}/>
-                        <div onClick={() => this.setStorage()} className="button border-blue">
+                        <div style={{marginLeft: "10px"}}  onClick={() => this.setStorage()} className="button border-blue">
                             <Link
                                 to={{
                                     pathname: "/addexercise",

@@ -18,6 +18,7 @@ class Navigation extends Component {
                 <div className="button col">
                     <img style={{width: "20px", height: "20px"}} src={home}></img>
                     <Link
+                        className="navText"
                         to={{
                             pathname: '/home',
                         }}
@@ -26,6 +27,7 @@ class Navigation extends Component {
                 <div className="button col">
                     <img style={{width: "20px", height: "20px"}} src={log}></img>
                     <Link
+                        className="navText"
                         to={{
                             pathname: '/fitnesslog',
                         }}
@@ -34,6 +36,7 @@ class Navigation extends Component {
                 <div className="button col">
                     <img style={{width: "20px", height: "20px"}} src={apple}></img>
                     <Link
+                        className="navText"
                         to={{
                             pathname: '/mealhome',
                         }}
@@ -42,6 +45,7 @@ class Navigation extends Component {
                 <div className="button col">
                     <img style={{width: "20px", height: "20px"}} src={dumbbell}></img>
                     <Link
+                        className="navText"
                         to={{
                             pathname: '/workouthome',
                         }}

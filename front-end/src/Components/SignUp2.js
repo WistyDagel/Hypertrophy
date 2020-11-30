@@ -78,19 +78,19 @@ class SignUp2 extends Component {
                 </div>
                 <h2>How old are you?</h2>
                 <div className="row center">
-                    <input className="smallInput" onChange={this.handleAge}></input>
+                    <input type="number" min="1" max="110" required="required" className="smallInput" onChange={this.handleAge}></input>
                     <p>(years old)</p>
                 </div>
                 <h2>How tall are you?</h2>
                 <div className="row center">
-                    <input className="smallInput" onChange={this.handleHeightFt}></input>
+                    <input type="number" min="4" max="7" required="required" className="smallInput" onChange={this.handleHeightFt}></input>
                     <p>ft</p>
-                    <input className="smallInput" onChange={this.handleHeightIn}></input>
+                    <input type="number" min="1" max="11" required="required" className="smallInput" onChange={this.handleHeightIn}></input>
                     <p>in</p>
                 </div>
                 <h2>How much do you weigh?</h2>
                 <div className="row center">
-                    <input className="smallInput" onChange={this.handleWeight}></input>
+                    <input type="number" min="50" max="600" required="required" className="smallInput" onChange={this.handleWeight}></input>
                     <p>lbs</p>
                 </div>
                 <br/>

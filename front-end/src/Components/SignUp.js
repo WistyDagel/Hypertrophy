@@ -27,7 +27,7 @@ class SignUp extends Component {
     }
 
     //GOALS PORTION DATA
-    async handleLoseWeight(){
+    async handleLoseWeight(evt){
         await this.setState({
             loseWeight: true,
             maintainWeight: false,
@@ -105,31 +105,38 @@ class SignUp extends Component {
                     <div className="button border-blue" onClick={this.handleLoseWeight}>
                         <p>Lose Weight</p>
                     </div>
+                    <p className="signUpPrint">.5 lb lost /week</p>
                     <br/>
                     <div className="button border-blue" onClick={this.handleMaintainWeight}>
                         <p>Maintain Weight</p>
                     </div>
+                    <p className="signUpPrint">0 lbs lost /week</p>
                     <br/>
                     <div className="button border-blue" onClick={this.handleGainWeight}>
                         <p>Gain Weight</p>
                     </div>
+                    <p className="signUpPrint">.5 lb gained /week</p>
                     <br/>
                     <h2>What is your daily activity?</h2>
                     <div className="button border-blue" onClick={this.handleNotActive}>
                         <p>Not Very Active</p>
                     </div>
+                    <p className="signUpPrint">Little to no exercise /week</p>
                     <br/>
                     <div className="button border-blue" onClick={this.handleLightActive}>
                         <p>Lightly Active</p>
                     </div>
+                    <p className="signUpPrint">1-3 exercise times/week</p>
                     <br/>
                     <div className="button border-blue" onClick={this.handleActive}>
                         <p>Active</p>
                     </div>
+                    <p className="signUpPrint">4-6 exercise times/week</p>
                     <br/>
                     <div className="button border-blue" onClick={this.handleVeryActive}>
                         <p>Very Active</p>
                     </div>
+                    <p className="signUpPrint">6+ exercise times/week</p>
                     <br/>
                     <div className="button black">
                         <Link 

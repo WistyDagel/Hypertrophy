@@ -27,30 +27,33 @@ class NutritionalBank extends Component {
         return  (
             <>
             <div className="nutritionBank maxwidth">
-                <h1>Nutrional Bank</h1>
-                <hr/>
-                <h2>Calories Remaning</h2>
-                <h4>{this.state.userData.caloriesCopy}</h4>
-                <h2>Macros Remaning</h2>
+                <hr className="headerHr"/>
+                <div className="nutritionHeader">
+                    <h1>Nutrional Bank</h1>
+                </div>
+                <h2 style={{textDecoration: "underline", fontSize: "16pt"}}>Calories Remaning</h2>
+                <h4 className="nutritionText" id="calories">{this.state.userData.caloriesCopy}</h4>
+                <h2 style={{textDecoration: "underline", fontSize: "16pt"}}>Macros Remaning</h2>
                 <div className="row">
                     <div className="col">
-                        <h3>Proteins</h3>
-                        <h4 id="proteins">{this.state.userData.proteins}g</h4>
+                        <h4>Proteins</h4>
+                        <h4 className="nutritionText" id="proteins">{this.state.userData.proteins}g</h4>
                     </div>
                     <div className="col">
-                        <h3>Carbs</h3>
-                        <h4 id="carbs">{this.state.userData.carbs}g</h4>
+                        <h4>Carbs</h4>
+                        <h4 className="nutritionText" id="carbs">{this.state.userData.carbs}g</h4>
                     </div>
                     <div className="col">
-                        <h3>Fats</h3>
-                        <h4 id="fats">{this.state.userData.fats}g</h4>
+                        <h4>Fats</h4>
+                        <h4 className="nutritionText" id="fats">{this.state.userData.fats}g</h4>
                     </div>
                     <div className="col">
-                        <h3>Sugars</h3>
-                        <h4 id="sugars">{this.state.userData.sugars}g</h4>
+                        <h4>Sugars</h4>
+                        <h4 className="nutritionText" id="sugars">{this.state.userData.sugars}g</h4>
                     </div>
                 </div>
-                <hr/>
+                <br/>
+                <hr style={{marginBottom: 0}}/>
             </div>
             </>
         );

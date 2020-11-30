@@ -113,7 +113,7 @@ class AddFoodMP extends Component {
                             </div>
                         </div>
                         <br/>
-                        <div onClick={() => this.appendFood(this.state.foodResults[i].fields)} className="button border-black">
+                        <div style={{marginLeft: "10px"}} onClick={() => this.appendFood(this.state.foodResults[i].fields)} className="button border-black">
                             <a href='/createmeal'>Add Food</a>
                         </div>
                         <br/>
@@ -149,7 +149,7 @@ class AddFoodMP extends Component {
                 <Header/>
                 <div className="searchbox">
                     <div className="row">
-                        <input onChange={this.updateFoodInput}></input>
+                        <textarea name="paragraph_text" cols="36" rows="2" onChange={this.updateFoodInput}></textarea>
                         <button onClick={()=> this.searchFood()}>Search</button>
                     </div>    
                     <br/>

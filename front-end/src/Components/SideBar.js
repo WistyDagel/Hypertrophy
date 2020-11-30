@@ -8,6 +8,8 @@ class SiderBar extends Component {
         this.state = {
             userData: '',
         };
+
+        this.renderDateAndTime = this.renderDateAndTime.bind(this);
     }
 
     async componentDidMount(){
@@ -20,22 +22,42 @@ class SiderBar extends Component {
         });
     }
 
+    renderDateAndTime = () => {
+        var date = new Date();
+
+        var today = date.toString().split(/\s/g);
+
+        var date = `${today[0]}, ${today[1]}/${today[2]}/${today[3]}`
+        // var time = `${today[4]}`
+  
+        return (
+            <>
+            <div className="col">
+                <h2>{date}</h2>
+            </div>
+            </>
+        )
+    }
+
     render(){
         return (
             <Menu>
                 <div className="sideBar">
+                    {this.renderDateAndTime()}
+                    <div className="dateAndTime">
+                    </div>
                     <div className="userContent">
                         <br/>
                         <img src={this.state.userData.imageUrl}/>
                         <h3>{this.state.userData.name}</h3>
-                        <div onClick={() => this.state.sidebarOpen = false} className="button">
-                            <a href="/editaccount" id="border">Edit Information</a>
+                        <div onClick={() => this.state.sidebarOpen = false} className="button border-blue">
+                            <a href="/editaccount">Edit Information</a>
                         </div>
                     </div>
-                    <div className="logOut button">
+                    <div className="logOut">
                         <a href="/">
                             <div style={{padding: 0}} className="row">
-                                <img style={{width: "30px", height: "auto"}} src={logout}/>
+                                <img style={{width: "30px", height: "auto", paddingRight: "5px", paddingLeft: "10px"}} src={logout}/>
                                 <h4>Log Out</h4>
                             </div>
                         </a>
