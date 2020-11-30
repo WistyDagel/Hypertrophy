@@ -363,10 +363,10 @@ class FitnessLog extends Component {
                     <NutritionalBank/>
                     <br/>
                     <div className="row">
-                        <div className="button border-black" onClick={() => this.renderCurrentMealPlan()}>
+                        <div style={{marginRight: "20px"}} className="button border-black" onClick={() => this.renderCurrentMealPlan()}>
                             <h4>Load Your Current Meal Plan</h4>
                         </div>
-                        <hr className="divider"/>
+                        {/* <hr className="divider"/> */}
                         <div className="button border-black" onClick={() => this.renderCurrentWorkoutPlan()}>
                             <h4>Load Today's Workout Plan</h4>
                         </div>

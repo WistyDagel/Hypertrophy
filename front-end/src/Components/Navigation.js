@@ -15,41 +15,57 @@ class Navigation extends Component {
     render(){
         return (
             <div className="navbar">
-                <div className="button col">
-                    <img style={{width: "20px", height: "20px"}} src={home}></img>
+                <div className="button">
                     <Link
                         className="navText"
                         to={{
                             pathname: '/home',
                         }}
-                    >Home</Link>
+                    >
+                        <div className="col">
+                            <img style={{width: "20px", height: "20px"}} src={home}></img>
+                            Home
+                        </div>
+                    </Link>
                 </div>
-                <div className="button col">
-                    <img style={{width: "20px", height: "20px"}} src={log}></img>
+                <div className="button">
                     <Link
                         className="navText"
                         to={{
                             pathname: '/fitnesslog',
                         }}
-                    >Log</Link>
+                    >
+                        <div className="col">
+                            <img style={{width: "20px", height: "20px"}} src={log}></img>
+                            Log
+                        </div>
+                    </Link>
                 </div>
-                <div className="button col">
-                    <img style={{width: "20px", height: "20px"}} src={apple}></img>
+                <div className="button">
                     <Link
                         className="navText"
                         to={{
                             pathname: '/mealhome',
                         }}
-                    >Diet</Link>
+                    >
+                        <div className="col">
+                            <img style={{width: "20px", height: "20px"}} src={apple}></img>
+                            Diet
+                        </div>
+                    </Link>
                 </div>
-                <div className="button col">
-                    <img style={{width: "20px", height: "20px"}} src={dumbbell}></img>
+                <div className="button">
                     <Link
                         className="navText"
                         to={{
                             pathname: '/workouthome',
                         }}
-                    >Exercise</Link>
+                    >
+                        <div className="col">
+                            <img style={{width: "20px", height: "20px"}} src={dumbbell}></img>
+                            Exercise
+                        </div>
+                    </Link>
                 </div>
             </div>
         );
