@@ -31,9 +31,9 @@ class NutritionalBank extends Component {
                 <div className="nutritionHeader">
                     <h1>Nutrional Bank</h1>
                 </div>
-                <h2 style={{textDecoration: "underline", fontSize: "16pt"}}>Calories Remaning</h2>
+                <h2 style={{fontSize: "16pt"}}>Calories Remaning</h2>
                 <h4 className="nutritionText" id="calories">{this.state.userData.caloriesCopy}</h4>
-                <h2 style={{textDecoration: "underline", fontSize: "16pt"}}>Macros Remaning</h2>
+                <h2 style={{fontSize: "16pt"}}>Macros Remaning</h2>
                 <div className="row">
                     <div className="col">
                         <h4>Proteins</h4>
