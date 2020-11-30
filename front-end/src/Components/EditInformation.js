@@ -45,21 +45,18 @@ class EditInformation extends Component {
         this.state.accountObj.goalsAndActivity.loseWeight = true;
         this.state.accountObj.goalsAndActivity.maintainWeight = false;
         this.state.accountObj.goalsAndActivity.gainWeight = false;
-        console.log(true);
     }
 
     handleMaintainWeight(){
         this.state.accountObj.goalsAndActivity.loseWeight = false;
         this.state.accountObj.goalsAndActivity.maintainWeight = true;
         this.state.accountObj.goalsAndActivity.gainWeight = false;
-        console.log(true);
     }
 
     handleGainWeight(){
         this.state.accountObj.goalsAndActivity.loseWeight = false;
         this.state.accountObj.goalsAndActivity.maintainWeight = false;
         this.state.accountObj.goalsAndActivity.gainWeight = true;
-        console.log(true);
     }
 
     //ACTIVITY PORTION DATA
@@ -68,7 +65,6 @@ class EditInformation extends Component {
         this.state.accountObj.goalsAndActivity.lightActive = false;
         this.state.accountObj.goalsAndActivity.active = false;
         this.state.accountObj.goalsAndActivity.veryActive = false;
-        console.log(true);
     }
 
     handleLightActive(){
@@ -76,7 +72,6 @@ class EditInformation extends Component {
         this.state.accountObj.goalsAndActivity.lightActive = true;
         this.state.accountObj.goalsAndActivity.active = false;
         this.state.accountObj.goalsAndActivity.veryActive = false;
-        console.log(true);
     }
 
     handleActive(){
@@ -84,7 +79,6 @@ class EditInformation extends Component {
         this.state.accountObj.goalsAndActivity.lightActive = false;
         this.state.accountObj.goalsAndActivity.active = true;
         this.state.accountObj.goalsAndActivity.veryActive = false;
-        console.log(true);
     }
 
     handleVeryActive(){
@@ -92,7 +86,6 @@ class EditInformation extends Component {
         this.state.accountObj.goalsAndActivity.lightActive = false;
         this.state.accountObj.goalsAndActivity.active = false;
         this.state.accountObj.goalsAndActivity.veryActive = true;
-        console.log(true);        
     }
     
     handleMale() {
