@@ -156,57 +156,71 @@ class EditInformation extends Component {
                 <hr style={{width: "100%"}}/>
                 <br/>
                 <h2>What is your goal?</h2>
-                <div className="button" onClick={this.handleLoseWeight}>
-                    <p id="border">Lose Weight</p>
+                <div className="button border-blue" onClick={this.handleLoseWeight}>
+                    <p>Lose Weight</p>
                 </div>
-                <div className="button" onClick={this.handleMaintainWeight}>
-                    <p id="border">Maintain Weight</p>
+                <p className="signUpPrint">.5 lb lost /week</p>
+                <br/>
+                <div className="button border-blue" onClick={this.handleMaintainWeight}>
+                    <p>Maintain Weight</p>
                 </div>
-                <div className="button" onClick={this.handleGainWeight}>
-                    <p id="border">Gain Weight</p>
+                <p className="signUpPrint">0 lbs lost /week</p>
+                <br/>
+                <div className="button border-blue" onClick={this.handleGainWeight}>
+                    <p>Gain Weight</p>
                 </div>
+                <p className="signUpPrint">.5 lb gained /week</p>
+                <br/>
                 <h2>What is your daily activity?</h2>
-                <div className="button" onClick={this.handleNotActive}>
-                    <p id="border">Not Very Active</p>
+                <div className="button border-blue" onClick={this.handleNotActive}>
+                    <p>Not Very Active</p>
                 </div>
-                <div className="button" onClick={this.handleLightActive}>
-                    <p id="border">Lightly Active</p>
+                <p className="signUpPrint">Little to no exercise /week</p>
+                <br/>
+                <div className="button border-blue" onClick={this.handleLightActive}>
+                    <p>Lightly Active</p>
                 </div>
-                <div className="button" onClick={this.handleActive}>
-                    <p id="border">Active</p>
+                <p className="signUpPrint">1-3 exercise times/week</p>
+                <br/>
+                <div className="button border-blue" onClick={this.handleActive}>
+                    <p>Active</p>
                 </div>
-                <div className="button" onClick={this.handleVeryActive}>
-                    <p id="border">Very Active</p>
+                <p className="signUpPrint">4-6 exercise times/week</p>
+                <br/>
+                <div className="button border-blue" onClick={this.handleVeryActive}>
+                    <p>Very Active</p>
                 </div>
+                <p className="signUpPrint">6+ exercise times/week</p>
                 <br/>
                 <h1>Personal Information</h1>
                 <hr style={{width: "100%"}}/>
                 <br/>
                 <h2>I am</h2>
-                <div className="button" onClick={this.handleMale}>
-                    <p id="border">Male</p>
+                <div className="button border-blue" onClick={this.handleMale}>
+                    <p>Male</p>
                 </div>
-                <div className="button" onClick={this.handleFemale}>
-                    <p id="border">Female</p>
+                <br/>
+                <div className="button border-blue" onClick={this.handleFemale}>
+                    <p>Female</p>
                 </div>
                 <h2>How old are you?</h2>
                 <div className="row center">
-                    <input className="smallInput" defaultValue={this.state.accountObj.age} onChange={this.handleAge}></input>
+                    <input type="number" min="1" max="110" required="required" className="smallInput" onChange={this.handleAge} defaultValue={this.state.accountObj.age}></input>
                     <p>(years old)</p>
                 </div>
                 <h2>How tall are you?</h2>
                 <div className="row center">
-                    <input className="smallInput" defaultValue={this.state.accountObj.heightFt} onChange={this.handleHeightFt}></input>
+                    <input type="number" min="4" max="7" required="required" className="smallInput" onChange={this.handleHeightFt} defaultValue={this.state.accountObj.heightFt}></input>
                     <p>ft</p>
-                    <input className="smallInput" defaultValue={this.state.accountObj.heightIn} onChange={this.handleHeightIn}></input>
+                    <input type="number" min="1" max="11" required="required" className="smallInput" onChange={this.handleHeightIn} defaultValue={this.state.accountObj.heightIn}></input>
                     <p>in</p>
                 </div>
                 <h2>How much do you weigh?</h2>
                 <div className="row center">
-                    <input className="smallInput" defaultValue={this.state.accountObj.weight} onChange={this.handleWeight}></input>
+                    <input type="number" min="50" max="600" required="required" className="smallInput" onChange={this.handleWeight} defaultValue={this.state.accountObj.weight}></input>
                     <p>lbs</p>
                 </div>
-                <div id="border" onClick={() => this.updateUserInfo()} className="button">
+                <div onClick={() => this.updateUserInfo()} className="button black">
                         <a href='/home'>Update Information</a>
                 </div>
                 <br/>
