@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Navigation from '../Navigation';
+import currentmeal from '../Photos/currentmeal.jpg';
+import selectmeal from '../Photos/selectmeal.jpg';
+import createmeal from '../Photos/createmeal.jpg';
 
 class MealHome extends Component {
     constructor(props){
@@ -20,9 +23,15 @@ class MealHome extends Component {
                             pathname: '/currentmeal',
                         }}
                     >
-                    <div className="planHomeButton">
+                    <div className="selectionBox">
+                        <div className="imageBox">
+                            <img className="planImage" src={currentmeal} alt=""></img>
+                        </div>
                         <h3>Current Meal Plan</h3>
                     </div>
+                    {/* <div className="planHomeButton">
+                        <img src={createmeal} ></img>
+                    </div> */}
                     </Link>
                     <Link
                         className="planHomeLink"
@@ -30,7 +39,10 @@ class MealHome extends Component {
                             pathname: '/selectmeal'
                         }}
                     >
-                    <div className="planHomeButton">
+                    <div className="selectionBox">
+                        <div className="imageBox">
+                            <img className="planImage" src={selectmeal} alt=""></img>
+                        </div>
                         <h3>Select Meal Plan</h3>
                     </div>
                     </Link>
@@ -40,7 +52,10 @@ class MealHome extends Component {
                             pathname: '/createmeal'
                         }}
                     >
-                    <div className="planHomeButton">
+                    <div className="selectionBox">
+                        <div className="imageBox">
+                            <img className="planImage" src={createmeal} alt=""></img>
+                        </div>
                         <h3>Create Meal Plan</h3>
                     </div>
                    </Link>

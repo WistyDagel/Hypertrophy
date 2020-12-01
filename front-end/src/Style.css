@@ -374,6 +374,32 @@ input {
 }
 
 /* SELECT WORKOUT/MEAL PLAN */
+.selectionBox {
+  display: flex;
+  border: solid black;
+  border-radius: 8px;
+  width: 40vh;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;       
+}
+.selectionBox > h3 {
+  position: absolute;
+  left: 50%;                        
+  top: 50%;                         
+  transform: translate(-50%, -50%);
+  font-style: inherit;
+  font-size: 13pt;
+  margin: 0;
+  background-color:  rgba(255, 255, 255, 0.8);
+  border: solid;
+  border-color: #333;
+  border-radius: 8px;
+  color: #333;
+  padding: 0px 20px;
+}
+
 .planBox {
   border: solid black;
   border-radius: 8px;
@@ -390,6 +416,12 @@ input {
   color: black;
 }
 
+.planBox > h3 {
+  font-style: inherit;
+  margin: 0;
+  color: black;
+}
+
 .imageBox {
   height: 20vh;
   overflow: hidden;
@@ -398,7 +430,7 @@ input {
 
 .planImage {
   height: 20vh;
-  width: 400px;
+  width: 350px;
   object-fit: cover
 }
 

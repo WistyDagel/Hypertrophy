@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Navigation from '../Navigation';
+import currentworkout from '../Photos/currentworkout.jpg';
+import selectworkout from '../Photos/selectworkout.jpg';
+import createworkout from '../Photos/createworkout.jpg';
 
 class WorkoutHome extends Component {
     constructor(props){
@@ -21,30 +24,39 @@ class WorkoutHome extends Component {
                     <Link
                         className="planHomeLink"
                         to={{
-                            pathname: '/currentworkout'
+                            pathname: '/currentworkout',
                         }}
                     >
-                    <div className="planHomeButton">
+                    <div className="selectionBox">
+                        <div className="imageBox">
+                            <img className="planImage" src={currentworkout} alt=""></img>
+                        </div>
                         <h3>Current Workout Plan</h3>
                     </div>
                     </Link>
                     <Link
                         className="planHomeLink"
                         to={{
-                            pathname: '/selectworkout'
+                            pathname: '/selectworkout',
                         }}
-                    >                    
-                    <div className="planHomeButton">
+                    >
+                    <div className="selectionBox">
+                        <div className="imageBox">
+                            <img className="planImage" src={selectworkout} alt=""></img>
+                        </div>
                         <h3>Select Workout Plan</h3>
                     </div>
                     </Link>
                     <Link
                         className="planHomeLink"
                         to={{
-                            pathname: '/createworkout'
+                            pathname: '/createworkout',
                         }}
                     >
-                    <div className="planHomeButton">
+                    <div className="selectionBox">
+                        <div className="imageBox">
+                            <img className="planImage" src={createworkout} alt=""></img>
+                        </div>
                         <h3>Create Workout Plan</h3>
                     </div>
                     </Link>

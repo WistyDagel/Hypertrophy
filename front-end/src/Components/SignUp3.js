@@ -111,7 +111,7 @@ class SignUp3 extends Component {
                 <br/>
                 <h4>Please proceed to the home screen</h4>
                 <br/>
-                <div className="button">
+                <div className="button black">
                     <Link
                         id="border"
                         to={{

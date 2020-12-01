@@ -67,7 +67,7 @@ class CalculateStats extends Component{
         }
 
         if(userData.male){
-            calories = (((10 * userData.weight) + (6.25 * heightCm) - (5 * userData.age) + 5) * .68) * activityPercent;
+            calories = (((10 * userData.weight) + (6.25 * heightCm) - (5 * userData.age) + 5) * .74) * activityPercent;
         } else {
             calories = (((10 * userData.weight) + (6.25 * heightCm) - (5 * userData.age) - 161) * .68) * activityPercent;
         }

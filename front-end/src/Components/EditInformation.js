@@ -9,7 +9,19 @@ class EditInformation extends Component {
         super(props);
 
         this.state = {
-            accountObj: ''
+            loseWeight: false,
+            maintainWeight: false,
+            gainWeight: false,
+            notActive: false,
+            lightActive: false,
+            active: false,
+            veryActive: false,
+            male: false,
+            female: false,
+            age: '',
+            heightFt: '',
+            heightIn: '',
+            weight: ''
         }
 
         this.handleLoseWeight = this.handleLoseWeight.bind(this);
@@ -35,95 +47,143 @@ class EditInformation extends Component {
         .then(res => res.json())
         .then(data => {
             this.setState({
-                accountObj: data[0].accountObj
+                loseWeight: data[0].accountObj.goalsAndActivity.loseWeight,
+                maintainWeight: data[0].accountObj.goalsAndActivity.maintainWeight,
+                gainWeight: data[0].accountObj.goalsAndActivity.gainWeight,
+                notActive: data[0].accountObj.goalsAndActivity.notActive,
+                lightActive: data[0].accountObj.goalsAndActivity.lightActive,
+                active: data[0].accountObj.goalsAndActivity.active,
+                veryActive: data[0].accountObj.goalsAndActivity.veryActive,
+                male: data[0].accountObj.male,
+                female: data[0].accountObj.female,
+                age: data[0].accountObj.age,
+                heightFt: data[0].accountObj.heightFt,
+                heightIn: data[0].accountObj.heightIn,
+                weight: data[0].accountObj.weight
             })
         });
     }
 
     //GOALS PORTION DATA
-    handleLoseWeight(){
-        this.state.accountObj.goalsAndActivity.loseWeight = true;
-        this.state.accountObj.goalsAndActivity.maintainWeight = false;
-        this.state.accountObj.goalsAndActivity.gainWeight = false;
+    async handleLoseWeight(evt){
+        await this.setState({
+            loseWeight: true,
+            maintainWeight: false,
+            gainWeight: false
+        });
     }
 
-    handleMaintainWeight(){
-        this.state.accountObj.goalsAndActivity.loseWeight = false;
-        this.state.accountObj.goalsAndActivity.maintainWeight = true;
-        this.state.accountObj.goalsAndActivity.gainWeight = false;
+    async handleMaintainWeight(){
+        await this.setState({
+            loseWeight: false,
+            maintainWeight: true,
+            gainWeight: false
+        });
     }
 
-    handleGainWeight(){
-        this.state.accountObj.goalsAndActivity.loseWeight = false;
-        this.state.accountObj.goalsAndActivity.maintainWeight = false;
-        this.state.accountObj.goalsAndActivity.gainWeight = true;
+    async handleGainWeight(){
+        await this.setState({
+            loseWeight: false,
+            maintainWeight: false,
+            gainWeight: true
+        });
     }
 
     //ACTIVITY PORTION DATA
-    handleNotActive(){
-        this.state.accountObj.goalsAndActivity.notActive = true;
-        this.state.accountObj.goalsAndActivity.lightActive = false;
-        this.state.accountObj.goalsAndActivity.active = false;
-        this.state.accountObj.goalsAndActivity.veryActive = false;
+    async handleNotActive(){
+        await this.setState({
+            notActive: true,
+            lightActive: false,
+            active: false,
+            veryActive: false
+        });
     }
 
-    handleLightActive(){
-        this.state.accountObj.goalsAndActivity.notActive = false;
-        this.state.accountObj.goalsAndActivity.lightActive = true;
-        this.state.accountObj.goalsAndActivity.active = false;
-        this.state.accountObj.goalsAndActivity.veryActive = false;
+    async handleLightActive(){
+        await this.setState({
+            notActive: false,
+            lightActive: true,
+            active: false,
+            veryActive: false
+        });
     }
 
-    handleActive(){
-        this.state.accountObj.goalsAndActivity.notActive = false;
-        this.state.accountObj.goalsAndActivity.lightActive = false;
-        this.state.accountObj.goalsAndActivity.active = true;
-        this.state.accountObj.goalsAndActivity.veryActive = false;
+    async handleActive(){
+        await this.setState({
+            notActive: false,
+            lightActive: false,
+            active: true,
+            veryActive: false
+        });
     }
 
-    handleVeryActive(){
-        this.state.accountObj.goalsAndActivity.notActive = false;
-        this.state.accountObj.goalsAndActivity.lightActive = false;
-        this.state.accountObj.goalsAndActivity.active = false;
-        this.state.accountObj.goalsAndActivity.veryActive = true;
+    async handleVeryActive(){
+        await this.setState({
+            notActive: false,
+            lightActive: false,
+            active: false,
+            veryActive: true
+        });
     }
     
-    handleMale() {
-        this.state.accountObj.male = true;
-        this.state.accountObj.female = false;
+    async handleMale() {
+        await this.setState({
+            male: true,
+            female: false
+        });
     }
 
-    handleFemale() {
-        this.state.accountObj.male = false;
-        this.state.accountObj.female = true;
+    async handleFemale() {
+        await this.setState({
+            male: false,
+            female: true
+        });
     }
 
-    handleAge(evt) {
-        this.state.accountObj.age = evt.target.value;
+    async handleAge(evt) {
+        await this.setState({ age: evt.target.value });
     }
 
-    handleHeightFt(evt) {
-        this.state.accountObj.heightFt = evt.target.value;
+    async handleHeightFt(evt) {
+        await this.setState({ heightFt: evt.target.value });
     }
 
-    handleHeightIn(evt) {
-        this.state.accountObj.heightIn = evt.target.value;
+    async handleHeightIn(evt) {
+        await this.setState({ heightIn: evt.target.value });
     }
 
-    handleWeight(evt) {
-        this.state.accountObj.weight = evt.target.value;
+    async handleWeight(evt) {
+        await this.setState({ weight: evt.target.value });
     }
 
     updateUserInfo = () => {
+        var accountObj = {
+            goalsAndActivity: {
+                loseWeight: this.state.loseWeight,
+                maintainWeight: this.state.maintainWeight,
+                gainWeight: this.state.gainWeight,
+                notActive: this.state.notActive,
+                lightActive: this.state.lightActive,
+                active: this.state.active,
+                veryActive: this.state.veryActive,
+            },
+            male: this.state.male,
+            female: this.state.female,
+            age: this.state.age,
+            heightFt: this.state.heightFt,
+            heightIn: this.state.heightIn,
+            weight: this.state.weight
+        }
+        
         //Calculate data at this point with CalcStats component
-        var cal = calcStats.calculateCalories(this.state.accountObj);
+        var cal = calcStats.calculateCalories(accountObj);
         //0:proteins, 1: carbs, 2: fats, 3: sugars
         var nutrientList = calcStats.calculateMacros(cal);
         fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`, {
             method: "PUT",
             headers: {'Content-Type': "application/json"},
             body: JSON.stringify({
-                accountObj: this.state.accountObj,
+                accountObj: accountObj,
                 calories: cal,
                 caloriesCopy: cal,
                 proteins: nutrientList[0],
@@ -198,22 +258,22 @@ class EditInformation extends Component {
                 </div>
                 <h2>How old are you?</h2>
                 <div className="row center">
-                    <input type="number" min="1" max="110" required="required" className="smallInput" onChange={this.handleAge} defaultValue={this.state.accountObj.age}></input>
+                    <input type="number" min="1" max="110" required="required" className="smallInput" onChange={this.handleAge} defaultValue={this.state.age}></input>
                     <p>(years old)</p>
                 </div>
                 <h2>How tall are you?</h2>
                 <div className="row center">
-                    <input type="number" min="4" max="7" required="required" className="smallInput" onChange={this.handleHeightFt} defaultValue={this.state.accountObj.heightFt}></input>
+                    <input type="number" min="4" max="7" required="required" className="smallInput" onChange={this.handleHeightFt} defaultValue={this.state.heightFt}></input>
                     <p>ft</p>
-                    <input type="number" min="1" max="11" required="required" className="smallInput" onChange={this.handleHeightIn} defaultValue={this.state.accountObj.heightIn}></input>
+                    <input type="number" min="1" max="11" required="required" className="smallInput" onChange={this.handleHeightIn} defaultValue={this.state.heightIn}></input>
                     <p>in</p>
                 </div>
                 <h2>How much do you weigh?</h2>
                 <div className="row center">
-                    <input type="number" min="50" max="600" required="required" className="smallInput" onChange={this.handleWeight} defaultValue={this.state.accountObj.weight}></input>
+                    <input type="number" min="50" max="600" required="required" className="smallInput" onChange={this.handleWeight} defaultValue={this.state.weight}></input>
                     <p>lbs</p>
                 </div>
-                <div onClick={() => this.updateUserInfo()} className="button black">
+                <div style={{padding: "0px 20px"}} onClick={() => this.updateUserInfo()} className="button black">
                         <a href='/home'>Update Information</a>
                 </div>
                 <br/>
