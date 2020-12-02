@@ -108,7 +108,7 @@ input {
   background-color: #515050;
 }
 
-.black:hover {
+.button.black:hover {
   background-color: #585858;
 }
 
@@ -116,7 +116,7 @@ input {
   background-color: #29abe2;
 }
 
-.blue:hover {
+.button.blue:hover {
   background-color: #58c8f8;
 }
 
@@ -128,7 +128,7 @@ input {
   color: #515050;
 }
 
-.border-blue:hover {
+.button.border-blue:hover {
   background-color: #29abe2;
   color: #fff;
 }
@@ -141,7 +141,7 @@ input {
   color: #333;
 }
 
-.border-black:hover {
+.button.border-black:hover {
   background-color: #515050;
   color: #fff;
 }
@@ -330,6 +330,7 @@ input {
 
 .mealName {
   text-align: left;
+  color: #29abe2;
 }
 
 .results {
@@ -382,8 +383,10 @@ input {
   text-decoration: none;
   align-items: center;
   justify-content: center;
-  position: relative;       
+  position: relative;  
+  z-index: -1;     
 }
+
 .selectionBox > h3 {
   position: absolute;
   left: 50%;                        

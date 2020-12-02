@@ -27,7 +27,7 @@ class MealHome extends Component {
                         <div className="imageBox">
                             <img className="planImage" src={currentmeal} alt=""></img>
                         </div>
-                        <h3>Current Meal Plan</h3>
+                        <h3>Current <br/> Meal Plan</h3>
                     </div>
                     {/* <div className="planHomeButton">
                         <img src={createmeal} ></img>
@@ -43,7 +43,7 @@ class MealHome extends Component {
                         <div className="imageBox">
                             <img className="planImage" src={selectmeal} alt=""></img>
                         </div>
-                        <h3>Select Meal Plan</h3>
+                        <h3>Select A <br/> Meal Plan</h3>
                     </div>
                     </Link>
                     <Link
@@ -56,7 +56,7 @@ class MealHome extends Component {
                         <div className="imageBox">
                             <img className="planImage" src={createmeal} alt=""></img>
                         </div>
-                        <h3>Create Meal Plan</h3>
+                        <h3>Create A <br/> Meal Plan</h3>
                     </div>
                    </Link>
                 </div>

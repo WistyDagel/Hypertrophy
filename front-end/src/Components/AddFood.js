@@ -87,34 +87,36 @@ class AddFood extends Component {
             for (let i = 0; i < this.state.foodResults.length; i++) {
                 foodResultArray.push(
                     <div key={i}>
-                        <div className="mealName">
+                        <hr style={{width: "80%"}}/>
+                        <div className="row mealName">
                             <h3>{i}) {this.state.foodResults[i].fields.item_name}</h3>
                         </div>
+                        <div style={{margin: "0px 15px 0px 20px", textAlign: "left", padding: "0px 12px"}} className="border-black">
+                            <h3>Calories: {Math.trunc(this.state.foodResults[i].fields.nf_calories)}</h3>
+                        </div>
                         <div className="row">
-                            <div className="col">
-                                <h4>Calories:</h4>
-                                <h4>{Math.trunc(this.state.foodResults[i].fields.nf_calories)}</h4>
-                            </div>
-                            <div className="col">
-                                <h4>Proteins:</h4>
+                            <div style={{padding: "0px 10px"}} className="col border-black">
+                                <h4>Proteins</h4>
                                 <h4>{Math.trunc(this.state.foodResults[i].fields.nf_protein)}</h4>
                             </div>
-                            <div className="col">
-                                <h4>Carbs:</h4>
+                            <div style={{padding: "0px 15px"}} className="col border-black">
+                                <h4>Carbs</h4>
                                 <h4>{Math.trunc(this.state.foodResults[i].fields.nf_total_carbohydrate)}</h4>
                             </div>
-                            <div className="col">
-                                <h4>Fats:</h4>
+                            <div style={{padding: "0px 15px"}} className="col border-black">
+                                <h4>Fats</h4>
                                 <h4>{Math.trunc(this.state.foodResults[i].fields.nf_total_fat)}</h4>
                             </div>
-                            <div className="col">
-                                <h4>Sugars:</h4>
+                            <div style={{padding: "0px 10px"}} className="col border-black">
+                                <h4>Sugars</h4>
                                 <h4>{Math.trunc(this.state.foodResults[i].fields.nf_sugars)}</h4>
                             </div>
                         </div>
                         <br/>
-                        <div style={{marginLeft: "10px"}} onClick={() => this.appendFood(this.state.foodResults[i].fields)} className="button border-black">
-                            <a href='/fitnesslog'>Add Food</a>
+                        <div className="row">
+                            <div onClick={() => this.appendFood(this.state.foodResults[i].fields)} className="button border-blue">
+                                <a href='/fitnesslog'>Add Food</a>
+                            </div>
                         </div>
                         <br/>
                     </div>
@@ -122,11 +124,9 @@ class AddFood extends Component {
             }
             return(
                 <div className="results">
-                    <h2 className="planTitle">Results</h2>
-                    <br/>
                     {foodResultArray}
                     <br/>
-                    <div className="row">
+                    <div>
                         <a target="_blank" href="http://www.nutritionix.com/api">
                             <img src="https://d2eawub7utcl6.cloudfront.net/images/poweredby_nutritionix_api.png"></img>
                         </a>
@@ -153,7 +153,6 @@ class AddFood extends Component {
                         <button onClick={()=> this.searchFood()}>Search</button>
                     </div>    
                     <br/>
-                    <hr/>
                 </div>
                 <this.renderResults/>
                 <Navigation/>

@@ -106,9 +106,9 @@ class AddExerciseWP extends Component {
                             <br/>
                             <input onChange={this.updateDuration}></input>
                             <br/>
-                            <input onChange={this.updateSets}></input>
+                            <input style={{marginRight: "120px"}} className="smallInput" onChange={this.updateSets}></input>
                             <br/>
-                            <input onChange={this.updateReps}></input>
+                            <input style={{marginRight: "120px"}} className="smallInput" onChange={this.updateReps}></input>
                         </div>
                     </div>    
                     <br/>

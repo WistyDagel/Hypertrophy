@@ -44,7 +44,7 @@ class WorkoutHome extends Component {
                         <div className="imageBox">
                             <img className="planImage" src={selectworkout} alt=""></img>
                         </div>
-                        <h3>Select Workout Plan</h3>
+                        <h3>Select A Workout Plan</h3>
                     </div>
                     </Link>
                     <Link
@@ -57,7 +57,7 @@ class WorkoutHome extends Component {
                         <div className="imageBox">
                             <img className="planImage" src={createworkout} alt=""></img>
                         </div>
-                        <h3>Create Workout Plan</h3>
+                        <h3>Create A Workout Plan</h3>
                     </div>
                     </Link>
                 </div>

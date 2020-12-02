@@ -71,19 +71,20 @@ class AddExercise extends Component {
                             <h4>Reps: </h4>
                         </div>
                         <div className="col">
+                            {/* <textarea name="paragraph_text" cols="22" rows="2" onChange={this.updateDescription}></textarea> */}
                             <input onChange={this.updateDescription}></input>
                             <br/>
                             <input onChange={this.updateDuration}></input>
                             <br/>
-                            <input onChange={this.updateSets}></input>
+                            <input style={{marginRight: "120px"}} className="smallInput" onChange={this.updateSets}></input>
                             <br/>
-                            <input onChange={this.updateReps}></input>
+                            <input style={{marginRight: "120px"}} className="smallInput" onChange={this.updateReps}></input>
                         </div>
                     </div>    
                     <br/>
                     <br/>
                     <br/>
-                    <div id="border" onClick={() => this.appendExercise()} className="button">
+                    <div onClick={() => this.appendExercise()} className="button border-black">
                         <a href='/fitnesslog'>Add Exercise</a>
                     </div>
                 </div>
