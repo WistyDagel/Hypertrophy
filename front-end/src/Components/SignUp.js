@@ -33,6 +33,15 @@ class SignUp extends Component {
             maintainWeight: false,
             gainWeight: false
         });
+        var loseWeight = document.getElementById('lweight');    
+        loseWeight.style.backgroundColor = "#29abe2";
+        loseWeight.style.color = "#fff";
+        var maintainWeight = document.getElementById('mweight');  
+        maintainWeight.style.backgroundColor = "#fff";
+        maintainWeight.style.color = "#515050";
+        var gainWeight = document.getElementById('gweight');
+        gainWeight.style.backgroundColor = "#fff";
+        gainWeight.style.color = "#515050";
     }
 
     async handleMaintainWeight(){
@@ -41,6 +50,15 @@ class SignUp extends Component {
             maintainWeight: true,
             gainWeight: false
         });
+        var loseWeight = document.getElementById('lweight');    
+        loseWeight.style.backgroundColor = "#fff";
+        loseWeight.style.color = "#515050";
+        var maintainWeight = document.getElementById('mweight');  
+        maintainWeight.style.backgroundColor = "#29abe2";
+        maintainWeight.style.color = "#fff";
+        var gainWeight = document.getElementById('gweight');
+        gainWeight.style.backgroundColor = "#fff";
+        gainWeight.style.color = "#515050";
     }
 
     async handleGainWeight(){
@@ -49,6 +67,15 @@ class SignUp extends Component {
             maintainWeight: false,
             gainWeight: true
         });
+        var loseWeight = document.getElementById('lweight');    
+        loseWeight.style.backgroundColor = "#fff";
+        loseWeight.style.color = "#515050";
+        var maintainWeight = document.getElementById('mweight');  
+        maintainWeight.style.backgroundColor = "#fff";
+        maintainWeight.style.color = "#515050";
+        var gainWeight = document.getElementById('gweight');
+        gainWeight.style.backgroundColor = "#29abe2";
+        gainWeight.style.color = "#fff";
     }
 
     //ACTIVITY PORTION DATA
@@ -59,6 +86,18 @@ class SignUp extends Component {
             active: false,
             veryActive: false
         });
+        var notActive = document.getElementById('nactive');    
+        notActive.style.backgroundColor = "#29abe2";
+        notActive.style.color = "#fff";
+        var lightActive = document.getElementById('lactive');  
+        lightActive.style.backgroundColor = "#fff";
+        lightActive.style.color = "#515050";
+        var active = document.getElementById('active');
+        active.style.backgroundColor = "#fff";
+        active.style.color = "#515050";
+        var veryActive = document.getElementById('vactive');
+        veryActive.style.backgroundColor = "#fff";
+        veryActive.style.color = "#515050";
     }
 
     async handleLightActive(){
@@ -68,6 +107,18 @@ class SignUp extends Component {
             active: false,
             veryActive: false
         });
+        var notActive = document.getElementById('nactive');    
+        notActive.style.backgroundColor = "#fff";
+        notActive.style.color = "#515050";
+        var lightActive = document.getElementById('lactive');  
+        lightActive.style.backgroundColor = "#29abe2";
+        lightActive.style.color = "#fff";
+        var active = document.getElementById('active');
+        active.style.backgroundColor = "#fff";
+        active.style.color = "#515050";
+        var veryActive = document.getElementById('vactive');
+        veryActive.style.backgroundColor = "#fff";
+        veryActive.style.color = "#515050";
     }
 
     async handleActive(){
@@ -77,6 +128,18 @@ class SignUp extends Component {
             active: true,
             veryActive: false
         });
+        var notActive = document.getElementById('nactive');    
+        notActive.style.backgroundColor = "#fff";
+        notActive.style.color = "#515050";
+        var lightActive = document.getElementById('lactive');  
+        lightActive.style.backgroundColor = "#fff";
+        lightActive.style.color = "#515050";
+        var active = document.getElementById('active');
+        active.style.backgroundColor = "#29abe2";
+        active.style.color = "#fff";
+        var veryActive = document.getElementById('vactive');
+        veryActive.style.backgroundColor = "#fff";
+        veryActive.style.color = "#515050";
     }
 
     async handleVeryActive(){
@@ -86,6 +149,18 @@ class SignUp extends Component {
             active: false,
             veryActive: true
         });
+        var notActive = document.getElementById('nactive');    
+        notActive.style.backgroundColor = "#fff";
+        notActive.style.color = "#515050";
+        var lightActive = document.getElementById('lactive');  
+        lightActive.style.backgroundColor = "#fff";
+        lightActive.style.color = "#515050";
+        var active = document.getElementById('active');
+        active.style.backgroundColor = "#fff";
+        active.style.color = "#515050";
+        var veryActive = document.getElementById('vactive');
+        veryActive.style.backgroundColor = "#29abe2";
+        veryActive.style.color = "#fff";
     }
 
     render() {
@@ -102,38 +177,38 @@ class SignUp extends Component {
             <form onSubmit={this.handleSubmit}>
                 <div className="content">
                     <h2>What is your goal?</h2>
-                    <div className="button border-blue" onClick={this.handleLoseWeight}>
+                    <div id="lweight" className="button border-blue" onClick={this.handleLoseWeight}>
                         <p>Lose Weight</p>
                     </div>
                     <p className="signUpPrint">.5 lb lost /week</p>
                     <br/>
-                    <div className="button border-blue" onClick={this.handleMaintainWeight}>
+                    <div id="mweight" className="button border-blue" onClick={this.handleMaintainWeight}>
                         <p>Maintain Weight</p>
                     </div>
                     <p className="signUpPrint">0 lbs lost /week</p>
                     <br/>
-                    <div className="button border-blue" onClick={this.handleGainWeight}>
+                    <div id="gweight" className="button border-blue" onClick={this.handleGainWeight}>
                         <p>Gain Weight</p>
                     </div>
                     <p className="signUpPrint">.5 lb gained /week</p>
                     <br/>
                     <h2>What is your daily activity?</h2>
-                    <div className="button border-blue" onClick={this.handleNotActive}>
+                    <div id="nactive" className="button border-blue" onClick={this.handleNotActive}>
                         <p>Not Very Active</p>
                     </div>
                     <p className="signUpPrint">Little to no exercise /week</p>
                     <br/>
-                    <div className="button border-blue" onClick={this.handleLightActive}>
+                    <div id="lactive" className="button border-blue" onClick={this.handleLightActive}>
                         <p>Lightly Active</p>
                     </div>
                     <p className="signUpPrint">1-3 exercise times/week</p>
                     <br/>
-                    <div className="button border-blue" onClick={this.handleActive}>
+                    <div id="active" className="button border-blue" onClick={this.handleActive}>
                         <p>Active</p>
                     </div>
                     <p className="signUpPrint">4-6 exercise times/week</p>
                     <br/>
-                    <div className="button border-blue" onClick={this.handleVeryActive}>
+                    <div id="vactive" className="button border-blue" onClick={this.handleVeryActive}>
                         <p>Very Active</p>
                     </div>
                     <p className="signUpPrint">6+ exercise times/week</p>

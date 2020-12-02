@@ -51,6 +51,10 @@ var fitnessLog = {
     ]
 }
 
+//TODO 
+// CLAORIES NEED TO BE DECREMENTED ACCORDING TO WHAT HAS BEEN CONSUMED
+//UPDATE VISUAL LOOK TO CALORIES - 0 is black and others are red
+
 class FitnessLog extends Component {
     constructor(props){
         super(props);
@@ -132,8 +136,26 @@ class FitnessLog extends Component {
             this.setState({
                 fitnessLog: fitnessLogSession
             })
-
             
+            if(this.state.fitnessLog.breakfast.calories > 0){
+                var breakfast = document.getElementById('bcalories');
+                breakfast.style.color = "#de1e1d";
+            }
+
+            if (this.state.fitnessLog.lunch.calories > 0){
+                var lunch = document.getElementById('lcalories');
+                lunch.style.color = "#de1e1d";
+            }
+
+            if (this.state.fitnessLog.dinner.calories > 0){
+                var dinner = document.getElementById('dcalories');
+                dinner.style.color = "#de1e1d";
+            }
+            
+            if (this.state.fitnessLog.snacks.calories > 0){
+                var snacks = document.getElementById('scalories');
+                snacks.style.color = "#de1e1d";
+            } 
         }
     }
 
@@ -378,7 +400,7 @@ class FitnessLog extends Component {
                         <hr/>
                         <div className="row">
                             <h2>Breakfast</h2>
-                            <h3>{this.state.fitnessLog.breakfast.calories}</h3>
+                            <h3 id="bcalories">{this.state.fitnessLog.breakfast.calories}</h3>
                         </div>
                         {/* <this.renderMealNutrition category={"Breakfast"}/> */}
                         <hr/>
@@ -396,7 +418,7 @@ class FitnessLog extends Component {
                         <hr/>
                         <div className="row">
                             <h2>Lunch</h2>
-                            <h3>{this.state.fitnessLog.lunch.calories}</h3>
+                            <h3 id="lcalories">{this.state.fitnessLog.lunch.calories}</h3>
                         </div>
                         <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.lunch}/>
@@ -413,7 +435,7 @@ class FitnessLog extends Component {
                         <hr/>
                         <div className="row">
                             <h2>Dinner</h2>
-                            <h3>{this.state.fitnessLog.dinner.calories}</h3>
+                            <h3 id="dcalories">{this.state.fitnessLog.dinner.calories}</h3>
                         </div>                        <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.dinner}/>
                         <div style={{marginLeft: "10px"}}  onClick={() => this.setStorage()} className="button border-blue">
@@ -429,7 +451,7 @@ class FitnessLog extends Component {
                         <hr/>
                         <div className="row">
                             <h2>Snacks</h2>
-                            <h3>{this.state.fitnessLog.snacks.calories}</h3>
+                            <h3 id="scalories">{this.state.fitnessLog.snacks.calories}</h3>
                         </div>                        <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.snacks}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
