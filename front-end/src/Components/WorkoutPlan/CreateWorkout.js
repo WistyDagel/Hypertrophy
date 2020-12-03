@@ -246,22 +246,24 @@ class CreateWorkout extends Component {
             for (let i = 0; i < day.exercises.length; i++) {
                 dayArray.push(
                     <div key={i}>
-                        <div className="">
-                            <div className="workoutDescription">
-                                <h4 className="planTitle">{day.exercises[i].description}</h4>
+                        <div className="row workoutDescription">
+                            <h3 className="planTitle">{day.exercises[i].description}</h3>
+                        </div>
+                        <div className="row">
+                            <div style={{width: "150%"}} className="col border-black">
+                                <h4>Duration</h4>
+                                <h4>{day.exercises[i].duration}</h4>
+                            </div>
+                            <div style={{width: "100%"}} className="col border-black">
+                                <h4>Sets</h4>
+                                <h4>{day.exercises[i].sets}</h4>
+                            </div>
+                            <div style={{width: "100%"}} className="col border-black">
+                                <h4>Reps</h4>
+                                <h4>{day.exercises[i].reps}</h4>
                             </div>
                         </div>
-                        <div className="planRow">
-                            <div className="workoutDuration">
-                                <h4>Duration: {day.exercises[i].duration}</h4>
-                            </div>
-                            <div className="workoutSets">
-                                <h4>Sets: {day.exercises[i].sets}</h4>
-                            </div>
-                            <div className="workoutSets">
-                                <h4>Reps: {day.exercises[i].reps}</h4>
-                            </div>
-                        </div>
+                        <br/>
                     </div>
                 );
             }

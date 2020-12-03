@@ -262,23 +262,23 @@ class FitnessLog extends Component {
                         <div className="row mealName">
                             <h3>{currentMeal.meal[i].description}</h3>
                         </div>
-                        <div style={{margin: "0px 15px 0px 20px", textAlign: "left", padding: "0px 12px"}} className="border-black">
+                        <div style={{margin: "0px 20px 0px 20px", textAlign: "left", padding: "0px 12px"}} className="border-black">
                             <h3>Calories: {currentMeal.meal[i].calories}</h3>
                         </div>
                         <div className="row">
-                            <div style={{padding: "0px 10px"}} className="col border-black">
+                            <div style={{width: "100%"}} className="col border-black">
                                 <h4>Proteins</h4>
                                 <h4>{currentMeal.meal[i].protein}</h4>
                             </div>
-                            <div style={{padding: "0px 15px"}} className="col border-black">
+                            <div style={{width: "100%"}} className="col border-black">
                                 <h4>Carbs</h4>
                                 <h4>{currentMeal.meal[i].carbs}</h4>
                             </div>
-                            <div style={{padding: "0px 15px"}} className="col border-black">
+                            <div style={{width: "100%"}} className="col border-black">
                                 <h4>Fats</h4>
                                 <h4>{currentMeal.meal[i].fats}</h4>
                             </div>
-                            <div style={{padding: "0px 10px"}} className="col border-black">
+                            <div style={{width: "100%"}} className="col border-black">
                                 <h4>Sugars</h4>
                                 <h4>{currentMeal.meal[i].sugars}</h4>
                             </div>
@@ -303,22 +303,24 @@ class FitnessLog extends Component {
             for (let i = 0; i < exercises.length; i++) {
                 exerciseArray.push(
                     <div key={i}>
-                        <div className="">
-                            <div className="workoutDescription">
-                                <h4 className="planTitle">{exercises[i].description}</h4>
+                        <div className="row workoutDescription">
+                            <h3 className="planTitle">{exercises[i].description}</h3>
+                        </div>
+                        <div className="row">
+                            <div style={{width: "150%"}} className="col border-black">
+                                <h4>Duration</h4>
+                                <h4>{exercises[i].duration}</h4>
+                            </div>
+                            <div style={{width: "100%"}} className="col border-black">
+                                <h4>Sets</h4>
+                                <h4>{exercises[i].sets}</h4>
+                            </div>
+                            <div style={{width: "100%"}} className="col border-black">
+                                <h4>Reps</h4>
+                                <h4>{exercises[i].reps}</h4>
                             </div>
                         </div>
-                        <div className="planRow">
-                            <div className="workoutDuration">
-                                <h4>Duration: {exercises[i].duration}</h4>
-                            </div>
-                            <div className="workoutSets">
-                                <h4>Sets: {exercises[i].sets}</h4>
-                            </div>
-                            <div className="workoutSets">
-                                <h4>Reps: {exercises[i].reps}</h4>
-                            </div>
-                        </div>
+                        <br/>
                     </div>
                 );
             }

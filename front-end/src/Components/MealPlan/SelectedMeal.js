@@ -41,23 +41,23 @@ class SelectedMeal extends Component {
                         <div className="row mealName">
                             <h3>{currentMeal.meal[i].description}</h3>
                         </div>
-                        <div style={{margin: "0px 15px 0px 20px", textAlign: "left", padding: "0px 12px"}} className="border-black">
+                        <div style={{margin: "0px 20px 0px 20px", textAlign: "left", padding: "0px 12px"}} className="border-black">
                             <h3>Calories: {currentMeal.meal[i].calories}</h3>
                         </div>
                         <div className="row">
-                            <div style={{padding: "0px 10px"}} className="col border-black">
+                            <div style={{width: "100%"}} className="col border-black">
                                 <h4>Proteins</h4>
                                 <h4>{currentMeal.meal[i].protein}</h4>
                             </div>
-                            <div style={{padding: "0px 15px"}} className="col border-black">
+                            <div style={{width: "100%"}} className="col border-black">
                                 <h4>Carbs</h4>
                                 <h4>{currentMeal.meal[i].carbs}</h4>
                             </div>
-                            <div style={{padding: "0px 15px"}} className="col border-black">
+                            <div style={{width: "100%"}} className="col border-black">
                                 <h4>Fats</h4>
                                 <h4>{currentMeal.meal[i].fats}</h4>
                             </div>
-                            <div style={{padding: "0px 10px"}} className="col border-black">
+                            <div style={{width: "100%"}} className="col border-black">
                                 <h4>Sugars</h4>
                                 <h4>{currentMeal.meal[i].sugars}</h4>
                             </div>

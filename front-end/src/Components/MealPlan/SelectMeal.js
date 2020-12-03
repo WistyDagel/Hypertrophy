@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Navigation from '../Navigation';
-import mealplan from '../Photos/selectmeal.jpg';
+import mealplan1 from '../Photos/mealplan1.jpg';
+import mealplan2 from '../Photos/mealplan2.jpg';
+import mealplan3 from '../Photos/mealplan3.jpg';
+import mealplan4 from '../Photos/mealplan4.jpg';
+import mealplan5 from '../Photos/mealplan5.jpg';
+import mealplan6 from '../Photos/mealplan6.jpg';
 
 class SelectMeal extends Component {
     constructor(props){
@@ -35,8 +40,10 @@ class SelectMeal extends Component {
     }
 
     renderMealPlans = () => {
+        var imageArray = [mealplan1, mealplan2, mealplan3, mealplan4, mealplan5, mealplan6];
         var planArray = []
-        for (let i = 0; i < this.state.plans.length; i++) {     
+        for (let i = 0; i < this.state.plans.length; i++) {
+            var imageMod = i % 6;     
             planArray.push(
                 <Link
                     key={i}
@@ -48,7 +55,7 @@ class SelectMeal extends Component {
                 >
                     <div className="planBox">
                         <div className="imageBox">
-                            <img className="planImage" src={mealplan}></img>
+                            <img className="planImage" src={imageArray[imageMod]}></img>
                         </div>
                         <hr style={{backgroundColor: "#333", margin: 0}}/>
                         <h2 style={{backgroundColor: "#fff", padding: "10px 0px", margin: 0}}>{this.state.plans[i].name}</h2>
@@ -73,6 +80,7 @@ class SelectMeal extends Component {
                 <div className="content">
                     {planList}
                 </div>
+                <br/>
                 <br/>
                 <br/>
                 <Navigation/>
