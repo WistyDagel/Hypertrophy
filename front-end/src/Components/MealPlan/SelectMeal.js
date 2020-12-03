@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Navigation from '../Navigation';
-import mealplan1 from '../Photos/mealplan1.jpg';
+import mealplan from '../Photos/selectmeal.jpg';
 
 class SelectMeal extends Component {
     constructor(props){
@@ -48,10 +48,10 @@ class SelectMeal extends Component {
                 >
                     <div className="planBox">
                         <div className="imageBox">
-                            <img className="planImage" src={mealplan1}></img>
+                            <img className="planImage" src={mealplan}></img>
                         </div>
-                        <hr/>
-                        <h2>{this.state.plans[i].name}</h2>
+                        <hr style={{backgroundColor: "#333", margin: 0}}/>
+                        <h2 style={{backgroundColor: "#fff", padding: "10px 0px", margin: 0}}>{this.state.plans[i].name}</h2>
                     </div>
                     <br/>
                 </Link>

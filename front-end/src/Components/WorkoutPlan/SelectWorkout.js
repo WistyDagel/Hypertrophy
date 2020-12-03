@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Navigation from '../Navigation';
-import workoutplan1 from '../Photos/workoutplan1.jpg';
+import selectworkout from '../Photos/selectworkout.jpg';
 
 
 class SelectWorkout extends Component {
@@ -50,10 +50,10 @@ class SelectWorkout extends Component {
                 >
                     <div className="planBox">
                         <div className="imageBox">
-                            <img className="planImage" src={workoutplan1}></img>
+                            <img className="planImage" src={selectworkout}></img>
                         </div>
-                        <hr/>
-                        <h2>{this.state.plans[i].name}</h2>
+                        <hr style={{backgroundColor: "#333", margin: 0}}/>
+                        <h2 style={{backgroundColor: "#fff", padding: "10px 0px", margin: 0}}>{this.state.plans[i].name}</h2>
                     </div>
                     <br/>
                 </Link>
