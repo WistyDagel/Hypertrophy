@@ -237,6 +237,10 @@ input {
   color: #29abe2;
 }
 
+#calories {
+  color: #e9b221;
+}
+
 .nutritionHeader {
   background-color: #373a47;
   padding: 10px 0px;
@@ -269,7 +273,7 @@ input {
 .currentPlan {
   /* text-decoration: underline; */
   font-size: 24px;
-  color: #29abe2;
+  color: #e9b221;
 }
 
 .currentPlanContent {
@@ -456,7 +460,7 @@ input {
 /* CURRENT MEAL / WORKOUT PLAN */
 .planTitle {
   /* text-decoration: underline; */
-  color: #29abe2;
+  color: #e9b221;
 }
 
 .workoutInfo {

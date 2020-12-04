@@ -247,7 +247,7 @@ class CreateWorkout extends Component {
                 dayArray.push(
                     <div key={i}>
                         <div className="row workoutDescription">
-                            <h3 className="planTitle">{day.exercises[i].description}</h3>
+                            <h3 className="mealName">{day.exercises[i].description}</h3>
                         </div>
                         <div className="row">
                             <div style={{width: "150%"}} className="col border-black">
