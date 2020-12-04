@@ -260,6 +260,13 @@ class EditInformation extends Component {
             male: true,
             female: false
         });
+
+        var male = document.getElementById('male');
+        male.style.backgroundColor = "#29abe2";
+        male.style.color = "#fff";
+        var female = document.getElementById('female');
+        female.style.backgroundColor = "#fff";
+        female.style.color = "#515050";
     }
 
     async handleFemale() {
@@ -267,6 +274,13 @@ class EditInformation extends Component {
             male: false,
             female: true
         });
+
+        var male = document.getElementById('male');
+        male.style.backgroundColor = "#fff";
+        male.style.color = "#515050";
+        var female = document.getElementById('female');
+        female.style.backgroundColor = "#29abe2";
+        female.style.color = "#fff";
     }
 
     async handleAge(evt) {
