@@ -126,7 +126,7 @@ class CurrentMeal extends Component {
             <div className="flexbox">
                 <Header/>
                 <div className="col content">
-                    <h2>Current Meal Plan</h2>
+                    <br/>
                     <div className="row">
                         <div className="col">
                             <h2 className="planTitle">{this.state.mealPlan.name}</h2>

@@ -27,7 +27,7 @@ class SiderBar extends Component {
 
         var today = date.toString().split(/\s/g);
 
-        var date = `${today[0]}, ${today[1]}/${today[2]}/${today[3]}`
+        var date = `${today[0]} - ${today[1]} ${today[2]}, ${today[3]}`
         // var time = `${today[4]}`
   
         return (

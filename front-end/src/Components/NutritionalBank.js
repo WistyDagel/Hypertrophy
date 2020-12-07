@@ -27,7 +27,7 @@ class NutritionalBank extends Component {
         return  (
             <>
             <div className="nutritionBank maxwidth">
-                <hr className="headerHr"/>
+                <hr style={{marginTop: 3}} className="headerHr"/>
                 <div className="nutritionHeader">
                     <h1>Nutrional Bank</h1>
                 </div>
