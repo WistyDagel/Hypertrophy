@@ -136,25 +136,31 @@ class FitnessLog extends Component {
             this.setState({
                 fitnessLog: fitnessLogSession
             })
+
+            await this.updateAccountCalories();
             
             if(this.state.fitnessLog.breakfast.calories > 0){
                 var breakfast = document.getElementById('bcalories');
                 breakfast.style.color = "#de1e1d";
+                breakfast.innerHTML = `-${this.state.fitnessLog.breakfast.calories}`;
             }
 
             if (this.state.fitnessLog.lunch.calories > 0){
                 var lunch = document.getElementById('lcalories');
                 lunch.style.color = "#de1e1d";
+                lunch.innerHTML = `-${this.state.fitnessLog.lunch.calories}`;
             }
 
             if (this.state.fitnessLog.dinner.calories > 0){
                 var dinner = document.getElementById('dcalories');
                 dinner.style.color = "#de1e1d";
+                dinner.innerHTML = `-${this.state.fitnessLog.dinner.calories}`;
             }
             
             if (this.state.fitnessLog.snacks.calories > 0){
                 var snacks = document.getElementById('scalories');
                 snacks.style.color = "#de1e1d";
+                snacks.innerHTML = `-${this.state.fitnessLog.snacks.calories}`;
             } 
         }
     }
@@ -341,37 +347,57 @@ class FitnessLog extends Component {
     }
     //NEEDS WORK
     updateAccountCalories = () => {
-        // var breakfastCalories = this.state.fitnessLog.breakfast.calories;
-        // var lunchCalories = this.state.fitnessLog.lunch.calories;
-        // var dinnerCalories = this.state.fitnessLog.dinner.calories;
-        // var snackCalories = this.state.fitnessLog.snacks.calories;
-        // var cal = breakfastCalories + lunchCalories + dinnerCalories + snackCalories;
+        var breakfastCalories = this.state.fitnessLog.breakfast.calories;
+        var lunchCalories = this.state.fitnessLog.lunch.calories;
+        var dinnerCalories = this.state.fitnessLog.dinner.calories;
+        var snackCalories = this.state.fitnessLog.snacks.calories;
+        var cal = breakfastCalories + lunchCalories + dinnerCalories + snackCalories;
 
-        // if(cal != 0){
-        //     var calories = this.state.userData.caloriesCopy;
-        //     calories -= cal;
-        //     var nutrientList = calcStats.calculateMacros(calories);
-        //     fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`, {
-        //         method: "PUT",
-        //         headers: {'Content-Type': "application/json"},
-        //         body: JSON.stringify({
-        //             caloriesCopy: calories,
-        //             proteins: nutrientList[0],
-        //             carbs: nutrientList[1],
-        //             fats: nutrientList[2],
-        //             sugars: nutrientList[3],
-        //         })
-        //     })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if(data){
-        //             console.log(data);
-        //         }
-        //     });
-        // }
+        if(cal != 0){
+            var calories = this.state.userData.calories;
+            calories -= cal;
+            var nutrientList = calcStats.calculateMacros(calories);
+            fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`, {
+                method: "PUT",
+                headers: {'Content-Type': "application/json"},
+                body: JSON.stringify({
+                    caloriesCopy: calories,
+                    proteins: nutrientList[0],
+                    carbs: nutrientList[1],
+                    fats: nutrientList[2],
+                    sugars: nutrientList[3],
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data){
+                    console.log(data);
+                }
+            });
+        }
     }
 
     resetFitnessLog = () => {
+        var calories = this.state.userData.calories;
+        var nutrientList = calcStats.calculateMacros(calories);
+        fetch(`http://localhost:3001/users/${window.sessionStorage.getItem("userId")}`, {
+            method: "PUT",
+            headers: {'Content-Type': "application/json"},
+            body: JSON.stringify({
+                caloriesCopy: calories,
+                proteins: nutrientList[0],
+                carbs: nutrientList[1],
+                fats: nutrientList[2],
+                sugars: nutrientList[3],
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data){
+                console.log(data);
+            }
+        });
+
         window.sessionStorage.setItem("fitnessLog", JSON.stringify(fitnessLog));
     }
 

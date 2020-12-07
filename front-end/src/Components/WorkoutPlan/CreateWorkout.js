@@ -281,16 +281,19 @@ class CreateWorkout extends Component {
                         <h2>Create your workout plan</h2>
                         <br/>
                         <div className="row">
-                            <div className="col">
-                                <h4>Name:</h4>
-                                <br/>
-                                <h4>Description:</h4>
+                            <h4>Name:</h4>
+                            <input style={{width: "230px"}} onChange={this.updateWorkoutName} defaultValue={this.state.workoutData.name}></input>
+                        </div>
+                        <br/>
+                        <div className="row">
+                            <h4>Description:</h4>
+                            <textarea name="paragraph_text" cols="32" rows="2" onChange={this.updateWorkoutDescription} defaultValue={this.state.workoutData.description}></textarea>
+                            {/* <div className="col">
                             </div>
                             <div className="col">
-                                <input onChange={this.updateWorkoutName} defaultValue={this.state.workoutData.name}></input>
                                 <br/>
-                                <input onChange={this.updateWorkoutDescription} defaultValue={this.state.workoutData.description}></input>
-                            </div>
+                            </div> */}
+                            {/* <input onChange={this.updateWorkoutDescription} defaultValue={this.state.workoutData.description}></input> */}
                         </div>    
                     </div>
                     <br/>

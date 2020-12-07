@@ -271,17 +271,14 @@ class CreateMeal extends Component {
                         <h2>Create your meal plan</h2>
                         <br/>
                         <div className="row">
-                            <div className="col">
-                                <h4>Name:</h4>
-                                <br/>
-                                <h4>Description: </h4>
-                            </div>
-                            <div className="col">
-                                <input onChange={this.updateMealName} defaultValue={this.state.mealPlan.name}></input>
-                                <br/>
-                                <input onChange={this.updateMealDescription} defaultValue={this.state.mealPlan.description}></input>
-                            </div>
-                        </div>    
+                            <h4>Name:</h4>
+                            <input style={{width: "230px"}} onChange={this.updateMealName} defaultValue={this.state.mealPlan.name}></input>
+                        </div>
+                        <br/>
+                        <div className="row">
+                            <h4>Description:</h4>
+                            <textarea name="paragraph_text" cols="32" rows="2" onChange={this.updateMealDescription} defaultValue={this.state.mealPlan.description}></textarea>
+                        </div> 
                     </div>
                     <div className="breakfast maxwidth">
                         <hr/>

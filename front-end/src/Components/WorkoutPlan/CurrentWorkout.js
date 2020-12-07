@@ -115,14 +115,14 @@ class CurrentWorkout extends Component {
                         <this.renderDay currentDay={this.state.workoutPlan.day5}/>
                     </div>
                     <div className="dayBox maxwidth">
-                        {/* <h2>{this.state.workoutPlan.day6.name}</h2> */}
-                        <h2>Day 6</h2>
+                        <h2>{this.state.workoutPlan.day6.name}</h2>
+                        {/* <h2>Day 6</h2> */}
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutPlan.day6}/>
                     </div>
                     <div className="dayBox maxwidth">
-                        {/* <h2>{this.state.workoutPlan.day7.name}</h2> */}
-                        <h2>Day 7</h2>
+                        <h2>{this.state.workoutPlan.day7.name}</h2>
+                        {/* <h2>Day 7</h2> */}
                         <hr/>
                         <this.renderDay currentDay={this.state.workoutPlan.day7}/>
                     </div>
