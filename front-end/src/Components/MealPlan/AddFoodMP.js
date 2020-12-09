@@ -107,7 +107,7 @@ class AddFoodMP extends Component {
                                 <h4>Fats</h4>
                                 <h4>{Math.trunc(this.state.foodResults[i].fields.nf_total_fat)}</h4>
                             </div>
-                            <div style={{padding: "0px 10px"}} className="col border-black">
+                            <div style={{padding: "0px 4px"}} className="col border-black">
                                 <h4>Sugars</h4>
                                 <h4>{Math.trunc(this.state.foodResults[i].fields.nf_sugars)}</h4>
                             </div>
