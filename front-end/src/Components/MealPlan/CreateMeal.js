@@ -267,7 +267,7 @@ class CreateMeal extends Component {
             <div className="flexbox">
                 <Header/>
                 <div className="content">
-                    <div className="entrybox">
+                    <div style={{minWidth: "375px", maxWidth: "375px"}} className="entrybox">
                         <h2>Create your meal plan</h2>
                         <br/>
                         <div className="row">
