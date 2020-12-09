@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import logo from '../Logo/logo.png';
 
 import calcStats from './CalculateStats';
-import UserProfile from './UserProfile';
+// import UserProfile from './UserProfile';
 
 //TODO 
 //Figure out why there is a potential memory leak with the set state on CalcNutrition
@@ -103,7 +103,7 @@ class SignUp3 extends Component {
     }
 
     userGreeting = () => {
-        UserProfile.setID(this.state.user._id);
+        // UserProfile.setID(this.state.user._id);
         return (
             <>
             <div className="welcomeGreeting">
