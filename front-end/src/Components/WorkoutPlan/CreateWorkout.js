@@ -294,10 +294,11 @@ class CreateWorkout extends Component {
                                 <br/>
                             </div> */}
                             {/* <input onChange={this.updateWorkoutDescription} defaultValue={this.state.workoutData.description}></input> */}
-                        </div>    
+                        </div>   
                     </div>
                     <br/>
                     <div className="dayBox maxwidth">
+                        <hr/>
                         <h2>Sunday</h2>
                         <div className="row alignLeft">
                             <div className="col">
@@ -317,9 +318,9 @@ class CreateWorkout extends Component {
                                 }}
                                 >Add Exercise</Link>
                         </div>
-                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
+                        <hr/>
                         <h2>Monday</h2>
                         <div className="row alignLeft">
                             <div className="col">
@@ -339,9 +340,9 @@ class CreateWorkout extends Component {
                                 }}
                                 >Add Exercise</Link>
                         </div>
-                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
+                        <hr/>
                         <h2>Tuesday</h2>
                         <div className="row alignLeft">
                             <div className="col">
@@ -361,9 +362,9 @@ class CreateWorkout extends Component {
                                 }}
                                 >Add Exercise</Link>
                         </div>
-                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
+                        <hr/>
                         <h2>Wednesday</h2>
                         <div className="row alignLeft">
                             <div className="col">
@@ -383,9 +384,9 @@ class CreateWorkout extends Component {
                                 }}
                                 >Add Exercise</Link>
                         </div>
-                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
+                        <hr/>
                         <h2>Thursday</h2>
                         <div className="row alignLeft">
                             <div className="col">
@@ -405,9 +406,9 @@ class CreateWorkout extends Component {
                                 }}
                                 >Add Exercise</Link>
                         </div>
-                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
+                        <hr/>
                         <h2>Friday</h2>
                         <div className="row alignLeft">
                             <div className="col">
@@ -427,9 +428,9 @@ class CreateWorkout extends Component {
                                 }}
                                 >Add Exercise</Link>
                         </div>
-                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
+                        <hr/>
                         <h2>Saturday</h2>
                         <div className="row alignLeft">
                             <div className="col">

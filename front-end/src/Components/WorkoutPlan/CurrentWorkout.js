@@ -90,40 +90,40 @@ class CurrentWorkout extends Component {
                     </div>    
                     <br/>
                     <div className="dayBox maxwidth">
-                        <h2>{this.state.workoutPlan.day1.name}</h2>
                         <hr/>
+                        <h2>{this.state.workoutPlan.day1.name}</h2>
                         <this.renderDay currentDay={this.state.workoutPlan.day1}/>
                     </div>
                     <div className="dayBox maxwidth">
-                        <h2>{this.state.workoutPlan.day2.name}</h2>
                         <hr/>
+                        <h2>{this.state.workoutPlan.day2.name}</h2>
                         <this.renderDay currentDay={this.state.workoutPlan.day2}/>
                     </div>
                     <div className="dayBox maxwidth">
-                        <h2>{this.state.workoutPlan.day3.name}</h2>
                         <hr/>
+                        <h2>{this.state.workoutPlan.day3.name}</h2>
                         <this.renderDay currentDay={this.state.workoutPlan.day3}/>
                     </div>
                     <div className="dayBox maxwidth">
-                        <h2>{this.state.workoutPlan.day4.name}</h2>
                         <hr/>
+                        <h2>{this.state.workoutPlan.day4.name}</h2>
                         <this.renderDay currentDay={this.state.workoutPlan.day4}/>
                     </div>
                     <div className="dayBox maxwidth">
-                        <h2>{this.state.workoutPlan.day5.name}</h2>
                         <hr/>
+                        <h2>{this.state.workoutPlan.day5.name}</h2>
                         <this.renderDay currentDay={this.state.workoutPlan.day5}/>
                     </div>
                     <div className="dayBox maxwidth">
+                        <hr/>
                         <h2>{this.state.workoutPlan.day6.name}</h2>
                         {/* <h2>Day 6</h2> */}
-                        <hr/>
                         <this.renderDay currentDay={this.state.workoutPlan.day6}/>
                     </div>
                     <div className="dayBox maxwidth">
+                        <hr/>
                         <h2>{this.state.workoutPlan.day7.name}</h2>
                         {/* <h2>Day 7</h2> */}
-                        <hr/>
                         <this.renderDay currentDay={this.state.workoutPlan.day7}/>
                     </div>
                     <br/>

@@ -114,7 +114,7 @@ class CreateMeal extends Component {
         var mealSession = JSON.parse(window.sessionStorage.getItem("mealSession"));
 
         if(mealSession != undefined){
-            console.log(mealSession);
+            // console.log(mealSession);
             this.setState({
                 mealPlan: mealSession
             })
@@ -145,7 +145,7 @@ class CreateMeal extends Component {
     }
 
     setStorage = () => {
-        console.log(this.state.mealPlan);
+        // console.log(this.state.mealPlan);
         window.sessionStorage.setItem("mealSession", JSON.stringify(this.state.mealPlan));
     }
 
@@ -241,7 +241,7 @@ class CreateMeal extends Component {
         .then(res => res.json())
         .then(data => {
             if(data){
-                console.log(data);
+                // console.log(data);
             }
         });
 
@@ -252,7 +252,7 @@ class CreateMeal extends Component {
         var calories = 0;
         for (let i = 0; i < currentMeal.meal.length; i++) {
             calories += currentMeal.meal[i].calories;
-            console.log(calories);
+            // console.log(calories);
         }
         currentMeal.calories = calories;
     }
@@ -286,8 +286,8 @@ class CreateMeal extends Component {
                             <h2>Breakfast</h2>
                             <h3>{this.state.mealPlan.breakfast.calories}</h3>
                         </div>
+                        <br/>
                         {/* <this.renderMealNutrition category={"Breakfast"}/> */}
-                        <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.breakfast}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -304,7 +304,7 @@ class CreateMeal extends Component {
                             <h2>Lunch</h2>
                             <h3>{this.state.mealPlan.lunch.calories}</h3>
                         </div>
-                        <hr/>
+                        <br/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.lunch}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -321,7 +321,7 @@ class CreateMeal extends Component {
                             <h2>Dinner</h2>
                             <h3>{this.state.mealPlan.dinner.calories}</h3>
                         </div>
-                        <hr/>
+                        <br/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.dinner}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -338,7 +338,7 @@ class CreateMeal extends Component {
                             <h2>Snacks</h2>
                             <h3>{this.state.mealPlan.snacks.calories}</h3>
                         </div>
-                        <hr/>
+                        <br/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.snacks}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link

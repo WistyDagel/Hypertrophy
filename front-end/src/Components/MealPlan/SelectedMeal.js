@@ -101,7 +101,7 @@ class SelectedMeal extends Component {
                             <h2>Breakfast</h2>
                             <h3>{this.state.mealPlan.breakfast.calories}</h3>
                         </div>
-                        <hr/>
+                        <br/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.breakfast}/>
                     </div>
                     <div className="lunch maxwidth">
@@ -110,7 +110,7 @@ class SelectedMeal extends Component {
                             <h2>Lunch</h2>
                             <h3>{this.state.mealPlan.lunch.calories}</h3>
                         </div>
-                        <hr/>
+                        <br/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.lunch}/>
                     </div>
                     <div className="dinner maxwidth">
@@ -119,7 +119,7 @@ class SelectedMeal extends Component {
                             <h2>Dinner</h2>
                             <h3>{this.state.mealPlan.dinner.calories}</h3>
                         </div>
-                        <hr/>
+                        <br/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.dinner}/>
                     </div>
                     <div className="snacks maxwidth">
@@ -128,7 +128,7 @@ class SelectedMeal extends Component {
                             <h2>Snacks</h2>
                             <h3>{this.state.mealPlan.snacks.calories}</h3>
                         </div>
-                        <hr/>
+                        <br/>
                         <this.renderCurrentMeal currentMeal={this.state.mealPlan.snacks}/>
                     </div>
                     <div onClick={() =>this.updateCurrentMeal()} className="button border-black">

@@ -430,8 +430,8 @@ class FitnessLog extends Component {
                             <h2>Breakfast</h2>
                             <h3 id="bcalories">{this.state.fitnessLog.breakfast.calories}</h3>
                         </div>
+                        <br/>
                         {/* <this.renderMealNutrition category={"Breakfast"}/> */}
-                        <hr/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.breakfast}/>
                         <div style={{marginLeft: "10px"}}  onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -448,7 +448,7 @@ class FitnessLog extends Component {
                             <h2>Lunch</h2>
                             <h3 id="lcalories">{this.state.fitnessLog.lunch.calories}</h3>
                         </div>
-                        <hr/>
+                        <br/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.lunch}/>
                         <div style={{marginLeft: "10px"}}  onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -464,7 +464,8 @@ class FitnessLog extends Component {
                         <div className="row">
                             <h2>Dinner</h2>
                             <h3 id="dcalories">{this.state.fitnessLog.dinner.calories}</h3>
-                        </div>                        <hr/>
+                        </div>                        
+                        <br/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.dinner}/>
                         <div style={{marginLeft: "10px"}}  onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -480,7 +481,8 @@ class FitnessLog extends Component {
                         <div className="row">
                             <h2>Snacks</h2>
                             <h3 id="scalories">{this.state.fitnessLog.snacks.calories}</h3>
-                        </div>                        <hr/>
+                        </div>       
+                        <br/>
                         <this.renderCurrentMeal currentMeal={this.state.fitnessLog.snacks}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -496,7 +498,6 @@ class FitnessLog extends Component {
                         <div className="row">
                             <h2>Exercises</h2>
                         </div>
-                        <hr/>
                         <this.renderCurrentExercises currentExercises={this.state.fitnessLog.exercises}/>
                         <div style={{marginLeft: "10px"}}  onClick={() => this.setStorage()} className="button border-blue">
                             <Link
