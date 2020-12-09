@@ -307,7 +307,7 @@ class CreateWorkout extends Component {
                                 <input onChange={this.updateNameDay1} defaultValue={this.state.workoutData.day1.name}></input>
                             </div>
                         </div> 
-                        <hr/>
+                        <br/>
                         <this.renderDay currentDay={this.state.workoutData.day1}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -315,8 +315,9 @@ class CreateWorkout extends Component {
                                     pathname: "/addexercisewp",
                                     data: "day1"
                                 }}
-                            >Add Exercise</Link>
+                                >Add Exercise</Link>
                         </div>
+                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
                         <h2>Monday</h2>
@@ -328,7 +329,7 @@ class CreateWorkout extends Component {
                                 <input onChange={this.updateNameDay2} defaultValue={this.state.workoutData.day2.name}></input>
                             </div>
                         </div> 
-                        <hr/>
+                        <br/>
                         <this.renderDay currentDay={this.state.workoutData.day2}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -336,8 +337,9 @@ class CreateWorkout extends Component {
                                     pathname: "/addexercisewp",
                                     data: "day2"
                                 }}
-                            >Add Exercise</Link>
+                                >Add Exercise</Link>
                         </div>
+                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
                         <h2>Tuesday</h2>
@@ -348,8 +350,8 @@ class CreateWorkout extends Component {
                             <div className="col">
                                 <input onChange={this.updateNameDay3} defaultValue={this.state.workoutData.day3.name}></input>
                             </div>
-                        </div> 
-                        <hr/>
+                        </div>
+                        <br/>
                         <this.renderDay currentDay={this.state.workoutData.day3}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -357,8 +359,9 @@ class CreateWorkout extends Component {
                                     pathname: "/addexercisewp",
                                     data: "day3"
                                 }}
-                            >Add Exercise</Link>
+                                >Add Exercise</Link>
                         </div>
+                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
                         <h2>Wednesday</h2>
@@ -370,7 +373,7 @@ class CreateWorkout extends Component {
                                 <input onChange={this.updateNameDay4} defaultValue={this.state.workoutData.day4.name}></input>
                             </div>
                         </div> 
-                        <hr/>
+                        <br/>
                         <this.renderDay currentDay={this.state.workoutData.day4}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -378,8 +381,9 @@ class CreateWorkout extends Component {
                                     pathname: "/addexercisewp",
                                     data: "day4"
                                 }}
-                            >Add Exercise</Link>
+                                >Add Exercise</Link>
                         </div>
+                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
                         <h2>Thursday</h2>
@@ -391,7 +395,7 @@ class CreateWorkout extends Component {
                                 <input onChange={this.updateNameDay5} defaultValue={this.state.workoutData.day5.name}></input>
                             </div>
                         </div> 
-                        <hr/>
+                        <br/>
                         <this.renderDay currentDay={this.state.workoutData.day5}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -399,8 +403,9 @@ class CreateWorkout extends Component {
                                     pathname: "/addexercisewp",
                                     data: "day5"
                                 }}
-                            >Add Exercise</Link>
+                                >Add Exercise</Link>
                         </div>
+                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
                         <h2>Friday</h2>
@@ -412,7 +417,7 @@ class CreateWorkout extends Component {
                                 <input onChange={this.updateNameDay6} defaultValue={this.state.workoutData.day6.name}></input>
                             </div>
                         </div> 
-                        <hr/>
+                        <br/>
                         <this.renderDay currentDay={this.state.workoutData.day6}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link
@@ -420,8 +425,9 @@ class CreateWorkout extends Component {
                                     pathname: "/addexercisewp",
                                     data: "day6"
                                 }}
-                            >Add Exercise</Link>
+                                >Add Exercise</Link>
                         </div>
+                        <hr/>
                     </div>
                     <div className="dayBox maxwidth">
                         <h2>Saturday</h2>
@@ -433,7 +439,7 @@ class CreateWorkout extends Component {
                                 <input onChange={this.updateNameDay7} defaultValue={this.state.workoutData.day7.name}></input>
                             </div>
                         </div> 
-                        <hr/>
+                        <br/>
                         <this.renderDay currentDay={this.state.workoutData.day7}/>
                         <div style={{marginLeft: "10px"}} onClick={() => this.setStorage()} className="button border-blue">
                             <Link

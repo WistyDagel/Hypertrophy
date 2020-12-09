@@ -91,7 +91,7 @@ class AddExerciseWP extends Component {
             <div className="flexbox">
                 <Header/>
                 <div className="col addExercise">
-                    <div className="row">
+                    {/* <div className="row">
                         <div className="col">
                             <h4>Description:</h4>
                             <br/>
@@ -110,7 +110,26 @@ class AddExerciseWP extends Component {
                             <br/>
                             <input style={{marginRight: "120px"}} className="smallInput" onChange={this.updateReps}></input>
                         </div>
-                    </div>    
+                    </div>     */}
+                    <div className="row">
+                        <h4>Description:</h4>
+                        <input onChange={this.updateDescription}></input>
+                    </div>
+                    <br/>
+                    <div className="row">
+                        <h4 style={{marginLeft: "25px"}}>Duration: </h4>
+                        <input onChange={this.updateDuration}></input>
+                    </div>
+                    <br/>
+                    <div className="row">
+                        <h4>Sets: </h4>
+                        <input style={{marginRight: "65px"}} className="smallInput" onChange={this.updateSets}></input>
+                    </div>
+                    <br/>
+                    <div className="row">
+                        <h4>Reps: </h4>
+                        <input style={{marginRight: "70px"}} className="smallInput" onChange={this.updateReps}></input>
+                    </div>
                     <br/>
                     <br/>
                     <br/>
